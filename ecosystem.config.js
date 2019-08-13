@@ -11,7 +11,7 @@ module.exports = {
         ref: 'origin/master',
         repo: 'git@github.com:ingredient-hero/MCSP-IngredientsHero.git',
         path: '/home/ubuntu/MCSP-IngredientsHero',
-        'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
+        'post-deploy': 'npm run setup && pm2 startOrRestart ecosystem.config.js'
       }
     }
   }
