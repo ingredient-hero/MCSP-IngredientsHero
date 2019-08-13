@@ -8,7 +8,7 @@ module.exports = {
         user: 'ubuntu',
         host: 'ec2-13-59-22-172.us-east-2.compute.amazonaws.com',
         key: '~/.ssh/IH-BO.pem',
-        ref: 'origin/deploy_file',
+        ref: 'origin/master',
         repo: 'https://github.com/ingredient-hero/MCSP-IngredientsHero',
         path: '/home/ubuntu/MCSP-IngredientsHero',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
