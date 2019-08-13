@@ -15,21 +15,15 @@ export default class Welcome extends React.Component {
         
     }
 
-    handleChange(event) {
-        event.preventDefault();
-
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
+    
 
     render () {
         return(
             <div >
   
-            <button onSubmit={this.handleSubmit}  type="submit">Sign-Up</button>
+            <button  type="submit">Sign-Up</button>
             
-            <button onSubmit={this.handleSubmit}   type="submit">Login</button>
+            <button  type="submit">Login</button>
 
 
                 <Logo/>
