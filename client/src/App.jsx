@@ -12,17 +12,11 @@ export default class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        seaCreatures: []
+     
       };
-      this.api = `http://localhost:8000/api/example`;
+    
     }
-    componentDidMount() {
-      fetch(this.api)
-        .then(res => res.json())
-        .then(seaCreatures => {
-          this.setState({ seaCreatures: seaCreatures.data });
-        });
-    }
+  
   
     render() {
       return (
