@@ -26,6 +26,7 @@ export default class Welcome extends React.Component {
 
     render() {
         return ( 
+            
             <form onSubmit={this.handleSubmit}>
   
             <button type="submit">Sign-Up</button>
@@ -34,3 +35,4 @@ export default class Welcome extends React.Component {
             </form>
              )}
 }
+
