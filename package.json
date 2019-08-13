@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/selder18/blue-ocean-rewrite#readme",
   "dependencies": {
+    "bootbox": "^5.3.1",
     "dotenv": "^8.0.0"
   },
   "devDependencies": {
