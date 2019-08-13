@@ -2,9 +2,12 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
+
 // import './App.css';
-import Login from './web_pages/welcome_components/login.jsx';
   
+
+
+import './App.css';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -30,8 +33,10 @@ export default class App extends React.Component {
     render() {
       return (
         <>
-          <h1>Welcome to Ingredient Hero!</h1>
-         
+
+
+          <Welcome/>
+
         </>
       );
     }
