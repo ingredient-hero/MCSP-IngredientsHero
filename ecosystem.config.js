@@ -10,7 +10,7 @@ module.exports = {
         key: '~/.ssh/IH-BO.pem',
         ref: 'origin/master',
         repo: 'https://github.com/ingredient-hero/MCSP-IngredientsHero',
-        path: '/home/ubuntu/server',
+        path: '/home/ubuntu/MCSP-IngredientsHero',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
       }
     }
