@@ -20,11 +20,9 @@ export default class Welcome extends React.Component {
     render () {
         return(
             <div >
-  
+   
             <button  type="submit">Sign-Up</button>
-            
             <button  type="submit">Login</button>
-
 
                 <Logo/>
                 <h1 style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
