@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-      name: 'IH',
+      name: 'MCSP-IngredientsHero',
       script: './server/index.js'
     }],
     deploy: {
