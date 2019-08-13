@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
             Login: '',
 
         }
-        this.handleChange = this.handleChange.bind(this);
+    
        
         
     }
