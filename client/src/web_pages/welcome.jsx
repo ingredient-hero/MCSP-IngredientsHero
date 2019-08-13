@@ -10,8 +10,6 @@ export default class Welcome extends React.Component {
             Login: '',
 
         }
-    
-       
         
     }
 
@@ -21,7 +19,7 @@ export default class Welcome extends React.Component {
         return(
             <div >
   
-            <button  type="submit">Sign-Up</button>
+            <button  style={{marginLeft: "1300px"}}  type="submit">Sign-Up</button>
             
             <button  type="submit">Login</button>
 
