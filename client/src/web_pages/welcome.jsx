@@ -27,9 +27,9 @@ export default class Welcome extends React.Component {
         return(
             <div >
   
-            <button onSubmit={this.handleSubmit} style={{}} type="submit">Sign-Up</button>
+            <button onSubmit={this.handleSubmit}  type="submit">Sign-Up</button>
             
-            <button onSubmit={this.handleSubmit} style={{}} type="submit">Login</button>
+            <button onSubmit={this.handleSubmit}   type="submit">Login</button>
 
 
                 <Logo/>
