@@ -1,6 +1,9 @@
 import React from 'react'
 import {render, fireEvent, cleanup, waitForElement} from 'react-testing-library'
-
+import { shallow } from 'enzyme';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
 // this adds custom jest matchers from jest-dom
 import 'jest-dom/extend-expect';
 import App from '../App';
@@ -12,32 +15,24 @@ jest.mock('react-dom');
 afterEach(cleanup);
 
 
-it('CheckboxWithLabel changes the text after click', async () => {
-    const { getByText } = render(<App/>,);
+// it('CheckboxWithLabel changes the text after click', async () => {
+//     const { getByText } = render(<App/>,);
 
-    const dolphin = await waitForElement(() => getByText(/dolphin/i),)
+//     const dolphin = await waitForElement(() => getByText(/dolphin/i),)
 
-    expect(dolphin).toBeTruthy();
-});
+//     expect(dolphin).toBeTruthy();
+// });
 
 
 
 //test written for sign up button, not actual sign up modal
-    it('should handle the click event', () => {
-        window.alert = jest.fn();
-        const output = shallow(
-          <Welcome title='mockTitle' url='mockUrl' />
-        );
-        output.simulate('click');
-        expect(window.alert).toHaveBeenCalledWith('did you create a Modal for signing up?');
-       });
 
+    it("Expects to find button HTML element with className test in the DOM", () => {
+        const wrapper = shallow(<Welcome className="Sign-Up" text="test"/>)
+        expect(wrapper.find('button.Sign-Up')).toHaveLength(1);
+    });
        //test written for login button, not actual login modal
-    it('should handle the click event', () => {
-        window.alert = jest.fn();
-        const output = shallow(
-        <Welcome title='mockTitle' url='mockUrl' />
-        );
-        output.simulate('click');
-        expect(window.alert).toHaveBeenCalledWith('did you create a Modal for logging in?');
+       it("Expects to find button HTML element with className test in the DOM", () => {
+        const wrapper = shallow(<Welcome className="Login" text="test"/>)
+        expect(wrapper.find('button.Login')).toHaveLength(1);
     });

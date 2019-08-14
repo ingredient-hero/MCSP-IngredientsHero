@@ -32,9 +32,9 @@ export default class Welcome extends React.Component {
         return(
             <div >
   
-            <button style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
+            <button className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
             
-            <button onClick={this.onClickLogin} type="submit">Login</button>
+            <button className='Login' onClick={this.onClickLogin} type="submit">Login</button>
 
 
                 <Logo/>
