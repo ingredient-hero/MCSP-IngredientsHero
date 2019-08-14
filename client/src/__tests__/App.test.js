@@ -31,3 +31,5 @@ describe('Loading HomePage', () => {
         const wrapper = shallow(<Welcome className="Login" text="test"/>)
         expect(wrapper.find('button.Login')).toHaveLength(1);
     });
+
+    
