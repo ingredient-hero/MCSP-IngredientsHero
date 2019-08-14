@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
+import LoginModal from './web_pages/welcome_components/login.jsx'
 
 // import './App.css';
   
@@ -36,7 +37,7 @@ export default class App extends React.Component {
 
 
           <Welcome/>
-
+          
         </>
       );
     }

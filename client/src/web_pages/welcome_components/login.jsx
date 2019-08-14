@@ -1,26 +1,20 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 //import Form from 'bootstrap/Form'
+import bootbox from 'bootbox';
+import bootstrap from 'bootstrap'
 
 
 
-const Login = (props) => {
-return(
-    <Form>
-        <Form.Group controlId="formBasicUserName">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Enter Username"/>
-        </Form.Group>
-        
-        <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password"/>
-        </Form.Group>
-        <Button variant="primary" type="Login">
-        Login
-        </Button>
-    </Form>
-)
-}
+const LoginModal = bootbox.confirm("<form id='infos' action=''>\
+Username:<input type='text' name='user_name' /><br/>\
+Password:<input type='text' password='password' />\
+buttons:<confirm: submit:'submit', className:'btn-success' />\
+</form>",
+ function(result) {
+    if(result)
+        $('#infos').submit();
+});
+//LoginModal.modal('hide')
 
-export default Login
+export default LoginModal
