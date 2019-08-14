@@ -23,6 +23,12 @@ afterEach(cleanup);
 //     expect(dolphin).toBeTruthy();
 // });
 
+describe('Loading HomePage', () => {
+    it('renders without crashing', () => {
+       shallow(<Welcome />);
+     });
+ });
+
 
 
 //test written for sign up button, not actual sign up modal
@@ -36,3 +42,6 @@ afterEach(cleanup);
         const wrapper = shallow(<Welcome className="Login" text="test"/>)
         expect(wrapper.find('button.Login')).toHaveLength(1);
     });
+
+
+    
