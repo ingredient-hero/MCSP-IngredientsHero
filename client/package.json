@@ -17,6 +17,8 @@
     "bootbox": "^5.3.1",
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "express": "^4.16.4",
     "node-fetch": "^2.5.0",
     "path": "^0.12.7",

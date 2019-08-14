@@ -2,13 +2,7 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
-import LoginModal from './web_pages/welcome_components/login.jsx'
-
-// import './App.css';
-  
-
-
-import './App.css';
+//import './App.css';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -19,17 +13,11 @@ export default class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        seaCreatures: []
+     
       };
-      this.api = `http://localhost:8000/api/example`;
+    
     }
-    componentDidMount() {
-      fetch(this.api)
-        .then(res => res.json())
-        .then(seaCreatures => {
-          this.setState({ seaCreatures: seaCreatures.data });
-        });
-    }
+  
   
     render() {
       return (
