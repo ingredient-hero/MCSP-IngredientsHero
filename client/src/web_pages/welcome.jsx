@@ -10,18 +10,31 @@ export default class Welcome extends React.Component {
             Login: '',
 
         }
-        
-    }
 
     
+    
+        this.onClickSignUp = this.onClickSignUp.bind();
+        this.onClickLogin = this.onClickLogin.bind();
+
+    }
+
+    onClickSignUp(){
+        console.log('clicked sign up button')
+        alert('did you create a Modal for signing up?')
+    }
+    onClickLogin(){
+        console.log('clicked login in button')
+        alert('did you create a Modal for logging in?')
+    }
+
 
     render () {
         return(
             <div >
   
-            <button  style={{marginLeft: "1300px"}}  type="submit">Sign-Up</button>
+            <button className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
             
-            <button  type="submit">Login</button>
+            <button className='Login' onClick={this.onClickLogin} type="submit">Login</button>
 
 
                 <Logo/>
