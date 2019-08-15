@@ -17,15 +17,13 @@ export default class App extends React.Component {
       this.state = {
         SignUp: '',
         Login: '',
-        hasClickedLogin: false,
-        hasClickedSignUp: false
       };
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
     }
 
 
-    onClickSignUp(){
+    onClickSignUp(e){
       bootbox.confirm("<form id='infos' action=''>\
       Name:<input type='text' name='user_name' /><br/>\
       Username:<input type='text' name='user_name' /><br/>\
@@ -33,11 +31,8 @@ export default class App extends React.Component {
       Email:<input type='text' name='user_name' />\
       </form>", function(result) {if(result)$('#infos').submit();
     })
-    // e.preventDefault();
- 
-    this.setState({
-        hasClickedSignUp: true,
-    })
+    e.target.disabled = true;
+    
   }
 
 
@@ -50,7 +45,7 @@ export default class App extends React.Component {
     render() {
       return (
         <>
-          <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} hasClickedLogin={this.state.hasClickedLogin} hasClickedSignUp={this.state.hasClickedSignUp} SignUp={this.state.SignUp} Login={this.state.Login} />
+          <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} />
         </>
       );
     }

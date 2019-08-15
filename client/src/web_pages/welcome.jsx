@@ -12,7 +12,8 @@ const Welcome = (props) =>{
             <div>
             {/* <b>{(this.hasClickedSignUp ? 'true' : <SignUp onClick={this.onClickSignUp}/>)} </b> */}
             {/* <button data-toggle='modal' data-target='SignUp' className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button> */}
-            <button type="button" onClick={props.onClickSignUp}>
+           
+            <button disabled={false} type="button" onClick={props.onClickSignUp}>
             Sign-Up
             </button>
             <button data-toggle='modal' data-target='Login'  className='Login' onClick={props.onClickLogin} type="submit">Login</button>
