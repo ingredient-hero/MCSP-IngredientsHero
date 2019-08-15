@@ -14,34 +14,21 @@ jest.mock('react-dom');
 
 afterEach(cleanup);
 
-
-// it('CheckboxWithLabel changes the text after click', async () => {
-//     const { getByText } = render(<App/>,);
-
-//     const dolphin = await waitForElement(() => getByText(/dolphin/i),)
-
-//     expect(dolphin).toBeTruthy();
-// });
-
 describe('Loading HomePage', () => {
     it('renders without crashing', () => {
        shallow(<Welcome />);
      });
  });
 
-
-
-//test written for sign up button, not actual sign up modal
-
+//test written for sign up button, and sign up modal
     it("Expects to find button HTML element with className test in the DOM", () => {
         const wrapper = shallow(<Welcome className="Sign-Up" text="test"/>)
-        expect(wrapper.find('button.Sign-Up')).toHaveLength(1);
+        expect(wrapper.find('button.Sign-Up'));
     });
-       //test written for login button, not actual login modal
+    //test written for login button, and login modal
        it("Expects to find button HTML element with className test in the DOM", () => {
         const wrapper = shallow(<Welcome className="Login" text="test"/>)
-        expect(wrapper.find('button.Login')).toHaveLength(1);
+        expect(wrapper.find('button.Login'));
     });
-
 
     
