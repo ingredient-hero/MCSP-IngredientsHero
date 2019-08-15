@@ -1,20 +1,46 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-//import Form from 'bootstrap/Form'
-import bootbox from 'bootbox';
-import bootstrap from 'bootstrap'
+ import React from 'react';
+ import ReactDom from 'react-dom';
+// import Form from 'bootstrap/Form';
+// import bootbox from 'bootbox';
+// import bootstrap from 'bootstrap'
 
+// import React, { Component } from 'react';
+import Modal from './modal.jsx';
 
+class LoginModal extends React.Component {
+  constructor(props) {
+    super(props);
 
-const LoginModal = bootbox.confirm("<form id='infos' action=''>\
-Username:<input type='text' name='user_name' /><br/>\
-Password:<input type='text' password='password' />\
-buttons:<confirm: submit:'submit', className:'btn-success' />\
-</form>",
- function(result) {
-    if(result)
-        $('#infos').submit();
-});
-//LoginModal.modal('hide')
+    this.state = { isOpen: false };
+    this.toggleModal=this.toggleModal.bind(this)
+  }
 
-export default LoginModal
+  toggleModal () {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  render() {
+    return (
+      <div className="Welcome">
+        <button onClick={this.toggleModal} style={{marginLeft: "1300px"}}>
+          Login
+        </button>
+
+        <Modal show={this.state.isOpen}
+          onClose={this.toggleModal}>
+          Login Page
+          <form> 
+             Username <input/><br></br>
+             Password <input/>
+             <button> Submit</button>
+          </form>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+export default LoginModal;
+

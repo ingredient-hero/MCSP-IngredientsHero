@@ -1,6 +1,9 @@
 import React from 'react';
 import Logo from './logo.jsx';
-
+import LoginModal from './welcome_components/login.jsx';
+import bootbox from 'bootbox';
+import bootstrap from 'bootstrap';
+import $ from 'jquery';
 
 export default class Welcome extends React.Component {
     constructor (props) {
@@ -8,13 +11,14 @@ export default class Welcome extends React.Component {
         this.state = {
             SignUp: '',
             Login: '',
+            isOpen: false,
 
         }
 
     
     
         this.onClickSignUp = this.onClickSignUp.bind();
-        this.onClickLogin = this.onClickLogin.bind();
+        this.onClickLogin = this.onClickLogin.bind(this);
 
     }
 
@@ -23,20 +27,29 @@ export default class Welcome extends React.Component {
         alert('did you create a Modal for signing up?')
     }
     onClickLogin(){
-        console.log('clicked login in button')
-        alert('did you create a Modal for logging in?')
+        this.setState({
+            isOpen: !this.state.isOpen
+          });
+       return bootbox.confirm("<form id='infos' action=''>\
+                         Username:<input type='text' name='user_name' /><br/>\
+                         Password:<input type='text' password='password' />\
+                         buttons:<confirm: submit:'submit', className:'btn-success' />\
+                         </form>",function(result) {
+                        if(result)
+                         $('#infos').submit();
+});
     }
 
 
     render () {
         return(
             <div >
-  
             <button className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
             
             <button className='Login' onClick={this.onClickLogin} type="submit">Login</button>
 
-
+            {/* <LoginModal onClick={onClickLogin}></LoginModal> */}
+<LoginModal/>
                 <Logo/>
                 <h1 style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
                 <p style={{position: 'absolute', right: '22%', left: '26%', top: '55%'}}> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
