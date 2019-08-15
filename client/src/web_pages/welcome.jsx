@@ -1,47 +1,21 @@
 import React from 'react';
+import $ from 'jquery'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
 import Logo from './logo.jsx';
 import SignUp from './Welcome_Components/signUp.jsx'
 
 
-export default class Welcome extends React.Component {
-    constructor (props) {
-        super (props);
-        this.state = {
-            SignUp: '',
-            Login: '',
-            hasClickedLogin: false,
-            hasClickedSignUp: false
-        }
-        this.onClickSignUp = this.onClickSignUp.bind();
-        this.onClickLogin = this.onClickLogin.bind();
-    }
+const Welcome = (props) =>{
 
-    onClickSignUp(){
-        console.log('clicked sign up button');
-        this.setState({
-            hasClickedSignUp: true
-        })
-    }
-
-    onClickLogin(){
-        console.log('clicked login in button')
-       };
-
-
-    render () {
         return(
             <div>
-
-            {(this.hasClickedSignUp === true){
-                return(
-                    <SignUp onClick={this.onClickSignUp}/>
-                    )
-            }}
+            {/* <b>{(this.hasClickedSignUp ? 'true' : <SignUp onClick={this.onClickSignUp}/>)} </b> */}
             {/* <button data-toggle='modal' data-target='SignUp' className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button> */}
-
-            <button data-toggle='modal' data-target='Login'  className='Login' onClick={this.onClickLogin} type="submit">Login</button>
+            <button type="button" onClick={props.onClickSignUp}>
+            Sign-Up
+            </button>
+            <button data-toggle='modal' data-target='Login'  className='Login' onClick={props.onClickLogin} type="submit">Login</button>
 
                 <Logo/>
                 <h1 style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
@@ -50,6 +24,6 @@ export default class Welcome extends React.Component {
                 <p style={{position: 'absolute', right: '22%', left: '26%', top: '80%'}}> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
             </div>
         );
-    }
 }
 
+export default Welcome;
