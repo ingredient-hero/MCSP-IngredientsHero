@@ -1,5 +1,9 @@
 import React from 'react';
 import Logo from './logo.jsx';
+import $ from "jquery";
+import popper from 'popper.js';
+import bootstrap from 'bootstrap';
+import bootbox from 'bootbox';
 
 
 // You may need to import more libraries or files, depending on what's required.
@@ -10,20 +14,35 @@ export default class Pantry extends React.Component {
         super (props);
         this.state = {
             userPantry: {}, //this will be an object that contains the users pantry information
+            addItemsClicks: 0
+        }
+        this.onAddToPantry = this.onAddToPantry.bind(this);
+    }
+
+
+    onAddToPantry () {
+        if (this.state.addItemsClicks === 0) {
+            this.state.addItemsClicks++;
+            bootbox.confirm("<form id='infos' action=''>\
+                    Item Name:<input type='text' name='first_name' /><br/>\
+                    Expiration Date:<input type='text' name='last_name' />\
+                    </form>", function(result) {
+                        if(result)
+                            console.log(result);
+                    });
 
         }
     }
 
-
     // This function is to grab the information from the database that 
     // the single user will need for their pantry page. 
     componentDidMount () {
-        axios.get('/mypantry')
-            .then ( response => {
-                this.setState({
-                    userPantry: response.data
-                })
-            })
+        // axios.get('/mypantry')
+        //     .then ( response => {
+        //         this.setState({
+        //             userPantry: response.data
+        //         })
+        //     })
     }
 
 
@@ -33,11 +52,11 @@ export default class Pantry extends React.Component {
             <title>Pantry</title> 
             <Logo />
             {/* In css, the head will need to be changed so people know it can be clicked. Add at least a hover element. */}
-            <head id={pantryAdd} onClick={}>Add to pantry</head>
+            <head id="pantryAdd" onClick={this.onAddToPantry}>Add to pantry</head>
             {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
             {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
             to get the items to render within here. */}
-        </div>
-        
+        </div> 
     }
 }
+
