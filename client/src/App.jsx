@@ -32,7 +32,8 @@ export default class App extends React.Component {
       Email:<input type='text' name='user_name' />\
       </form>", function(result) {if(result)$('#infos').submit();
     })
-    e.target.disabled = true;
+    console.log(e)
+     e.target.disabled = true;
     
   }
 
