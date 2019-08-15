@@ -37,8 +37,13 @@ export default class App extends React.Component {
   }
 
 
-  onClickLogin(){
-    console.log('clicked login in button')
+  onClickLogin(event){
+    bootbox.confirm("<form id='infos' action=''>\
+    Username:<input type='text' name='user_name' /><br/>\
+    Password:<input type='text' password='password' />\
+    </form>",function(result) {if(result)$('#infos').submit();
+  })
+  event.target.disabled = true;
    };
 
   
