@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './logo';
+import Logo from './logo.jsx';
 
 
 // You may need to import more libraries or files, depending on what's required.
