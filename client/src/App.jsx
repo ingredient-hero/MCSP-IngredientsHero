@@ -5,7 +5,7 @@ import axios from 'axios';
 import $ from 'jquery'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
-//import './App.css';
+// import './App.css';
 
 // This is an example that will need to be rebuilt and/or refactored.
 // This page is pulling in both the pantry and the welcome class components to conditionally render on the page.
@@ -25,12 +25,14 @@ export default class App extends React.Component {
 
     onClickSignUp(e){
       bootbox.confirm("<form id='infos' action=''>\
+      Sign-Up <br/>\
       Name:<input type='text' name='user_name' /><br/>\
       Username:<input type='text' name='user_name' /><br/>\
       Password:<input type='text' name='user_name' /><br/>\
       Email:<input type='text' name='user_name' />\
-      </form>", function(result) {if(result)$('#infos').submit();
+      </form> ", function(result) {if(result)$('#infos').submit();
     })
+  
     e.target.disabled = true;
     
   }
