@@ -20,7 +20,7 @@ export default class Welcome extends React.Component {
 
     onClickSignUp(){
         console.log('clicked sign up button')
-        alert('did you create a Modal for signing up?')
+        alert('did you create a Modal for signing')
     }
     onClickLogin(){
         console.log('clicked login in button')
@@ -32,9 +32,9 @@ export default class Welcome extends React.Component {
         return(
             <div >
   
-            <button className='Sign-Up' style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
+            <button style={{marginLeft: "1300px"}} onClick={this.onClickSignUp} type="submit">Sign-Up</button>
             
-            <button className='Login' onClick={this.onClickLogin} type="submit">Login</button>
+            <button onClick={this.onClickLogin} type="submit">Login</button>
 
 
                 <Logo/>
