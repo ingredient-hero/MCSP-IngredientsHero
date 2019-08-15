@@ -33,7 +33,7 @@ export default class Pantry extends React.Component {
             <title>Pantry</title> 
             <Logo />
             {/* In css, the head will need to be changed so people know it can be clicked. Add at least a hover element. */}
-            <head id={pantryAdd} onClick={}>Add to pantry</head>
+            <head id={pantryAdd} onClick={''}>Add to pantry</head>
             {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
             {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
             to get the items to render within here. */}

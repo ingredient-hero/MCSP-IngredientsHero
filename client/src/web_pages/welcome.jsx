@@ -13,7 +13,7 @@ export default class Welcome extends React.Component {
 
     
     
-        this.onClickSignUp = this.onClickSignUp.bind();
+        this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind();
 
     }
