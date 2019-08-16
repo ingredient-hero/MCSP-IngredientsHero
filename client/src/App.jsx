@@ -45,7 +45,8 @@ export default class App extends React.Component {
     render() {
       return (
         <>
-          <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} />
+          {/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
+          <Pantry />
         </>
       );
     }
