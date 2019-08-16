@@ -53,6 +53,18 @@ export default class Pantry extends React.Component {
 
 
     render () {
+<<<<<<< HEAD
+        <div>
+            {/* later, the title can include the users name once the database is set up */}
+            <title>Pantry</title> 
+            <Logo />
+            {/* In css, the head will need to be changed so people know it can be clicked. Add at least a hover element. */}
+            <head id="pantryAdd" onClick={this.onAddToPantry}>Add to pantry</head>
+            {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
+            {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
+            to get the items to render within here. */}
+        </div> 
+=======
         return (
             <div>
                 {/* later, the title can include the users name once the database is set up */}
@@ -66,6 +78,7 @@ export default class Pantry extends React.Component {
             </div> 
 
         )
+>>>>>>> df31144ac1affb001d0c22e477f87217b3a8aeca
     }
 }
 
