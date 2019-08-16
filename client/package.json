@@ -12,8 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.4.4",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "axios": "^0.18.1",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "bootbox": "^5.3.1",
     "cors": "^2.8.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -22,10 +26,6 @@
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
-    "bootstrap": "^4.3.1",
-    "bootbox": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
