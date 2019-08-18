@@ -23,7 +23,6 @@ export default class App extends React.Component {
         Login: '',
         item_name: '',
         expiration: '',
-        addItemsClicks: 0, 
       };
         this.onChangeSighUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
@@ -56,29 +55,21 @@ export default class App extends React.Component {
 
 
   onAddToPantry () {
-    if (this.state.addItemsClicks === 0) {
-        this.setState({
-            addItemsClicks: 1
-        })
-        bootbox.confirm("<form id='infos' action=''>\
-                Item Name:<input type='text' onChange='this.onChangeAddItem' class='item_name' name='item_name' /><br/>\
-                Expiration Date:<input type='text' onChange='this.onChangeAddItem' class='expiration' name='expiration' />\
-                </form>", function(result) {if(result)$('#infos').submit(function (event) {
-                });
-            });
-    }
-    if (this.state.addItemsClicks > 0) {
-        this.setState({
-            addItemsClicks: 0
-        })
-    }
-}
+    const addItem = {
+      item: this.state.item_name,
+      exp: this.state.expiration
+    };
+    axios.post('/addingtopantry', addItem)
+      .then( response => {
+        console.log(response.data);
+      })
+  }
 
-onChangeAddItem (event) {
+  onChangeAddItem (event) {
     this.setState ({
         [event.target.name]: event.target.value
     })
-}
+  }
 
   onClickLogin(){
     console.log('clicked login in button')
@@ -88,12 +79,11 @@ onChangeAddItem (event) {
   
     render() {
       return (
-        <>
+        <div>
 
-          <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
-          {/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
+          {/* <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
           <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} onChangeAddItem={this.onChangeAddItem}/>
-        </>
+        </div>
       );
     }
   }

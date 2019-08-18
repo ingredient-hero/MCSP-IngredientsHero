@@ -12,14 +12,14 @@ export default class Pantry extends React.Component {
             userPantry: {}, //this will be an object that contains the users pantry information 
             addButtonClicked: false,
         }
-        this.renderItemsForm = this.renderItemsForm.bind(this);
+        // this.renderItemsForm = this.renderItemsForm.bind(this);
     }
 
-    renderItemsForm (e) {
-        return (
-            <ItemsForm onChangeAddItem={this.props.onChangeAddItem}/>
-        )
-    }
+    // renderItemsForm (e) {
+    //     return (
+    //         <ItemsForm onChangeAddItem={this.props.onChangeAddItem}/>
+    //     )
+    // }
 
 
     // This function is to grab the information from the database that 
@@ -46,11 +46,11 @@ export default class Pantry extends React.Component {
                 <title>Pantry</title> 
                 <Logo />
                 {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
-                <button id="pantryAdd" onClick={this.renderItemsForm}>Add to pantry</button>
+                <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
                 {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
                 {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                 to get the items to render within here. */}
-                
+                <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/>
                 
             </div> 
 
