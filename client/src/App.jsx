@@ -24,7 +24,7 @@ export default class App extends React.Component {
         item_name: '',
         expiration: '',
       };
-        this.onChangeSighUp = this.onChangeSignUp.bind(this);
+        this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
