@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from './web_pages/welcome.jsx';
+import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 //import axios from 'axios';
 import $ from 'jquery'

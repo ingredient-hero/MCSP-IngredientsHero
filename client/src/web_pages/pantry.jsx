@@ -15,6 +15,8 @@ export default class Pantry extends React.Component {
         this.state = {
             userPantry: {}, //this will be an object that contains the users pantry information 
         }
+
+        
     }
 
 
@@ -22,14 +24,14 @@ export default class Pantry extends React.Component {
 
     // This function is to grab the information from the database that 
     // the single user will need for their pantry page. 
-    componentDidMount () {
-        // axios.get('/mypantry')
-        //     .then ( response => {
-        //         this.setState({
-        //             userPantry: response.data
-        //         })
-        //     })
-    }
+    // componentDidMount () {
+    //     // axios.get('/mypantry')
+    //     //     .then ( response => {
+    //     //         this.setState({
+    //     //             userPantry: response.data
+    //     //         })
+    //     //     })
+    // }
 
 
     render () {
