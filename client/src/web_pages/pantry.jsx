@@ -59,8 +59,16 @@ export default class Pantry extends React.Component {
     render () {
         if (this.state.addToButtonClicked === true) {
             return (
-                <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
-                addButtonClicked={this.addButtonClicked}/>
+                <div> 
+                    <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
+                    addButtonClicked={this.addButtonClicked}/>
+                    {/* Once everything is completed below with pantry, recipes, etc, it can be pasted here
+                    to build the modal appearance as a quick work around for the conditional rendering.
+                    Or, a better work around, if it works will be to place the ItemsForm below, no
+                    conditional rendering, but make the css completely transparent until the button is clicked, 
+                    and then the css switches. This can be done seperately with condionals that change the 
+                    class name on the click. */}
+                </div>
             )
         } else {
             return (
