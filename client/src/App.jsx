@@ -25,14 +25,14 @@ export default class App extends React.Component {
         expiration: '',
         addItemsClicks: 0, 
       };
-        this.onChangeSighUp = this.onChangeSignUp.bind(this);
+        // this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.onClickLogin = this.onClickLogin.bind(this);
-        this.onAddToPantry = this.onAddToPantry.bind(this);
-        this.onChangeAddItem = this.onChangeAddItem.bind(this);
+        // this.onClickLogin = this.onClickLogin.bind(this);
+        // this.onAddToPantry = this.onAddToPantry.bind(this);
+        // this.onChangeAddItem = this.onChangeAddItem.bind(this);
     }
 
-    signIn(username, password) {
+    signIn(userame, password) {
       // This is where you would call Firebase, an API etc...
       // calling setState will re-render the entire app (efficiently!)
       this.setState({
