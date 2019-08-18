@@ -59,7 +59,7 @@ export default class App extends React.Component {
   
     //e.target.disabled = true;
     
-  }
+  
 
   // onChangeSignUp(e){
   //   this.setState({
