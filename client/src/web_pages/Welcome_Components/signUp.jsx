@@ -3,18 +3,18 @@ import ReactDom from'react-dom'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
 
-const SignUp = (props) => {
 
-    return(
+
+
+const Welcome = ({user, onSignOut})=> {
+    // This is a dumb "stateless" component
+    return (
         <div>
-        
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#SignUp">
-            Sign-Up
-            </button>
-
-           
+        Welcome <strong>{user.username}</strong>!
+        <a href="javascript:;" onClick={onSignOut}>Sign out</a>
         </div>
-    )
-}
-
-export default SignUp;
+        )
+    }
+    
+    
+    export default Welcome;
