@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from './logo.jsx';
-import ItemsForm from './Pantry_Components/itemsForm.jsx'
+import ItemsForm from './Pantry_Components/itemsForm.jsx';
+import axios from 'axios';
 
 // You may need to import more libraries or files, depending on what's required.
 
@@ -11,9 +12,12 @@ export default class Pantry extends React.Component {
         this.state = {
             userPantry: {}, //this will be an object that contains the users pantry information 
             addToButtonClicked: false,
+            item_name: this.props.item_name,
+            expiration: this.props.expiration,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
         this.addButtonClicked = this.addButtonClicked.bind(this);
+        this.onAddToPantry = this.onAddToPantry.bind(this);
     }
 
     renderItemsForm (e) {
@@ -27,6 +31,17 @@ export default class Pantry extends React.Component {
             addToButtonClicked: false,
         })
     }
+
+    onAddToPantry () {
+        const addItem = {
+          item: this.state.item_name,
+          exp: this.state.expiration
+        };
+        axios.post('/addingtopantry', addItem)
+          .then( response => {
+            console.log(response.data);
+          })
+      }
 
 
     // This function is to grab the information from the database that 
@@ -44,7 +59,7 @@ export default class Pantry extends React.Component {
     render () {
         if (this.state.addToButtonClicked === true) {
             return (
-                <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry} 
+                <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked}/>
             )
         } else {
