@@ -15,18 +15,21 @@ export default class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        // name: '',
-        // userName: '',
-        // password: '',
-        // email: '',
-        // SignUp: '',
-        // Login: '',
-
-        user: null
+        name: '',
+        userName: '',
+        password: '',
+        email: '',
+        SignUp: '',
+        Login: '',
+        item_name: '',
+        expiration: '',
+        addItemsClicks: 0, 
       };
-        // this.onChangeSignUp = this.onChangeSignUp.bind(this);
-        // this.onClickSignUp = this.onClickSignUp.bind(this);
-        // this.onClickLogin = this.onClickLogin.bind(this);
+        this.onChangeSighUp = this.onChangeSignUp.bind(this);
+        this.onClickSignUp = this.onClickSignUp.bind(this);
+        this.onClickLogin = this.onClickLogin.bind(this);
+        this.onAddToPantry = this.onAddToPantry.bind(this);
+        this.onChangeAddItem = this.onChangeAddItem.bind(this);
     }
 
     signIn(username, password) {
@@ -65,9 +68,35 @@ export default class App extends React.Component {
 
   // }
 
-  // onClickLogin(){
-  //   console.log('clicked login in button')
-  //  };
+
+  onAddToPantry () {
+    if (this.state.addItemsClicks === 0) {
+        this.setState({
+            addItemsClicks: 1
+        })
+        bootbox.confirm("<form id='infos' action=''>\
+                Item Name:<input type='text' onChange='this.onChangeAddItem' class='item_name' name='item_name' /><br/>\
+                Expiration Date:<input type='text' onChange='this.onChangeAddItem' class='expiration' name='expiration' />\
+                </form>", function(result) {if(result)$('#infos').submit(function (event) {
+                });
+            });
+    }
+    if (this.state.addItemsClicks > 0) {
+        this.setState({
+            addItemsClicks: 0
+        })
+    }
+}
+
+onChangeAddItem (event) {
+    this.setState ({
+        [event.target.name]: event.target.value
+    })
+}
+
+  onClickLogin(){
+    console.log('clicked login in button')
+   };
 
   
   
@@ -75,24 +104,10 @@ export default class App extends React.Component {
     return (
       <>
 
-      { 
-        (this.state.user) ? 
-          <Welcome 
-           user={this.state.user} 
-           onSignOut={this.signOut.bind(this)} 
-          />
-        :
-          <LoginForm 
-           onSignIn={this.signIn.bind(this)} 
-          />
-      }
-         
-        //{/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
-        <Pantry />
-      </>
-    )
-  }
-  
-  
-
-          
+          <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
+          {/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
+          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name}/>
+        </>
+      )
+    }
+  };
