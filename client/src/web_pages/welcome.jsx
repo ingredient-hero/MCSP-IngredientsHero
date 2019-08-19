@@ -4,7 +4,7 @@ import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
 import Logo from './logo.jsx';
 import SignUp from './Welcome_Components/signUp.jsx'
-
+import LoginModal from './welcome_components/login.jsx'
 
 const Welcome = (props) =>{
 
@@ -16,8 +16,9 @@ const Welcome = (props) =>{
             <button disabled={false} type="button" onClick={props.onClickSignUp}>
             Sign-Up
             </button>
-            <button data-toggle='modal' data-target='Login'  className='Login' onClick={props.onClickLogin} type="submit">Login</button>
-
+            {/* <button data-toggle='modal' data-target='Login'  className='Login' onClick={props.onClickLogin} type="submit">Login</button>
+                  */}
+                
                 <Logo/>
                 <h1 style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
                 <p style={{position: 'absolute', right: '22%', left: '26%', top: '55%'}}> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>

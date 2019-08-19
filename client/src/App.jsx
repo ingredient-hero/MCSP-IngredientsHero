@@ -5,6 +5,7 @@ import axios from 'axios';
 import $ from 'jquery'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
+import LoginModal from './web_pages/welcome_components/login.jsx'
 //import './App.css';
 
 
@@ -18,6 +19,7 @@ export default class App extends React.Component {
       this.state = {
         SignUp: '',
         Login: '',
+        
       };
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
@@ -52,8 +54,12 @@ export default class App extends React.Component {
     render() {
       return (
         <>
+           <LoginModal/>
           <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} />
+          <Pantry />
         </>
       );
     }
   }
+
+  
