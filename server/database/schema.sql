@@ -12,15 +12,15 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Foods (
-    ID INT NOT NULL AUTO_INCREMENT,
-    Item varchar (50) NOT NULL,
-    PRIMARY KEY (ID)
+  ID INT NOT NULL AUTO_INCREMENT,
+  Item varchar (50) NOT NULL,
+  PRIMARY KEY (ID)
 );
 
 CREATE TABLE EXP (
-    ID INT NOT NULL AUTO_INCREMENT,
-    Expiration_Date DATE NOT NULL
-)
+  ID INT NOT NULL AUTO_INCREMENT,
+  Expiration_Date DATE NOT NULL
+);
 
 SELECT Users.ID, Foods.Item FROM Users JOIN Foods ON Users.ID = Foods.Item;
 SELECT Foods.Item, EXP.Expiration_Date FROM Foods JOIN EXP ON Foods.Item = EXP.Expiration_Date;
