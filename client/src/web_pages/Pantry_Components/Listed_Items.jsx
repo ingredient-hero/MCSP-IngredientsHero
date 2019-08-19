@@ -6,21 +6,21 @@ class ListedItems extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-          item = ''
+          item: []
       };
   };
 
-  componentDidMount(){
-      let foods = [];
-      Axios.get('/Foods')
-        .then((response) => {
-          response.data.map(function(element, index){
-              let items = [];
-              items.push(element.Item);
-              foods.push(items);
-          })
-        })
-  };
+  // componentDidMount(){
+  //     let foods = [];
+  //     Axios.get('/Foods')
+  //       .then((response) => {
+  //         response.data.map(function(element, index){
+  //             let items = [];
+  //             items.push(element.Item);
+  //             foods.push(items);
+  //         })
+  //       })
+  // };
 
   render () {
     return (
