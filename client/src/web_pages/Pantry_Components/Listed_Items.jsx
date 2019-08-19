@@ -1,12 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Axios from 'axios';
 
-class ListedItems extends React.Component {
+export default class ListedItems extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
+<<<<<<< HEAD
           item: []
+=======
+          item: ''
+>>>>>>> origin/dev
       };
   };
 
@@ -41,5 +44,3 @@ class ListedItems extends React.Component {
     )
   }
 }
-
-export default ListedItems;
