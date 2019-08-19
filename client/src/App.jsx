@@ -22,12 +22,21 @@ export default class App extends React.Component {
         Login: '',
         item_name: '',
         expiration: '',
+        hasClickedSignUp: false
       };
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
+        this.onClickSignUp = this.onClickSignUp.bind(this);
     }
 
 
+    onClickSignUp(e){
+      
+    this.setState({
+      hasClickedSignUp: true
+    })
+    e.target.disabled = true;
+  }
 
   onChangeLogin(event){
     // event.preventDefault()
@@ -52,10 +61,8 @@ export default class App extends React.Component {
     render() {
       return (
         
-        <div>
-
-        
-          <Welcome user={this.state.userName} password={this.state.password} change={this.onChangeSignUp} 
+        <div>  
+          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} password={this.state.password} change={this.onChangeSignUp} 
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin}/>
@@ -65,5 +72,3 @@ export default class App extends React.Component {
       );
     }
   }
-
-  
