@@ -22,7 +22,7 @@ export default class App extends React.Component {
         SignUp: '',
         Login: '',
       };
-        this.onChangeSighUp = this.onChangeSignUp.bind(this);
+        this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
     }
@@ -31,10 +31,10 @@ export default class App extends React.Component {
     onClickSignUp(e){
       bootbox.confirm("<form id='infos' action=''>\
       Sign-Up <br/>\
-      Name:<input onChange={this.onChangeSighUp} class='name' type='text' name='name' >\
-      Username:<input onChange={this.onChangeSighUp} class='userName' type='text' name='userName' /><br/>\
-      Password:<input onChange={this.onChangeSighUp} class='password' type='text' name='password' />\
-      Email:<input onChange={this.onChangeSighUp} class='email' type='text' name='email' />\
+      Name:<input value='' onChange={this.onChangeSignUp} class='name' type='text' name='name' >\
+      Username:<input value='' onChange={this.onChangeSignUp} class='userName' type='text' name='userName' /><br/>\
+      Password:<input value='' onChange={this.onChangeSinnUp} class='password' type='text' name='password' />\
+      Email:<input value='' onChange={this.onChangeSignUp} class='email' type='text' name='email' />\
       </form> ", function(result) {if(result)$('#infos').submit();
     })
   
