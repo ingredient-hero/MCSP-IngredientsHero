@@ -61,7 +61,7 @@ export default class App extends React.Component {
 
   onClickLogin(){
     console.log('clicked login in button')
-   };
+   }
 
   
   
@@ -75,3 +75,4 @@ export default class App extends React.Component {
         </div>
       );
     }
+  }
