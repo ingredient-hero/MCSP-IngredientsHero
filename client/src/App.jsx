@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
-//import axios from 'axios';
+import axios from 'axios';
 import $ from 'jquery'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
@@ -23,76 +23,41 @@ export default class App extends React.Component {
         Login: '',
         item_name: '',
         expiration: '',
-        addItemsClicks: 0, 
       };
-        // this.onChangeSignUp = this.onChangeSignUp.bind(this);
+        this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        // this.onClickLogin = this.onClickLogin.bind(this);
-        // this.onAddToPantry = this.onAddToPantry.bind(this);
-        // this.onChangeAddItem = this.onChangeAddItem.bind(this);
+        this.onClickLogin = this.onClickLogin.bind(this);
+        this.onChangeAddItem = this.onChangeAddItem.bind(this);
     }
 
-    signIn(userame, password) {
-      // This is where you would call Firebase, an API etc...
-      // calling setState will re-render the entire app (efficiently!)
-      this.setState({
-        user: {
-          username,
-          password,
-        }
-      })
-    }
-    
-    signOut() {
-      // clear out user from state
-      this.setState({user: null})
-    }
-    // onClickSignUp(e){
-    //   bootbox.confirm(`<form id='infos' action=''>\
-    //   Sign-Up <br/>\
-    //   Name:<input onChange={this.onChangeSignUp} class='name' type='text' name='name' >\
-    //   Username:<input onChange={this.onChangeSignUp} class='userName' type='text' name='userName' /><br/>\
-    //   Password:<input onChange={this.onChangeSignUp} class='password' type='text' name='password' />\
-    //   Email:<input onChange={this.onChangeSignUp} class='email' type='text' name='email' />\
-    //   </form> `, function(result) {if(result)$('#infos').submit();
-    // })
+
+    onClickSignUp(e){
+      bootbox.confirm("<form id='infos' action=''>\
+      Sign-Up <br/>\
+      Name:<input onChange={this.onChangeSighUp} class='name' type='text' name='name' >\
+      Username:<input onChange={this.onChangeSighUp} class='userName' type='text' name='userName' /><br/>\
+      Password:<input onChange={this.onChangeSighUp} class='password' type='text' name='password' />\
+      Email:<input onChange={this.onChangeSighUp} class='email' type='text' name='email' />\
+      </form> ", function(result) {if(result)$('#infos').submit();
+    })
   
-    //e.target.disabled = true;
+    e.target.disabled = true;
     
-  
+  }
 
-  // onChangeSignUp(e){
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
+  onChangeSignUp(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    })
 
-  // }
+  }
 
 
-  onAddToPantry () {
-    if (this.state.addItemsClicks === 0) {
-        this.setState({
-            addItemsClicks: 1
-        })
-        bootbox.confirm("<form id='infos' action=''>\
-                Item Name:<input type='text' onChange='this.onChangeAddItem' class='item_name' name='item_name' /><br/>\
-                Expiration Date:<input type='text' onChange='this.onChangeAddItem' class='expiration' name='expiration' />\
-                </form>", function(result) {if(result)$('#infos').submit(function (event) {
-                });
-            });
-    }
-    if (this.state.addItemsClicks > 0) {
-        this.setState({
-            addItemsClicks: 0
-        })
-    }
-}
-
-onChangeAddItem (event) {
+  onChangeAddItem (event) {
     this.setState ({
         [event.target.name]: event.target.value
     })
-}
+  }
 
   onClickLogin(){
     console.log('clicked login in button')
@@ -100,14 +65,13 @@ onChangeAddItem (event) {
 
   
   
-  render() {
-    return (
-      <>
+    render() {
+      return (
+        <div>
 
           <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
-          {/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
-          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name}/>
-        </>
-      )
+          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
+          onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
+        </div>
+      );
     }
-  };
