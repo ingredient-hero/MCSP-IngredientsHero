@@ -17,7 +17,7 @@ const Welcome = (props) =>{
             {/* <button data-toggle='modal' data-target='Login'  className='Login' onClick={props.onClickLogin} type="submit">Login</button>
                   */}
                 
-            <button disabled={false} className='Login' onClick={props.onClickLogin} type="submit">Login</button>
+           
 
                 <Logo/>
                 <h1 className='yolo' style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
