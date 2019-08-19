@@ -21,10 +21,13 @@ export default class App extends React.Component {
         email: '',
         SignUp: '',
         Login: '',
+        item_name: '',
+        expiration: '',
       };
         this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
+        this.onChangeAddItem = this.onChangeAddItem.bind(this);
     }
 
 
@@ -49,6 +52,13 @@ export default class App extends React.Component {
 
   }
 
+
+  onChangeAddItem (event) {
+    this.setState ({
+        [event.target.name]: event.target.value
+    })
+  }
+
   onClickLogin(){
     console.log('clicked login in button')
    };
@@ -57,11 +67,12 @@ export default class App extends React.Component {
   
     render() {
       return (
-        <>
+        <div>
+
           <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
-          {/* <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} /> */}
-          <Pantry />
-        </>
+          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
+          onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
+        </div>
       );
     }
   }
