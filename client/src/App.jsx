@@ -6,7 +6,7 @@ import $ from 'jquery'
 import bootbox from 'bootbox';
 import bootstrap from 'bootstrap'
 import LoginModal from './web_pages/welcome_components/login.jsx'
-//import './App.css';
+// import './App.css';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -17,28 +17,49 @@ export default class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        name: '',
+        userName: '',
+        password: '',
+        email: '',
         SignUp: '',
         Login: '',
-        
+        item_name: '',
+        expiration: '',
       };
+        this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
+        this.onChangeAddItem = this.onChangeAddItem.bind(this);
     }
 
 
     onClickSignUp(e){
       bootbox.confirm("<form id='infos' action=''>\
-      Name:<input type='text' name='user_name' /><br/>\
-      Username:<input type='text' name='user_name' /><br/>\
-      Password:<input type='text' name='user_name' /><br/>\
-      Email:<input type='text' name='user_name' />\
-      </form>", function(result) {if(result)$('#infos').submit();
+      Sign-Up <br/>\
+      Name:<input onChange={this.onChangeSighUp} class='name' type='text' name='name' >\
+      Username:<input onChange={this.onChangeSighUp} class='userName' type='text' name='userName' /><br/>\
+      Password:<input onChange={this.onChangeSighUp} class='password' type='text' name='password' />\
+      Email:<input onChange={this.onChangeSighUp} class='email' type='text' name='email' />\
+      </form> ", function(result) {if(result)$('#infos').submit();
     })
     console.log(e)
      e.target.disabled = true;
     
   }
 
+  onChangeSignUp(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+
+  }
+
+
+  onChangeAddItem (event) {
+    this.setState ({
+        [event.target.name]: event.target.value
+    })
+  }
 
   onClickLogin(event){
     bootbox.confirm("<form id='infos' action=''>\
@@ -53,11 +74,14 @@ export default class App extends React.Component {
   
     render() {
       return (
-        <>
-           <LoginModal/>
-          <Welcome onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} SignUp={this.state.SignUp} Login={this.state.Login} />
-          <Pantry />
-        </>
+        
+        <div>
+
+        <LoginModal/>
+          <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
+          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
+          onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
+        </div>
       );
     }
   }
