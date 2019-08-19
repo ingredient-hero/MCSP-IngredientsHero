@@ -23,6 +23,7 @@ export default class App extends React.Component {
         Login: '',
         item_name: '',
         expiration: '',
+        hasClickedSignUp: false
       };
         this.onChangeSignUp = this.onChangeSignUp.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
@@ -32,17 +33,11 @@ export default class App extends React.Component {
 
 
     onClickSignUp(e){
-      bootbox.confirm("<form id='infos' action=''>\
-      Sign-Up <br/>\
-      Name:<input value='' onChange={this.onChangeSignUp} class='name' type='text' name='name' >\
-      Username:<input value='' onChange={this.onChangeSignUp} class='userName' type='text' name='userName' /><br/>\
-      Password:<input value='' onChange={this.onChangeSinnUp} class='password' type='text' name='password' />\
-      Email:<input value='' onChange={this.onChangeSignUp} class='email' type='text' name='email' />\
-      </form> ", function(result) {if(result)$('#infos').submit();
+      
+    this.setState({
+      hasClickedSignUp: true
     })
-  
     e.target.disabled = true;
-    
   }
 
   onChangeSignUp(e){
@@ -69,7 +64,7 @@ export default class App extends React.Component {
       return (
         <div>
 
-          <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
+          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
           <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
           onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
         </div>
