@@ -16,6 +16,9 @@ export default class Welcome extends React.Component {
             password: this.props.password,
             email: this.props.email
         })
+        .then(
+            
+        )
     }
         render(){
 
