@@ -2,10 +2,9 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
-import $ from 'jquery'
-import bootbox from 'bootbox';
-import bootstrap from 'bootstrap'
+import LoginModal from './web_pages/welcome_components/login.jsx'
 // import './App.css';
+
 
 // This is an example that will need to be rebuilt and/or refactored.
 // This page is pulling in both the pantry and the welcome class components to conditionally render on the page.
@@ -23,33 +22,29 @@ export default class App extends React.Component {
         Login: '',
         item_name: '',
         expiration: '',
+        hasClickedSignUp: false,
+        userGrantedAccess: false
       };
-        this.onChangeSignUp = this.onChangeSignUp.bind(this);
-        this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.onClickLogin = this.onClickLogin.bind(this);
+        this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
+        this.onClickSignUp = this.onClickSignUp.bind(this);
+        this.grantUserAccess= this.grantUserAccess.bind(this);
     }
 
 
     onClickSignUp(e){
-      bootbox.confirm("<form id='infos' action=''>\
-      Sign-Up <br/>\
-      Name:<input onChange={this.onChangeSighUp} class='name' type='text' name='name' >\
-      Username:<input onChange={this.onChangeSighUp} class='userName' type='text' name='userName' /><br/>\
-      Password:<input onChange={this.onChangeSighUp} class='password' type='text' name='password' />\
-      Email:<input onChange={this.onChangeSighUp} class='email' type='text' name='email' />\
-      </form> ", function(result) {if(result)$('#infos').submit();
+      
+    this.setState({
+      hasClickedSignUp: true
     })
-  
     e.target.disabled = true;
-    
   }
 
-  onChangeSignUp(e){
+  onChangeLogin(event){
+    // event.preventDefault()
     this.setState({
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value,
     })
-
   }
 
 
@@ -59,20 +54,24 @@ export default class App extends React.Component {
     })
   }
 
-  onClickLogin(){
-    console.log('clicked login in button')
-   };
+  grantUserAccess (event) {
+    this.setState({userGrantedAccess: true});
+  } 
 
-  
   
     render() {
-      return (
-        <div>
-
-          <Welcome change={this.onChangeSignUp} onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} username={this.state.userName} password={this.state.password} email={this.state.email} SignUp={this.state.SignUp} Login={this.state.Login} />
-          <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
-          onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
-        </div>
-      );
+      if (this.state.userGrantedAccess === false) {
+        return (
+          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} password={this.state.password} change={this.onChangeSignUp} 
+          onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
+          username={this.state.userName} password={this.state.password} email={this.state.email} 
+          SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} grantUserAccess={this.grantUserAccess}/>
+        )
+      } else {
+        return ( 
+            <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
+            onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
+        );
+      }
     }
   }
