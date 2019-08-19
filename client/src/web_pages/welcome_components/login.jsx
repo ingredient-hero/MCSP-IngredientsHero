@@ -1,9 +1,5 @@
  import React from 'react';
  import ReactDom from 'react-dom';
-//import Form from 'bootstrap/Form';
-import bootbox from 'bootbox';
-import bootstrap from 'bootstrap'
-
 
 import Modal from './modal.jsx';
 
@@ -12,37 +8,24 @@ class LoginModal extends React.Component {
     super(props);
     this.state = { 
         isOpen: false, 
-        users: [],
-        user: '',
-        password: ''
+        userName: props.userName,
+        password: props.password
     };
     this.componentDidMount = this.componentDidMount.bind(this)
-    this.onChange = this.onChange.bind(this)
     this.toggleModal=this.toggleModal.bind(this)
   }
 
-  componentDidMount(){
+//   componentDidMount(){
 
-  }
+//   }
 
-  onChange(event){
-    event.preventDefault()
-    console.log(event.target.name)
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
+  
 
-  onClick() {
-    // bootbox.confirm("<form id='infos' action=''>\
-    // Name:<input type='text' name='user_name' /><br/>\
-    // Username:<input type='text' name='user_name' /><br/>\
-    // Password:<input type='text' name='user_name' /><br/>\
-    // Email:<input type='text' name='user_name' />\
-    // </form>", function(result) {if(result)$('#infos').submit();
-   console.log('saved')
-    //   })
-  } 
+//   onClick() {
+    
+//    console.log('saved')
+//     axios
+//   } 
   
   toggleModal () {
     this.setState({
@@ -61,8 +44,8 @@ class LoginModal extends React.Component {
           onClose={this.toggleModal}>
           Login Page
           <form> 
-             Username <input name='user' type='text' value={this.state.user} onChange={this.onChange}/><br></br>
-             Password <input name='password' type='text' value={this.state.password} onChange={this.onChange}/>
+             Username <input name='userName' type='text'  onChange={this.props.onChangeLogin}/><br></br>
+             Password <input name='password' type='text'  onChange={this.props.onChangeLogin}/>
              <button onClick={this.onClick}> Login</button>
           </form>
         </Modal>
