@@ -11,7 +11,7 @@ class LoginModal extends React.Component {
         userName: props.userName,
         password: props.password
     };
-    this.componentDidMount = this.componentDidMount.bind(this)
+    // this.componentDidMount = this.componentDidMount.bind(this)
     this.toggleModal=this.toggleModal.bind(this)
   }
 
