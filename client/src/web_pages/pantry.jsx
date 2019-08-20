@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './logo.jsx';
 import ItemsForm from './Pantry_Components/itemsForm.jsx';
 import axios from 'axios';
-//import ListedItems from './Pantry_Components/Listed_Items.jsx';
+// import ListedItems from './Pantry_Components/Listed_Items.jsx';
 
 // You may need to import more libraries or files, depending on what's required.
 
