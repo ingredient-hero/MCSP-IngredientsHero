@@ -2,7 +2,7 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
-import LoginModal from './web_pages/welcome_components/login.jsx'
+import LoginModal from './web_pages/welcome_components/login.jsx';
 // import './App.css';
 
 
@@ -37,7 +37,6 @@ export default class App extends React.Component {
     this.setState({
       hasClickedSignUp: true
     })
-    e.target.disabled = true;
   }
 
   onChangeLogin(event){
@@ -69,8 +68,7 @@ export default class App extends React.Component {
         )
       } else {
         return ( 
-            <Pantry onAddToPantry={this.onAddToPantry} expiration={this.state.expiration} item_name={this.state.item_name} 
-            onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
+            <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} item_name={this.state.item_name} expiration={this.state.expiration}/>
         );
       }
     }
