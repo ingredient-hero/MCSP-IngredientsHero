@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Logo from './logo.jsx';
 import SignUp from './Welcome_Components/signUp.jsx'
-import LoginModal from './welcome_components/login.jsx'
+import LoginModal from './Welcome_Components/login.jsx'
 
 export default class Welcome extends React.Component {
     constructor(props) {
@@ -10,16 +10,27 @@ export default class Welcome extends React.Component {
 
     }
     onSignUpSubmitClick(e){
-        preventDefault();
-        // axios.post('/mysignup',{
-        //     name: this.props.name,
-        //     userName: this.props.userName,
-        //     password: this.props.password,
-        //     email: this.props.email
-        // })
+        e.preventDefault();
+        axios.post('/mysignup',{
+            name: this.props.name,
+            userName: this.props.userName,
+            password: this.props.password,
+            email: this.props.email
+        })
         // .then((res)=>{
         // }
         // )
+    }
+
+    onLoginSubmitClick(e){
+        e.preventDefault();
+        axios.get('/mylogin')
+        .then(res => {
+            // res.data.map(funciton (users){
+
+            // })
+        })
+        .catch((err) => { console.log(err); });
     }
         render(){
 
