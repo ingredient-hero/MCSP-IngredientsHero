@@ -5,11 +5,7 @@ export default class ListedItems extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-<<<<<<< HEAD
           item: []
-=======
-          item: ''
->>>>>>> origin/dev
       };
   };
 
