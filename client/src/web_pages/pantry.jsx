@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './logo.jsx';
-// import ItemsForm from './Pantry_Components/itemsForm.jsx';
+import ItemsForm from './Pantry_Components/itemsForm.jsx';
 import axios from 'axios';
 import ListedItems from './Pantry_Components/Listed_Items.jsx'
 // import ListedItems from './Pantry_Components/Listed_Items.jsx';
@@ -19,7 +19,7 @@ export default class Pantry extends React.Component {
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
         this.addButtonClicked = this.addButtonClicked.bind(this);
-        // this.onAddToPantry = this.onAddToPantry.bind(this);
+        this.onAddToPantry = this.onAddToPantry.bind(this);
     }
 
     renderItemsForm (e) {
@@ -34,28 +34,28 @@ export default class Pantry extends React.Component {
         })
     }
 
-    // onAddToPantry () {
-    //     const addItem = {
-    //       item: this.state.item_name,
-    //       exp: this.state.expiration
-    //     };
-    //     axios.post('/addingtopantry', addItem)
-    //       .then( response => {
-    //         console.log(response.data);
-    //       })
-    //   }
+    onAddToPantry () {
+        const addItem = {
+          item: this.state.item_name,
+          exp: this.state.expiration
+        };
+        axios.post('/addingtopantry', addItem)
+          .then( response => {
+            console.log(response.data);
+          })
+      }
 
 
     // This function is to grab the information from the database that 
     // the single user will need for their pantry page. 
-    componentDidMount () {
+    // componentDidMount () {
         // axios.get('/mypantry')
         //     .then ( response => {
         //         this.setState({
         //             userPantry: response.data
         //         })
         //     })
-    }
+    // }
 
 
     render () {
