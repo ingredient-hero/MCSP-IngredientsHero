@@ -5,16 +5,29 @@ import bootstrap from 'bootstrap'
 
 const SignUp = (props) => {
 
-    return(
-        <div>
+    if(props.hasClickedSignUp === true){
         
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#SignUp">
-            Sign-Up
-            </button>
-
-           
-        </div>
-    )
+        return(
+            <div className="SignUp">
+            
+            <form id='infos' action=''>
+             Sign-Up <br/>
+             Name:<input onChange={props.change} className='name' type='text' name='name'/>
+             Username:<input onChange={props.change} className='userName' type='text' name='userName' /><br/>
+             Password:<input onChange={props.change} className='password' type='text' name='password' />
+             Email:<input onChange={props.change} className='email' type='text' name='email' />
+             <button onClick={props.onSignupSubmitClick} className='Submit'> Submit</button>
+             <button className='Cancel'> Cancel</button>
+            </form> 
+            </div>
+        )
+    }else{
+        return(
+            <>
+            </>
+        )
+    }
 }
+
 
 export default SignUp;
