@@ -44,8 +44,8 @@ class LoginModal extends React.Component {
           onClose={this.toggleModal}>
           Login Page
           <form> 
-             Username <input name='userName' type='text'  onChange={this.props.onChangeLogin}/><br></br>
-             Password <input name='password' type='text'  onChange={this.props.onChangeLogin}/>
+             Username <input name='userName' type='text' value={this.props.userName} onChange={this.props.onChangeLogin}/><br></br>
+             Password <input name='password' type='text' value={this.props.password} onChange={this.props.onChangeLogin}/>
              <button onClick={this.onClick}> Login</button>
           </form>
         </Modal>
