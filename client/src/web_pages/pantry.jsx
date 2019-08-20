@@ -1,7 +1,8 @@
 import React from 'react';
 import Logo from './logo.jsx';
-import ItemsForm from './Pantry_Components/itemsForm.jsx';
+// import ItemsForm from './Pantry_Components/itemsForm.jsx';
 import axios from 'axios';
+import ListedItems from './Pantry_Components/Listed_Items.jsx'
 // import ListedItems from './Pantry_Components/Listed_Items.jsx';
 
 // You may need to import more libraries or files, depending on what's required.
@@ -18,7 +19,7 @@ export default class Pantry extends React.Component {
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
         this.addButtonClicked = this.addButtonClicked.bind(this);
-        this.onAddToPantry = this.onAddToPantry.bind(this);
+        // this.onAddToPantry = this.onAddToPantry.bind(this);
     }
 
     renderItemsForm (e) {
@@ -33,16 +34,16 @@ export default class Pantry extends React.Component {
         })
     }
 
-    onAddToPantry () {
-        const addItem = {
-          item: this.state.item_name,
-          exp: this.state.expiration
-        };
-        axios.post('/addingtopantry', addItem)
-          .then( response => {
-            console.log(response.data);
-          })
-      }
+    // onAddToPantry () {
+    //     const addItem = {
+    //       item: this.state.item_name,
+    //       exp: this.state.expiration
+    //     };
+    //     axios.post('/addingtopantry', addItem)
+    //       .then( response => {
+    //         console.log(response.data);
+    //       })
+    //   }
 
 
     // This function is to grab the information from the database that 
@@ -83,7 +84,7 @@ export default class Pantry extends React.Component {
                     {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                     to get the items to render within here. */}
                     {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
-                    <ListedItems/>
+                    {/* <ListedItems/> */}
                 </div> 
     
             )
