@@ -18,7 +18,7 @@ class LoginModal extends React.Component {
 //   componentDidMount(){
 
 //   }
-
+          
   
 
 //   onClick() {
