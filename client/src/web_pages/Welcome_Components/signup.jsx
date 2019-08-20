@@ -9,7 +9,6 @@ const SignUp = (props) => {
         
         return(
             <div className="SignUp">
-            
             <form id='infos' action=''>
              Sign-Up <br/>
              Name:<input onChange={props.change} className='name' type='text' name='name'/>
