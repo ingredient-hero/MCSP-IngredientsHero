@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Logo from './logo.jsx';
 import SignUp from './Welcome_Components/signUp.jsx'
-import LoginModal from './welcome_components/login.jsx'
+import LoginModal from './Welcome_Components/login.jsx'
 
 export default class Welcome extends React.Component {
     constructor(props) {
