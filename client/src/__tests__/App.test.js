@@ -5,19 +5,23 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 // this adds custom jest matchers from jest-dom
+jest.mock('react-dom');
 import 'jest-dom/extend-expect';
 import App from '../App';
 import Welcome from '../web_pages/welcome.jsx';
 import Pantry from '../web_pages/pantry.jsx';
 //var pass = require('../../sensitive.js');
+//AXIOS TEST LIBRARY
+import mockAxios from 'axios';
+import chai from 'chai';
+import { expect } from 'chai';
+const { assert } = require('chai')
+//const { expect } = require('chai')
+const mysql = require('mysql');
+const request = require('request');
+const httpMocks = require('node-mocks-http');
+const port = 9000;
 
-var expect = require('chai').expect;
-var mysql = require('mysql');
-var request = require('request');
-var httpMocks = require('node-mocks-http');
-var port = 9000;
-
-jest.mock('react-dom');
 
 
 //PAGE RENDER
@@ -30,12 +34,12 @@ describe('Loading HomePage', () => {
  });
 
 //tests written for sign up button, and sign up modal, Pantry
-    it("Expects to find button HTML element with className test in the DOM", () => {
+    it("Expects to find button HTML element with className SignUp in the DOM", () => {
         const wrapper = shallow(<Welcome className="Sign-Up" text="test"/>)
         expect(wrapper.find('button.Sign-Up'));
     });
  
-       it("Expects to find button HTML element with className test in the DOM", () => {
+       it("Expects to find button HTML element with className Login in the DOM", () => {
         const wrapper = shallow(<Welcome className="Login" text="test"/>)
         expect(wrapper.find('button.Login'));
     });
@@ -68,7 +72,7 @@ describe('Loading HomePage', () => {
         it('Logs in existing users', function(done) {
             var options = {
             'method': 'POST',
-            'uri': 'http://127.0.0.1:9000/login',
+            'uri': 'http://127.0.0.1:9000/mylogin',
             'json': {
               'username': 'Collin',
               'password': 'Collin'
@@ -85,7 +89,7 @@ describe('Loading HomePage', () => {
         it('Users that do not exist are kept on login page', function(done) {
             var options = {
                 'method': 'POST',
-                'uri': 'http://127.0.0.1:9000/login',
+                'uri': 'http://127.0.0.1:9000/mylogin',
             'json': {
                 'username': 'Collin',
               'password': 'Collin'
@@ -94,7 +98,7 @@ describe('Loading HomePage', () => {
     
           request(options, function(error, res, body) {
               if (error) { return done(error); }
-            expect(res.headers.location).to.equal('/login');
+            expect(res.headers.location).to.equal('/mylogin');
             done();
         });
     });
@@ -102,7 +106,7 @@ describe('Loading HomePage', () => {
     it('Users that enter an incorrect password are kept on login page', function(done) {
         var options = {
             'method': 'POST',
-            'uri': 'http://127.0.0.1:9000/login',
+            'uri': 'http://127.0.0.1:9000/mylogin',
             'json': {
                 'username': 'Collin',
               'password': 'Collin'
@@ -111,7 +115,7 @@ describe('Loading HomePage', () => {
           
           request(options, function(error, res, body) {
               if (error) { return done(error); }
-              expect(res.headers.location).to.equal('/login');
+              expect(res.headers.location).to.equal('/mylogin');
               done();
             });
         });
@@ -170,3 +174,66 @@ describe('', function() {
 
 )}
 )
+
+//AXIOS REQUEST FOR LOGIN AND SIGN UP
+
+
+    export const fetchData = async (query, config
+        ) => {
+            try {
+                const { data } = await axios.request({
+          method: 'get',
+          url: encodeURI(query),
+          ...config
+        });
+    
+        return data;
+      } catch (e) {
+          console.error('Could not fetchData', e);
+      }
+    };
+
+    it('should call a fetchData function', done => {
+        fetchData('/mysignup', {}).then(response => {
+          expect(response).toEqual({
+            data: {},
+          });
+        });
+        expect(mockAxios.request).toHaveBeenCalledWith({
+          method: 'get',
+          url: '/mysignup'
+        });
+        expect(mockAxios.request).toHaveBeenCalledTimes(1);
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+        done();
+      });
+
+      //login
+      it('should call a fetchData function', done => {
+        fetchData('/mylogin', {}).then(response => {
+          expect(response).toEqual({
+            data: {},
+          });
+        });
+        expect(mockAxios.request).toHaveBeenCalledWith({
+          method: 'get',
+          url: '/mylogin'
+        });
+        expect(mockAxios.request).toHaveBeenCalledTimes(1);
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+        done();
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
