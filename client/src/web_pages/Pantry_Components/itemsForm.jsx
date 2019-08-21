@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ItemsFrom = (props) => {
+const ItemsForm = (props) => {
     return (
         <div>
             <form id='infos' action=''>
@@ -13,4 +13,4 @@ const ItemsFrom = (props) => {
     )
 }
 
-export default ItemsFrom;
+export default ItemsForm;
