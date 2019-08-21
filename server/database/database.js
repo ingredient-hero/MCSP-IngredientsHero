@@ -32,3 +32,4 @@ const userNames_passwords = (data, callback) => {
 
 
 module.exports = {con};
+module.export.userNames_passwords = userNames_passwords;
