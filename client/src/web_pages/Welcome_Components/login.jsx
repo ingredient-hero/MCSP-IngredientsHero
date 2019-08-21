@@ -42,10 +42,10 @@ export default class LoginModal extends React.Component {
           onClose={this.toggleModal}>
           Login Page
           <form> 
-             Username <input name='userName' type='text'  onChange={this.props.onChangeLogin}/><br></br>
-             Password <input name='password' type='text'  onChange={this.props.onChangeLogin}/>
-             <button onClick={this.onClick}> Login</button>
+             Username <input name='userName' value={this.props.userName} type='text'  onChange={this.props.onChangeLogin}/><br></br>
+             Password <input name='password' value={this.props.password} type='text'  onChange={this.props.onChangeLogin}/>
           </form>
+             <button onClick={this.props.grantUserAccess}> Login</button>
         </Modal>
       </div>
     );

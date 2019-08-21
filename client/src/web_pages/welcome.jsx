@@ -21,6 +21,8 @@ export default class Welcome extends React.Component {
         // }
         // )
     }
+
+    
         render(){
 
     
@@ -34,7 +36,10 @@ export default class Welcome extends React.Component {
                 change={this.props.onChangeLogin} onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
                 SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}/>
-                <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}/>
+                
+                <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
+                grantUserAccess={this.props.grantUserAccess}/>
+                
                 <Logo/>
                 <h1 className='yolo' style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
                 <p style={{position: 'absolute', right: '22%', left: '26%', top: '55%'}}> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
