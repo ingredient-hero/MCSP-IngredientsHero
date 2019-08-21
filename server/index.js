@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config({path: ('../.env')});
 const express = require('express');
 const app = express();
 const db = require('./database/database.js')
@@ -41,4 +42,8 @@ app.post('/addingtopantry', (req, res) => {
   the item should reflect on the page for the user. */
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(3000, function() {
+    console.log('listening on port 3000!');
+    console.log(process.env.DB_USER)
+    console.log(process.env.DB_PASSWORD)
+  });

@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS Ingredients;
+
 CREATE DATABASE Ingredients;
 
 USE Ingredients;
@@ -17,10 +19,11 @@ CREATE TABLE Foods (
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE EXP (
+CREATE TABLE Expiration (
   ID INT NOT NULL AUTO_INCREMENT,
-  Expiration_Date DATE NOT NULL
+  Expiration_Date DATE NOT NULL,
+  PRIMARY KEY (ID)
 );
 
 SELECT Users.ID, Foods.Item FROM Users JOIN Foods ON Users.ID = Foods.Item;
-SELECT Foods.Item, EXP.Expiration_Date FROM Foods JOIN EXP ON Foods.Item = EXP.Expiration_Date;
+SELECT Foods.Item, Expiration.Expiration_Date FROM Foods JOIN Expiration ON Foods.Item = Expiration.Expiration_Date;
