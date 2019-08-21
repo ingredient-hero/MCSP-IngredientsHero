@@ -10,7 +10,8 @@
     "lint:client": "cd ./client && ./node_modules/.bin/eslint \"src/**/*.{js,jsx}\" && echo 'Your code has passed the linting guidelines' || echo 'Please fix the errors listed above'",
     "lint:server": "cd ./server && ../node_modules/.bin/eslint \"routes/**/*.js\" 2>/dev/null && echo 'Your code has passed the linting guidelines' || echo 'Please fix the errors listed above'",
     "deploy-setup": "pm2 deploy ecosystem.config.js production setup",
-    "deploy": "pm2 deploy ecosystem.config.js production"
+    "deploy": "pm2 deploy ecosystem.config.js production",
+    "server": "cd ./server && npm run start"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,18 @@
   },
   "homepage": "https://github.com/selder18/blue-ocean-rewrite#readme",
   "dependencies": {
-    "bootbox": "^5.3.1",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.1",
+    "chai": "^4.2.0",
+    "dotenv": "^8.0.0",
+    "mysql": "^2.17.1",
+    "node-mocks-http": "^1.7.6",
+    "sinon-chai": "^3.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.0",
     "eslint-config-standard": "^12.0.0",
