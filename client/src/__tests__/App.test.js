@@ -13,10 +13,10 @@ import Pantry from '../web_pages/pantry.jsx';
 //var pass = require('../../sensitive.js');
 //AXIOS TEST LIBRARY
 import mockAxios from 'axios';
-import chai from 'chai';
-import { expect } from 'chai';
+//import chai from 'chai';
+//import { expect } from 'chai';
 const { assert } = require('chai')
-//const { expect } = require('chai')
+const { expect } = require('chai')
 const mysql = require('mysql');
 const request = require('request');
 const httpMocks = require('node-mocks-http');
