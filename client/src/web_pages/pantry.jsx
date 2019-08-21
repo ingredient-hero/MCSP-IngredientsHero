@@ -2,6 +2,8 @@ import React from 'react';
 import Logo from './logo.jsx';
 import ItemsForm from './Pantry_Components/itemsForm.jsx';
 import axios from 'axios';
+import ListedItems from './Pantry_Components/Listed_Items.jsx'
+// import ListedItems from './Pantry_Components/Listed_Items.jsx';
 
 // You may need to import more libraries or files, depending on what's required.
 
@@ -46,14 +48,14 @@ export default class Pantry extends React.Component {
 
     // This function is to grab the information from the database that 
     // the single user will need for their pantry page. 
-    componentDidMount () {
+    // componentDidMount () {
         // axios.get('/mypantry')
         //     .then ( response => {
         //         this.setState({
         //             userPantry: response.data
         //         })
         //     })
-    }
+    // }
 
 
     render () {
@@ -82,7 +84,7 @@ export default class Pantry extends React.Component {
                     {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                     to get the items to render within here. */}
                     {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
-                    
+                    {/* <ListedItems/> */}
                 </div> 
     
             )
