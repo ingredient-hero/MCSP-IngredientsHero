@@ -3,7 +3,11 @@ const express = require('express');
 const app = express();
 const db = require('./database/database.js')
 
-app.use('../client/public', (res, next) => {
+//app.use(express.static('../client/public'));
+
+//app.use(bodyParser.json());
+
+app.use( '../client/public', (res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -42,8 +46,8 @@ app.post('/addingtopantry', (req, res) => {
   the item should reflect on the page for the user. */
 });
 
-app.listen(3000, function() {
-    console.log('listening on port 3000!');
-    console.log(process.env.DB_USER)
-    console.log(process.env.DB_PASSWORD)
-  });
+
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+module.exports = app;
