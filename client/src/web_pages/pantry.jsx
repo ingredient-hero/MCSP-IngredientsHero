@@ -69,7 +69,7 @@ export default class Pantry extends React.Component {
                     to build the modal appearance as a quick work around for the conditional rendering.
                     Or, a better work around, if it works will be to place the ItemsForm below, no
                     conditional rendering, but make the css completely transparent until the button is clicked, 
-                    and then the css switches. This can be done seperately with condionals that change the 
+                    and then the css switches. This can be done separately with conditionals that change the 
                     class name on the click. */}
                 </div>
             )
@@ -93,4 +93,3 @@ export default class Pantry extends React.Component {
         }
     }
 }
-
