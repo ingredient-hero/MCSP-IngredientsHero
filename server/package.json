@@ -2,10 +2,10 @@
   "name": "blue-ocean-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "nyc mocha",
-    "start": "node bin/www"
+    "start": "nodemon ./server/index.js"
   },
   "author": "",
   "license": "ISC",
