@@ -55,9 +55,13 @@ export default class Welcome extends React.Component {
                 
                 <Logo/>
                 <h1 className='yolo' style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
-                <About />
+                <div id='about'>
+                    <About />
+                </div>
                 <h2 style={{fontSize:'60px', color:'blue', position:'absolute', left:'25%', top:'60%'}}>How to Use</h2>
-                <HowTo />
+                <div>
+                    <HowTo />
+                </div>
             </div>
         );
     }

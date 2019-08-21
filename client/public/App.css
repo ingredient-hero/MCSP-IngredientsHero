@@ -32,3 +32,10 @@
 .yolo{
   font-size: 200px
 }
+
+#about {
+  position: 'absolute'; 
+  right: '22%';
+  left: '26%';
+  top: '55%';
+}
