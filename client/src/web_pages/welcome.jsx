@@ -54,11 +54,12 @@ export default class Welcome extends React.Component {
                 grantUserAccess={this.props.grantUserAccess}/>
                 
                 <Logo/>
-                <h1 className='yolo' style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
-                <div id='about'>
+                <h1> Welcome to Ingredient Hero!</h1>
+                <div>
+                    <h2>About Ingredient Hero</h2>
                     <About />
                 </div>
-                <h2 style={{fontSize:'60px', color:'blue', position:'absolute', left:'25%', top:'60%'}}>How to Use</h2>
+                <h3>How to Use</h3>
                 <div>
                     <HowTo />
                 </div>
