@@ -22,9 +22,7 @@ export default class Welcome extends React.Component {
         // )
     }
 
-<<<<<<< HEAD
-    
-=======
+
     onLoginSubmitClick(e){
         e.preventDefault();
         axios.get('/mylogin')
@@ -35,7 +33,7 @@ export default class Welcome extends React.Component {
         })
         .catch((err) => { console.log(err); });
     }
->>>>>>> origin/dev
+
         render(){
 
     
