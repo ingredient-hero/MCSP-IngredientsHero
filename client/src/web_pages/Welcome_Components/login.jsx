@@ -33,7 +33,7 @@ export default class LoginModal extends React.Component {
 
   render() {
     return (
-      <div className="Welcome">
+      <div className="Login">
         <button onClick={this.toggleModal} style={{marginLeft: "1300px"}}>
           Login
         </button>
