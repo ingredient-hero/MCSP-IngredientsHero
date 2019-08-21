@@ -16,9 +16,9 @@ const SignUp = (props) => {
              Username:<input onChange={props.change} className='userName' type='text' name='userName' /><br/>
              Password:<input onChange={props.change} className='password' type='text' name='password' />
              Email:<input onChange={props.change} className='email' type='text' name='email' />
-             <button onClick={props.onSignupSubmitClick, props.grantUserAccess} className='Submit'> Submit</button>
              <button className='Cancel'> Cancel</button>
             </form> 
+             <button onClick={props.onSignupSubmitClick, props.grantUserAccess} className='Submit'> Submit</button>
             </div>
         )
     }else{

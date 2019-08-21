@@ -6,18 +6,18 @@ const NotificationModal = (props) => {
     
     return(
         <div className="notification">
-          {props.users.map((user,i) => {
-            if(this.props.expiration  <= currentDate - 3){
+          {/* {props.users.map((user,i) => { */}
+            {/* if(this.props.expiration  <= currentDate - 3){ */}
 
               <li>
              {/* this is a list that shows food that is about to expire */}
              </li>
             
-            // <button className='Cancel'> Cancel</button>
-            }
+             {/* <button className='Cancel'> Cancel</button> */}
+            {/* } */}
              
-        }
-          )}
+        {/* } */}
+          {/* )} */}
         
         </div>
             
