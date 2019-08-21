@@ -16,11 +16,11 @@ con.connect( err => {
     console.log('Connected to RDS MySQL database!');
 });
 
-const userNames_passwords = (data, callback) => {
-    const queryString = "SELECT userNames, passwords FROM Users";
-    con.query(queryString, (err,data) => {
+const userLogin = (data, callback) => {
+    const queryString = "SELECT userName, password_ FROM Users";
+    con.query(queryString, (err, data) => {
         if (err) {
-            console.log(err, "Error getting userNames and passwords");
+            console.log(err, "Error getting userName and password");
         };
         callback(null, data);
     });
@@ -31,5 +31,4 @@ const userNames_passwords = (data, callback) => {
 
 
 
-module.exports = {con};
-module.export.userNames_passwords = userNames_passwords;
+module.exports = {con, userLogin};
