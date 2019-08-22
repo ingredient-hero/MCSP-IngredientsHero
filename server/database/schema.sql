@@ -3,24 +3,23 @@ CREATE DATABASE Ingredients;
 USE Ingredients;
 
 CREATE TABLE Users (
-  ID INT NOT NULL AUTO_INCREMENT,
-  Name_ varchar (50) NOT NULL,
-  userName varchar (50) NOT NULL UNIQUE,
-  password_ varchar(50) NOT NULL,
-  email varchar (50) NOT NULL,
+  ID INT,
+  Name varchar (50),
+  Username varchar (50) UNIQUE,
+  Passwords varchar(50),
+  Email varchar (50),
   PRIMARY KEY (ID)
 );
-
 CREATE TABLE Foods (
-  ID INT NOT NULL AUTO_INCREMENT,
-  Item varchar (50) NOT NULL,
+  ID INT,
+  Item varchar (50),
   PRIMARY KEY (ID)
 );
-
 CREATE TABLE EXP (
-  ID INT NOT NULL AUTO_INCREMENT,
-  expiration DATE NOT NULL
+  ID INT,
+  Expiration_Date DATE 
 );
 
-SELECT Users.ID, Foods.Item FROM Users JOIN Foods ON Users.ID = Foods.Item;
-SELECT Foods.Item, EXP.Expiration_Date FROM Foods JOIN EXP ON Foods.Item = EXP.Expiration_Date;
+
+
+
