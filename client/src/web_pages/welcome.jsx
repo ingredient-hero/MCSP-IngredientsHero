@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import Logo from './logo.jsx';
-import SignUp from './Welcome_Components/signUp.jsx'
-import LoginModal from './Welcome_Components/login.jsx'
+import SignUp from './Welcome_Components/signup.jsx';
+import LoginModal from './Welcome_Components/login.jsx';
+import About from './Welcome_Components/about.jsx';
+import HowTo from './Welcome_Components/howTo.jsx';
 
 export default class Welcome extends React.Component {
     constructor(props) {
@@ -11,6 +13,7 @@ export default class Welcome extends React.Component {
     }
     onSignUpSubmitClick(e){
         e.preventDefault();
+        this.props.grantUserAccess();
         axios.post('/mysignup',{
             name: this.props.name,
             userName: this.props.userName,
@@ -52,10 +55,15 @@ export default class Welcome extends React.Component {
                 grantUserAccess={this.props.grantUserAccess}/>
                 
                 <Logo/>
-                <h1 className='yolo' style={{fontSize:'60px', color:'blue', position: 'absolute', left: '25%', top: '35%'}}> Welcome to Ingredient Hero!</h1>
-                <p style={{position: 'absolute', right: '22%', left: '26%', top: '55%'}}> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
-                <h2 style={{fontSize:'60px', color:'blue', position:'absolute', left:'25%', top:'60%'}}>How to Use</h2>
-                <p style={{position: 'absolute', right: '22%', left: '26%', top: '80%'}}> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
+                <h1> Welcome to Ingredient Hero!</h1>
+                <div>
+                    <h2>About Ingredient Hero</h2>
+                    <About />
+                </div>
+                <h3>How to Use</h3>
+                <div>
+                    <HowTo />
+                </div>
             </div>
         );
     }
