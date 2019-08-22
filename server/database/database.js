@@ -62,23 +62,23 @@ con.connect(function (err) {
 //     });
 // };
 
-const newUserName = (data, callback) => {
-    const queryString = `INSERT INTO Users (Username) VALUE (${Users.Username})`;
-    con.query(queryString, (err, data) => {
-        if (err) {
-            console.log(err, "Error inserting new userName");
-        };
-    });
-};
-
-// const addItem = (data, callback) => {
-//     const queryString = `INSERT INTO Foods (Item) VALUE (${Foods.Item});
-//       INSERT INTO EXP (expiration) VALUE (${EXP.expiration});`;
+// const newUserName = (data, callback) => {
+//     const queryString = `INSERT INTO Users (Username) VALUE (${Users.Username})`;
 //     con.query(queryString, (err, data) => {
 //         if (err) {
-//             console.log(err, "Error adding new Item");
+//             console.log(err, "Error inserting new userName");
 //         };
 //     });
 // };
+
+const addItem = (data, callback) => {
+    const queryString = `INSERT INTO Foods (Item) VALUE (${Foods.Item});
+      INSERT INTO EXP (expiration) VALUE (${EXP.expiration});`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error adding new Item");
+        };
+    });
+};
 
 module.exports = {con, userLogin, userInfo, signUp, existingUser, newUserName, addItem};
