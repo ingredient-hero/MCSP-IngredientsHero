@@ -14,7 +14,7 @@ const SignUp = (props) => {
                 Email:<input onChange={props.change} className='email' type='text' name='email' />
 
                 </form> 
-                <button onClick={props.onSignupSubmitClick, props.grantUserAccess} className='Submit'> Submit</button>
+                <button onClick={props.onSignupSubmitClick} className='Submit'> Submit</button>
                 <button className='Cancel'> Cancel</button>
             </div>
         )
