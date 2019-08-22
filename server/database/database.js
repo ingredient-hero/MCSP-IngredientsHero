@@ -51,25 +51,25 @@ con.connect(function (err) {
 //     });
 // };
 
-const existingUser = (data, callback) => {
-    const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
-    FROM Users`;
-    con.query(queryString, (err, data) => {
-        if (err) {
-            console.log(err, "Error getting existing User in database");
-        };
-        callback(null, data);
-    });
-};
-
-// const newUserName = (data, callback) => {
-//     const queryString = `INSERT INTO Users (Username) VALUE (${Users.Username})`;
+// const existingUser = (data, callback) => {
+//     const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
+//     FROM Users`;
 //     con.query(queryString, (err, data) => {
 //         if (err) {
-//             console.log(err, "Error inserting new userName");
+//             console.log(err, "Error getting existing User in database");
 //         };
+//         callback(null, data);
 //     });
 // };
+
+const newUserName = (data, callback) => {
+    const queryString = `INSERT INTO Users (Username) VALUE (${Users.Username})`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error inserting new userName");
+        };
+    });
+};
 
 // const addItem = (data, callback) => {
 //     const queryString = `INSERT INTO Foods (Item) VALUE (${Foods.Item});
