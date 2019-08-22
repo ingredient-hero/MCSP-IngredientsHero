@@ -1,6 +1,6 @@
 .modal-content{
   display: block;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -10,10 +10,35 @@
   opacity: 0.95;
 }
 
-#SignUp{
-  margin: auto;
-  width: 50%;
-  padding: 70px;
+.SignUp{
+  /* margin: auto; */
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infos{
+  width: 500px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  opacity: 0.95;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+}
+
+.SignUpButtons{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  /* position: inherit; */
 }
 
 .modal-footer{
@@ -29,6 +54,61 @@
   margin-left: 450px;
 }
 
-.yolo{
-  font-size: 200px
+.yolo1{
+  font-size: 60px;
+  color: blue;
+  right: 260px;
+  top: 30%;
+  float: inherit;
+  position: initial;
+  font-weight: bolder;
+}
+
+.yolo2{
+  font-size: 60px;
+  color: blue;
+  right: 260px;
+  left:30%;
+  top: 60%;
+  float: inherit;
+  position: initial;
+  font-weight: bolder;
+}
+
+#Homepage{
+  background: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg") no-repeat center center fixed;
+  content: '';
+  /* background-blend-mode:  */
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center center;
+  background-color: rgba(0,0,0,0.375);
+  background-size: cover;
+  background-attachment: fixed; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.p1{
+  font-weight: bolder;
+  opacity:1;
+  color: hotpink;
+  width: 760px;
+  position: initial;
+  right: 260px;
+  top: 52%
+}
+
+.p2{
+  font-weight: bolder;
+  opacity:1;
+  color: hotpink;
+  width: 760px;
+  position: initial;
+  right: 260px;
+  top: 80%
 }
