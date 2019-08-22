@@ -1,4 +1,3 @@
-// const pass = require('../../sensitive.js')
 const mysql = require('mysql');
 const http = require('http');
 
