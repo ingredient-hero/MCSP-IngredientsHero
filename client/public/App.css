@@ -60,7 +60,7 @@
   right: 260px;
   top: 30%;
   float: inherit;
-  position: inherit;
+  position: initial;
   font-weight: bolder;
 }
 
@@ -71,7 +71,7 @@
   left:30%;
   top: 60%;
   float: inherit;
-  position: inherit;
+  position: initial;
   font-weight: bolder;
 }
 
@@ -98,7 +98,7 @@
   opacity:1;
   color: hotpink;
   width: 760px;
-  position: inherit;
+  position: initial;
   right: 260px;
   top: 52%
 }
@@ -108,7 +108,7 @@
   opacity:1;
   color: hotpink;
   width: 760px;
-  position: inherit;
+  position: initial;
   right: 260px;
   top: 80%
 }

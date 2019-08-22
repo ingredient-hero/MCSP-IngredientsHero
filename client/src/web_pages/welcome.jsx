@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
     }
     onSignUpSubmitClick(e){
         e.preventDefault();
-        this.props.grantUserAccess();
+        // this.props.grantUserAccess();
         axios.post('/mysignup',{
             name: this.props.name,
             userName: this.props.userName,
