@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Logo from './logo.jsx';
-import SignUp from './Welcome_Components/signUp.jsx'
+import SignUp from './Welcome_Components/signup.jsx'
 import LoginModal from './Welcome_Components/login.jsx'
 
 export default class Welcome extends React.Component {
@@ -11,6 +11,7 @@ export default class Welcome extends React.Component {
     }
     onSignUpSubmitClick(e){
         e.preventDefault();
+        this.props.grantUserAccess();
         axios.post('/mysignup',{
             name: this.props.name,
             userName: this.props.userName,
