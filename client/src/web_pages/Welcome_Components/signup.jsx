@@ -15,7 +15,7 @@ const SignUp = (props) => {
 
                 </form> 
                 <div className='SignUpButtons'>
-                <button onClick={props.onSignupSubmitClick} className='Submit'> Submit</button>
+                <button onClick={() => {props.onSignupSubmitClick; props.grantUserAccess}} className='Submit'> Submit</button>
                 <button className='Cancel'> Cancel</button>
                 </div>
             </div>
