@@ -26,30 +26,30 @@ con.connect(function (err) {
 //     });
 // };
 
-const userInfo = (data, callback) => {
-    const queryString = `SELECT ${Users.Username}, ${Foods.Item}, ${EXP.Expiration_Date}
-    FROM Users, EXP
-    JOIN Foods 
-    ON ${Foods.Item} = ${Foods.Item}
-    WHERE ${Users.Username} = ${Users.Username}`;
-    con.query(queryString, querString2, (err, data) => {
-        if (err) {
-            console.log(err, "Error getting userInfo in database");
-        };
-        callback(null, data);
-    });
-};
-
-// const signUp = (data, callback) => {
-//     const queryString = `INSERT INTO Users (Name, Username, Passwords, email) 
-//     VALUE (${Users.Name}, ${Users.Username}, ${Users.Passwords}, ${Users.Email})`;
-//     con.query(queryString, (err, data) => {
+// const userInfo = (data, callback) => {
+//     const queryString = `SELECT ${Users.Username}, ${Foods.Item}, ${EXP.Expiration_Date}
+//     FROM Users, EXP
+//     JOIN Foods 
+//     ON ${Foods.Item} = ${Foods.Item}
+//     WHERE ${Users.Username} = ${Users.Username}`;
+//     con.query(queryString, querString2, (err, data) => {
 //         if (err) {
-//             console.log(err, "Error getting signUp in database");
+//             console.log(err, "Error getting userInfo in database");
 //         };
 //         callback(null, data);
 //     });
 // };
+
+const signUp = (data, callback) => {
+    const queryString = `INSERT INTO Users (Name, Username, Passwords, email) 
+    VALUE (${Users.Name}, ${Users.Username}, ${Users.Passwords}, ${Users.Email})`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error getting signUp in database");
+        };
+        callback(null, data);
+    });
+};
 
 // const existingUser = (data, callback) => {
 //     const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
