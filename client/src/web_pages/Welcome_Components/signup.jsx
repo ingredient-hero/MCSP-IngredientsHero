@@ -20,8 +20,8 @@ const SignUp = (props) => {
         )
     }else{
         return(
-            <>
-            </>
+            <div>
+            </div>
         )
     }
 }
