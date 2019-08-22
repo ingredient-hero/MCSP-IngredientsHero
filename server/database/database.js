@@ -40,27 +40,27 @@ con.connect(function (err) {
 //     });
 // };
 
-const signUp = (data, callback) => {
-    const queryString = `INSERT INTO Users (Name, Username, Passwords, email) 
-    VALUE (${Users.Name}, ${Users.Username}, ${Users.Passwords}, ${Users.Email})`;
-    con.query(queryString, (err, data) => {
-        if (err) {
-            console.log(err, "Error getting signUp in database");
-        };
-        callback(null, data);
-    });
-};
-
-// const existingUser = (data, callback) => {
-//     const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
-//     FROM Users`;
+// const signUp = (data, callback) => {
+//     const queryString = `INSERT INTO Users (Name, Username, Passwords, email) 
+//     VALUE (${Users.Name}, ${Users.Username}, ${Users.Passwords}, ${Users.Email})`;
 //     con.query(queryString, (err, data) => {
 //         if (err) {
-//             console.log(err, "Error getting existing User in database");
+//             console.log(err, "Error getting signUp in database");
 //         };
 //         callback(null, data);
 //     });
 // };
+
+const existingUser = (data, callback) => {
+    const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
+    FROM Users`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error getting existing User in database");
+        };
+        callback(null, data);
+    });
+};
 
 // const newUserName = (data, callback) => {
 //     const queryString = `INSERT INTO Users (Username) VALUE (${Users.Username})`;
