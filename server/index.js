@@ -13,10 +13,6 @@ app.use(express.static('../client/public'));
 //   next();
 // });
 
-app.get('/', (req, res) => {
-  res.send('HELLO!')
-});
-
 app.get('/mylogin', (req, res) => {
   console.log(req.body) //This should be an object with the username and password
 
