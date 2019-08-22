@@ -3,9 +3,6 @@ import axios from 'axios';
 import Logo from './logo.jsx';
 import SignUp from './Welcome_Components/signup.jsx';
 import LoginModal from './Welcome_Components/login.jsx';
-import About from './Welcome_Components/about.jsx';
-import HowTo from './Welcome_Components/howTo.jsx';
-
 export default class Welcome extends React.Component {
     constructor(props) {
       super(props);
@@ -58,15 +55,12 @@ export default class Welcome extends React.Component {
                 
                 <Logo/>
 
-                <h1 className='yolo1'> Welcome to Ingredient Hero!</h1>
-                <div>
-                    <h2>About Ingredient Hero</h2>
-                    <About />
-                </div>
-                <h3 className='yolo2' >How to Use</h3>
-                <div>
-                    <HowTo />
-                </div>
+                <h1 className='yolo1' > Welcome to Ingredient Hero!</h1>
+                <p className='p1'> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
+                <h2 className='yolo2'>How to Use</h2>
+                <p className='p2'> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
+                    
+                
             </div>
         );
     }

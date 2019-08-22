@@ -95,20 +95,20 @@
 
 .p1{
   font-weight: bolder;
-  /* opacity:1; */
+  opacity:1;
   color: hotpink;
   width: 760px;
-  /* position: inherit; */
-  /* right: 260px; */
-  /* top: 52% */
+  position: inherit;
+  right: 260px;
+  top: 52%
 }
 
 .p2{
   font-weight: bolder;
-  /* opacity:1; */
+  opacity:1;
   color: hotpink;
-  /* width: 760px; */
-  /* position: inherit; */
-  /* right: 260px; */
-  /* top: 80% */
+  width: 760px;
+  position: inherit;
+  right: 260px;
+  top: 80%
 }
