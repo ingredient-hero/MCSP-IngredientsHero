@@ -7,18 +7,18 @@ const path = require('path');
 
 
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 //app.use(express.static('../client/public'));
 
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
 
-app.use('../client/public', express.static(path.resolve(__dirname, 'public')));
+app.use('/', express.static(path.resolve('../client/public')));
 
-app.get("/", function(req,res) {
-  res.sendFile(__dirname + '../client/public/index.html')
-});
+// app.get("/", function(req,res) {
+//   res.sendFile(__dirname + '../client/public/index.html')
+// });
 
 
 // app.use( '../client/public', (res, next) => {
