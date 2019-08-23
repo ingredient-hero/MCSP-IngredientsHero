@@ -1,8 +1,8 @@
-
 // const createError = require('http-errors');
 // const logger = require('morgan');
 // const express = require('express');
 // const app = express();
+//const db = require('./database/database')
 
 // //open up CORS 
 // app.use(('../client/public', res, next) => {
@@ -32,5 +32,8 @@
 //     res.status(err.status || 500);
 //     res.render('error');
 // });
+
+
+
 
 // module.exports = app;

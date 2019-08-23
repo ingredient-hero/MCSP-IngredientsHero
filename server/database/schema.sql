@@ -4,26 +4,25 @@ CREATE DATABASE Ingredients;
 
 USE Ingredients;
 
-CREATE TABLE Users (
-  ID INT NOT NULL AUTO_INCREMENT,
-  Name_ varchar (50) NOT NULL,
-  userName varchar (50) NOT NULL UNIQUE,
-  password_ varchar(50) NOT NULL,
-  email varchar (50) NOT NULL,
-  PRIMARY KEY (ID)
+
+
+CREATE TABLE `Users` (
+  `UserID` INT not null Auto_Increment,
+  `Name` varchar (50),
+  `Username` varchar (50) UNIQUE,
+  `Password` varchar(50),
+  `Email` varchar (50),
+  PRIMARY KEY (`UserID`)
 );
 
 CREATE TABLE Foods (
-  ID INT NOT NULL AUTO_INCREMENT,
-  Item varchar (50) NOT NULL,
-  PRIMARY KEY (ID)
+  `FoodsID` INT not null Auto_Increment,
+  `Item` varchar (50),
+  PRIMARY KEY (`FoodsID`)
 );
 
-CREATE TABLE Expiration (
-  ID INT NOT NULL AUTO_INCREMENT,
-  expiration DATE NOT NULL
-  PRIMARY KEY (ID)
+CREATE TABLE EXP (
+  `ExpID` INT  not null Auto_Increment,
+  `Expiration_Date` DATE,
+   PRIMARY KEY (`ExpID`)
 );
-
-SELECT Users.ID, Foods.Item FROM Users JOIN Foods ON Users.ID = Foods.Item;
-SELECT Foods.Item, Expiration.Expiration_Date FROM Foods JOIN Expiration ON Foods.Item = Expiration.Expiration_Date;
