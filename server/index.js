@@ -4,7 +4,7 @@ const app = express();
 const db = require('./database/database.js')
 
 //app.use(express.static(path.join(__dirname + './client/public')));
-app.get('/client/public', function(req,res) {
+app.get('../client/public', function(req,res) {
   res.send();
 })
 //app.use(bodyParser.json());
