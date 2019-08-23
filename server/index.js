@@ -3,17 +3,18 @@ const express = require('express');
 const app = express();
 const db = require('./database/database.js')
 
-//app.use(express.static(path.join(__dirname + './client/public')));
+app.use(express.static('../client/public'));
+
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
 //app.use(bodyParser.json());
 
-app.use( '../client/public', (res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use( '../client/public', (res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 app.get('/mylogin', (req, res) => {
   console.log(req.body) //This should be an object with the username and password
