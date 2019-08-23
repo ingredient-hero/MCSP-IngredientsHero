@@ -13,7 +13,7 @@ export default class Pantry extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
-            userPantry: {}, //this will be an object that contains the users pantry information 
+            userPantry: [], //this will be an object that contains the users pantry information 
             addToButtonClicked: false,
             item_name: this.props.item_name,
             expiration: this.props.expiration,
@@ -86,7 +86,7 @@ export default class Pantry extends React.Component {
                     {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                     to get the items to render within here. */}
                     {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
-                    {/* <ListedItems/> */}
+                    <ListedItems userPantry={this.state.userPantry}/>
                 </div> 
     
             )
