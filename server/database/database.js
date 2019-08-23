@@ -29,8 +29,8 @@ const addNewUser = (newUser, callback) => {
         callback(null, data);
     })
 };
-//addFoodToPantry will 
-const addFoodToPantry = (newItem, call) => {
+//addFoodToPantry will add an item to the pantry
+const addFoodToPantry = (newItem, callback) => {
     let queryString = `INSERT into Foods ('${newItem.item_name})`
 
     con.query(queryString, (err, data) => {
@@ -41,7 +41,34 @@ const addFoodToPantry = (newItem, call) => {
     })
 };
 
-module.exports = {con, addNewUser,addFoodToPantry }
+//addExpirationDate will add an expiration date to a food item
+const addExpirationDate = (newDate, callback) => {
+    let queryString = `INSERT into EXP ('${newDate.expiration}')`
+
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log('>>> could not add expiration to food item', err);
+        }
+        callback(null, data);
+    })
+};
+
+
+//removePantryItem will remove the item posted in your inventory
+const removePantryItem = (removeItem, callback) => {
+    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem}`;
+
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log('>>> could not delete the food item', err)
+        }
+        callback(null, data);
+    })
+};
+
+
+
+module.exports = {con, addNewUser,addFoodToPantry, addExpirationDate, removePantryItem,}
 
 
 // const userLogin = (data, callback) => {
@@ -60,7 +87,7 @@ module.exports = {con, addNewUser,addFoodToPantry }
 //     JOIN Foods 
 //     ON ${Foods.Item} = ${Foods.Item}
 //     WHERE ${Users.Username} = ${Users.Username}`;
-//     con.query(queryString, querString2, (err, data) => {
+//     con.query(queryString, , (err, data) => {
 //         if (err) {
 //             console.log(err, "Error getting userInfo in database");
 //         };
