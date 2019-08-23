@@ -5,12 +5,12 @@ export default class LoginModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-        isOpen: false, 
+        // isOpen: false, 
         userName: props.userName,
         password: props.password
     };
     // this.componentDidMount = this.componentDidMount.bind(this)
-    this.toggleModal=this.toggleModal.bind(this)
+    // this.toggleModal=this.toggleModal.bind(this)
   }
 
 //   componentDidMount(){
@@ -25,21 +25,21 @@ export default class LoginModal extends React.Component {
 //     axios
 //   } 
   
-  toggleModal () {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  // toggleModal () {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // }
 
   render() {
     return (
       <div className="Login">
-        <button onClick={this.toggleModal} style={{marginLeft: "1300px"}}>
+        <button onClick={this.props.toggleModal} style={{marginLeft: "1300px"}}>
           Login
         </button>
 
-        <Modal show={this.state.isOpen}
-          onClose={this.toggleModal}>
+        <Modal show={this.props.isOpen}
+          onClose={this.props.toggleModal}>
           Login Page
           <form> 
              Username <input name='userName' value={this.props.userName} type='text'  onChange={this.props.onChangeLogin}/><br></br>

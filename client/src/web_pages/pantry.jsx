@@ -65,7 +65,7 @@ export default class Pantry extends React.Component {
             return (
                 <div> 
                     <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
-                    addButtonClicked={this.addButtonClicked}/>
+                    addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
                     {/* Once everything is completed below with pantry, recipes, etc, it can be pasted here
                     to build the modal appearance as a quick work around for the conditional rendering.
                     Or, a better work around, if it works will be to place the ItemsForm below, no
@@ -79,7 +79,7 @@ export default class Pantry extends React.Component {
                 <div>
                     {/* later, the title can include the users name once the database is set up */}
                     <title>Pantry</title> 
-                    <NotificationModal />
+                    <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
                     <Logo />
                     {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
                     <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
