@@ -9,28 +9,24 @@ export default class NotificationModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = { 
-          isOpen: false, 
+           
       };
      
-      this.toggleModal=this.toggleModal.bind(this)
+      
     }
   
-    toggleModal () {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    }
+    
   
     render() {
          let currentDate = new Date()
       return (
         <div className="ExpiredFood">
-          <button onClick={this.toggleModal} style={{marginLeft: "1300px"}}>
+          <button onClick={this.props.toggleModal} style={{marginLeft: "1300px"}}>
             Notification
           </button>
   
-          <Modal show={this.state.isOpen}
-            onClose={this.toggleModal}>
+          <Modal show={!this.props.isOpen}
+            onClose={this.props.toggleModal}>
             <h1>Food Is About to Expire</h1>
             <form> 
             {testingData.map((item, index) => {

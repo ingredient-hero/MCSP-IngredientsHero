@@ -51,7 +51,7 @@ export default class Welcome extends React.Component {
                 SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}/>
                 
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
-                grantUserAccess={this.props.grantUserAccess}/>
+                grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
                 
                 <Logo/>
 
