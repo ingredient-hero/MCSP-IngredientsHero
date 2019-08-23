@@ -1,14 +1,16 @@
 const dotenv = require('dotenv').config({path: ('../.env')});
 const express = require('express');
 const app = express();
-const db = require('./database/database.js')
+const db = require('./database/database.js');
+const bodyParser = require('body-parser');
 
+
+app.use(bodyParser.json());
 app.use(express.static('../client/public'));
 
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
-//app.use(bodyParser.json());
 
 // app.use( '../client/public', (res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
