@@ -5,7 +5,7 @@ const db = require('./database/database.js')
 
 //app.use(express.static(path.join(__dirname + './client/public')));
 app.get('/', function(req,res) {
-  res.send("THIS BETTER WORK FOR THE OF GOD")
+  app.use(express.static(path.join(__dirname + './client/public')));
 })
 //app.use(bodyParser.json());
 
