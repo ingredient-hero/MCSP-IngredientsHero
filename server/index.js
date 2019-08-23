@@ -3,14 +3,23 @@ const express = require('express');
 const app = express();
 const db = require('./database/database.js');
 const bodyParser = require('body-parser');
+const path = require('path');
+
 
 
 app.use(bodyParser.json());
-app.use(express.static('../client/public'));
+//app.use(express.static('../client/public'));
 
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
+
+app.use('../client/public', express.static(path.resolve(__dirname, 'public')));
+
+app.get("/", function(req,res) {
+  res.sendFile(__dirname + '../client/public/index.html')
+});
+
 
 // app.use( '../client/public', (res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
