@@ -9,8 +9,10 @@ const ItemsForm = (props) => {
                 Expiration Date:<input type='text' onChange={props.onChangeAddItem} className='expiration' name='expiration' />
             </form>
             <button onClick={() => {props.addButtonClicked(); props.onAddToPantry()}}>Add</button>
+            <button>Cancel</button>
         </div>
     )
 }
+
 
 export default ItemsForm;
