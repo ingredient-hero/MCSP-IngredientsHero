@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDom from'react-dom';
-import data from './dummy_data.js';
+// import data from './dummy_data.js';
 import Modal from '../Welcome_Components/modal.jsx';
+
+const testingData = [{item: 'milk', exp: '2019-08-24'}, {item: 'bread', exp: '2019-08-24'}, {item: 'pancake', exp: '2019-08-24'}, {item: 'beans', exp: '2019-08-24'}]
 
 export default class NotificationModal extends React.Component {
     constructor(props) {
@@ -31,14 +33,14 @@ export default class NotificationModal extends React.Component {
             onClose={this.toggleModal}>
             <h1>Food Is About to Expire</h1>
             <form> 
-            {data.data.map((user) => {
-                console.log(user)
-                console.log(new Date(user.expiration) <= currentDate-3,'compare')
-                if(user.name && new Date(user.expiration) >= currentDate - 3){
+            {testingData.map((item, index) => {
+                // console.log(user)
+                // console.log(new Date(user.expiration) <= currentDate-3,'compare')
+                if(item.item && new Date(item.exp) >= currentDate - 3){
                  return(
-                    <div>
-                           <li key={user.name}>{user.item} {user.expiration}</li>
-                        </div>
+                    <div key={index}>
+                      <li>{item.item} {item.exp}</li>
+                    </div>
                         
                     )
                 }
