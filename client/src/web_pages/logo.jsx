@@ -6,7 +6,7 @@ import React from 'react';
 
 const Logo = (props) => {
     return (
-        <img style={{ height: '150px', width: '8%' }} src="https://files.slack.com/files-pri/T1T555TL0-FMPHJS146/screen_shot_2019-08-22_at_2.29.05_pm.png"></img>
+        <img style={{ height: '150px', width: '150px' }} src="https://cdn.shopify.com/s/files/1/1061/1924/files/Ghost_Emoji.png?8026536574188759287"></img>
     )
 }
 
