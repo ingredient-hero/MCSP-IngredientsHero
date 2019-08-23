@@ -8,7 +8,7 @@ CREATE TABLE Users (
   ID INT,
   Name varchar (50),
   Username varchar (50) UNIQUE,
-  Passwords varchar(50),
+  Password varchar(50),
   Email varchar (50),
   PRIMARY KEY (ID)
 );
