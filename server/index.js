@@ -3,8 +3,10 @@ const express = require('express');
 const app = express();
 const db = require('./database/database.js')
 
-app.use(express.static(path.join(__dirname + './client/public')));
-
+//app.use(express.static(path.join(__dirname + './client/public')));
+app.get('/', function(req,res) {
+  res.send("THIS BETTER WORK FOR THE OF GOD")
+})
 //app.use(bodyParser.json());
 
 // app.use( '../client/public', (res, next) => {
