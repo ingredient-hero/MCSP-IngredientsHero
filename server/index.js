@@ -7,7 +7,7 @@ const path = require('path');
 
 
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //app.use(express.static('../client/public'));
 
 // app.get('../client/public', function(req,res) {
