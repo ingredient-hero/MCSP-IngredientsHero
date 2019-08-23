@@ -24,6 +24,7 @@ export default class App extends React.Component {
         hasClickedSignUp: false,
         userGrantedAccess: false
       };
+      
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);

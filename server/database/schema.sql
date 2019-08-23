@@ -6,10 +6,10 @@ USE Ingredients;
 
 CREATE TABLE Users (
   ID INT NOT NULL AUTO_INCREMENT,
-  Name varchar (50) NOT NULL,
-  Username varchar (50) NOT NULL UNIQUE,
-  Passwords varchar(50) NOT NULL,
-  Email varchar (50) NOT NULL,
+  Name_ varchar (50) NOT NULL,
+  userName varchar (50) NOT NULL UNIQUE,
+  password_ varchar(50) NOT NULL,
+  email varchar (50) NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -21,12 +21,8 @@ CREATE TABLE Foods (
 
 CREATE TABLE Expiration (
   ID INT NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
-  Expiration_Date DATE NOT NULL
-=======
   expiration DATE NOT NULL
   PRIMARY KEY (ID)
->>>>>>> origin/master
 );
 
 SELECT Users.ID, Foods.Item FROM Users JOIN Foods ON Users.ID = Foods.Item;
