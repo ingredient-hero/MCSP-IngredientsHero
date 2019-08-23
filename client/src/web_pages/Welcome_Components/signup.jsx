@@ -6,7 +6,7 @@ const SignUp = (props) => {
         
         return(
             <div className="SignUp">
-                <form id='infos' action=''>
+                <form className='infos' action=''>
                 Sign-Up <br/>
                 Name:<input onChange={props.change} className='name' type='text' name='name'/>
                 Username:<input onChange={props.change} className='userName' type='text' name='userName' /><br/>
@@ -14,8 +14,10 @@ const SignUp = (props) => {
                 Email:<input onChange={props.change} className='email' type='text' name='email' />
 
                 </form> 
-                <button onClick={props.onSignupSubmitClick} className='Submit'> Submit</button>
+                <div className='SignUpButtons'>
+                <button onClick={() => {props.onSignupSubmitClick; props.grantUserAccess}} className='Submit'> Submit</button>
                 <button className='Cancel'> Cancel</button>
+                </div>
             </div>
         )
     }else{
