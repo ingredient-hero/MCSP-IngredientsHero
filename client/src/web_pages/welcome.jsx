@@ -9,14 +9,14 @@ export default class Welcome extends React.Component {
 
     }
     onSignUpSubmitClick(e){
-        e.preventDefault();
-        // this.props.grantUserAccess();
-        axios.post('/mysignup',{
-            name: this.props.name,
-            userName: this.props.userName,
-            password: this.props.password,
-            email: this.props.email
-        })
+        // e.preventDefault();
+        // this.props.grantUserAccess;
+        // axios.post('/mysignup',{
+        //     name: this.props.name,
+        //     userName: this.props.userName,
+        //     password: this.props.password,
+        //     email: this.props.email
+        // })
         // .then((res)=>{
         // }
         // )
@@ -45,13 +45,13 @@ export default class Welcome extends React.Component {
                      Sign-Up
                 </button>
                 {/* <img className='backgroundImage' ></img> */}
-                <SignUp onSignupSubmitClick={this.props.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
+                <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
                 change={this.props.onChangeLogin} onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
                 SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}/>
                 
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
-                grantUserAccess={this.props.grantUserAccess}/>
+                grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
                 
                 <Logo/>
 

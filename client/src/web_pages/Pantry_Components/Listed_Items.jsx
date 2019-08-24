@@ -1,42 +1,20 @@
 import React from 'react';
-import Axios from 'axios';
+import FoodItem from './foodItem.jsx';
 
-export default class ListedItems extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          item: []
-      };
-  };
-
-  // componentDidMount(){
-  //     let foods = [];
-  //     Axios.get('/Foods')
-  //       .then((response) => {
-  //         response.data.map(function(element, index){
-  //             let items = [];
-  //             items.push(element.Item);
-  //             foods.push(items);
-  //         })
-  //       })
-  // };
-
-  render () {
+const ListedItems = (props) => {
+  const item = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     return (
         <div>
-            <h1>Pantry</h1>
-            {this.state.item.map(function(element, index){
-                if (index < this.state.item.length){
-                  return <div>
-                  <ul>
-                    <li>{element[0]}</li>
-                    <li>{element[1]}</li>
-                  </ul>
-                </div>
-                }
+            <h1>Perishable Items</h1>
+            {item.map( (element, index) => {
+                return (
+                  <FoodItem key={index} item={element}/>
+                )
               }
             )}
         </div>
     )
-  }
 }
+
+
+export default ListedItems;
