@@ -17,6 +17,7 @@ con.connect(function (err) {
 });
 
 
+
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
     let queryString =  `INSERT into USER (Name, Username, Password, Email) VALUES 
@@ -31,11 +32,19 @@ const addNewUser = (newUser, callback) => {
 };
 
 //accessUser will retrieve both the Username and the Password from the User Table
-const accessUser = (accessProfile, callback) => {
-    let queryString = `SELECT (Username, Password) FROM Users WHERE UserId.Username=${accessProfile.userName}, UserId.Password=${accessProfile.password}' }`
+const accessUser = (profile, callback) => {
+    let queryString = `SELECT (Username, Password) 
+    FROM Users WHERE Username=${profile.userName}, Password=${profile.password}'}`
+
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log('>>> could not find user', err);
+        }
+        callback(null, data);
+    })
 }
 
-//removeUser
+//removeUser deletes 
 const removeUser = (deleteProfile, callback) => {
     let queryString = `DELETE FROM Users WHERE UsersID=${deleteProfile}`
 
@@ -49,6 +58,8 @@ const removeUser = (deleteProfile, callback) => {
 
 
 //addFoodToPantry will add an item to the pantry
+
+//needs to access user
 const addFoodToPantry = (newItem, callback) => {
     let queryString = `INSERT into Foods ('${newItem.item_name})`
 
@@ -61,6 +72,8 @@ const addFoodToPantry = (newItem, callback) => {
 };
 
 //addExpirationDate will add an expiration date to a food item
+
+//needs to access user
 const addExpirationDate = (newDate, callback) => {
     let queryString = `INSERT into EXP ('${newDate.expiration}')`
 
@@ -71,6 +84,22 @@ const addExpirationDate = (newDate, callback) => {
         callback(null, data);
     })
 };
+
+
+//userData will show an existing user's info and pantry items
+const userData = (info, callback) => {
+    let queryString = `SELECT (Users.Name=${info.name}, Foods.Item=${info.item_name}, EXP.Expiration_Date=${info.expiration}) 
+    FROM Users, Foods, EXP`
+
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log(`>>> could not the user's info`, err)
+        }
+        callback(null, data);
+    })
+};
+
+
 
 
 //removePantryItem will remove the item posted in your inventory
@@ -89,7 +118,7 @@ const removePantryItem = (removeItem, callback) => {
 
 
 
-module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, addExpirationDate, removePantryItem,}
+module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, addExpirationDate, userData, removePantryItem,}
 
 
 // const userLogin = (data, callback) => {

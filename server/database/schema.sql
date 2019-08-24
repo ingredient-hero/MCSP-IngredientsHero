@@ -9,7 +9,7 @@ USE Ingredients;
 CREATE TABLE `Users` (
   `UserID` INT not null Auto_Increment,
   `Name` varchar (50),
-  `Username` varchar (50) UNIQUE,
+  `Username` varchar (50),
   `Password` varchar(50),
   `Email` varchar (50),
   PRIMARY KEY (`UserID`)
