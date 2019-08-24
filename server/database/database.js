@@ -29,6 +29,25 @@ const addNewUser = (newUser, callback) => {
         callback(null, data);
     })
 };
+
+//accessUser will retrieve both the Username and the Password from the User Table
+const accessUser = (accessProfile, callback) => {
+    let queryString = `SELECT (Username, Password) FROM Users WHERE UserId.Username=${accessProfile.userName}, UserId.Password=${accessProfile.password}' }`
+}
+
+//removeUser
+const removeUser = (deleteProfile, callback) => {
+    let queryString = `DELETE FROM Users WHERE UsersID=${deleteProfile}`
+
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log('>>> could not delete profile from Users')
+        }
+        callback(null, data);
+    })
+};
+
+
 //addFoodToPantry will add an item to the pantry
 const addFoodToPantry = (newItem, callback) => {
     let queryString = `INSERT into Foods ('${newItem.item_name})`
@@ -68,7 +87,9 @@ const removePantryItem = (removeItem, callback) => {
 
 
 
-module.exports = {con, addNewUser,addFoodToPantry, addExpirationDate, removePantryItem,}
+
+
+module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, addExpirationDate, removePantryItem,}
 
 
 // const userLogin = (data, callback) => {
