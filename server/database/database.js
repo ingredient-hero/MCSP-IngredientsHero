@@ -17,18 +17,77 @@ con.connect(function (err) {
 });
 
 const userLogin = (data, callback) => {
-    const queryString = "SELECT userName, password_ FROM Users";
+    const queryString = `SELECT ${Users.Username}, ${Users.Password} FROM Users`;
     con.query(queryString, (err, data) => {
         if (err) {
-            console.log(err, "Error getting userName and password");
+            console.log(err, "Error getting Username and Password in database");
         };
         callback(null, data);
     });
 };
 
+const userInfo = (data, callback) => {
+    const queryString = `SELECT ${Users.Username}, ${Foods.Item}, ${EXP.Expiration_Date}
+    FROM Users, EXP
+    JOIN Foods 
+    ON ${Foods.Item} = ${Foods.Item}
+    WHERE ${Users.Username} = ${Users.Username}`;
+    con.query(queryString, querString2, (err, data) => {
+        if (err) {
+            console.log(err, "Error getting userInfo in database");
+        };
+        callback(null, data);
+    });
+};
 
+const signUp = (data, callback) => {
+    const queryString = `INSERT INTO Users (${Users.Name}, ${Users.Username}, ${Users.Password}, ${Users.Email}) 
+    VALUE (${Users.Name}, ${Users.Username}, ${Users.Password}, ${Users.Email})`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error getting signUp in database");
+        };
+        callback(null, data);
+    });
+};
 
+const existingUser = (data, callback) => {
+    const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
+    FROM Users`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error getting existing User in database");
+        };
+        callback(null, data);
+    });
+};
 
+const newUserName = (data, callback) => {
+    const queryString = `INSERT INTO Users (${Users.Username}) VALUE (${Users.Username})`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error inserting new Username in database");
+        };
+    });
+};
 
+const addItem = (data, callback) => {
+    const queryString = `INSERT INTO Foods (${Foods.Item}) VALUE (${Foods.Item});
+      INSERT INTO EXP (${EXP.expiration}) VALUE (${EXP.expiration});`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error adding new Item in database");
+        };
+    });
+};
 
-module.exports = {con, userLogin};
+const removeItem = (data, callback) => {
+    const queryString = `DELETE FROM ${Foods.Item} WHERE ${Foods.Item} = ${Foods.Item}`;
+    con.query(queryString, (err, data) => {
+        if (err) {
+            console.log(err, "Error removing Item in database")
+        };
+    });
+};
+
+module.exports = {con, userLogin, userInfo, signUp, existingUser, newUserName, addItem, removeItem};
