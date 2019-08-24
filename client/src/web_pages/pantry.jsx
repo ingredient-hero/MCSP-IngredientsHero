@@ -5,7 +5,7 @@ import axios from 'axios';
 import ListedItems from './Pantry_Components/Listed_Items.jsx'
 import NotificationModal from './Pantry_Components/notificationModal.jsx';
 import RecipeBox from './Pantry_Components/recipeBox.jsx';
-// import ListedItems from './Pantry_Components/Listed_Items.jsx';
+import REACT_APP_API_KEY from '../../../api.js';
 
 // You may need to import more libraries or files, depending on what's required.
 
@@ -18,6 +18,7 @@ export default class Pantry extends React.Component {
             addToButtonClicked: false,
             item_name: this.props.item_name,
             expiration: this.props.expiration,
+            recipes: this.props.recipes,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
         this.addButtonClicked = this.addButtonClicked.bind(this);
@@ -60,6 +61,7 @@ export default class Pantry extends React.Component {
     // }
 
 
+
     render () {
         if (this.state.addToButtonClicked === true) {
             return (
@@ -87,7 +89,7 @@ export default class Pantry extends React.Component {
                     {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                     to get the items to render within here. */}
                     {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
-                    <RecipeBox />
+                    <RecipeBox recipes={this.state.recipes}/>
                     <ListedItems userPantry={this.state.userPantry}/>
                 </div> 
     
