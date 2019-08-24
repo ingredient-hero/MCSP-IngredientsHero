@@ -76,7 +76,7 @@
 }
 
 #Homepage{
-  background: url("https://www.thomaslargesinger.com/wp-content/uploads/2018/06/Bakery-Ingredients.jpg") no-repeat center center fixed;
+  /* background: url("https://www.thomaslargesinger.com/wp-content/uploads/2018/06/Bakery-Ingredients.jpg") no-repeat center center fixed; */
   content: '';
   /* background-blend-mode:  */
   z-index: -1;
@@ -86,7 +86,7 @@
   left: 0;
   right: 0;
   background-position: center center;
-  background-color: rgba(0,0,0,0.375);
+  background-color: rgba(161, 160, 160, 0.375);
   background-size: cover;
   background-attachment: fixed; 
   background-size: cover;
@@ -114,5 +114,15 @@
 }
 
 #recipe {
+  float: right;
+  width: 1250px;
+  padding: 50px;
+  margin: 20px;
+  
+}
+
+#foodImage {
+  width: 250px;
+  position: relative;
   
 }

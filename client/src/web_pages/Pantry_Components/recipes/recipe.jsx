@@ -4,8 +4,8 @@ import React from 'react';
 const Recipe = (props) => {
 
         return (
-            <div>
-                <img src={props.image}></img>
+            <div >
+                <img id='foodImage' src={props.image}></img>
                 <h2>{props.title}</h2>
                 <p>Cuisine: {props.cuisines}</p>
                 <p>Prep Time: {props.preparationMinutes}</p>
