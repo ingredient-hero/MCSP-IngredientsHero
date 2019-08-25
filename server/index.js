@@ -29,7 +29,21 @@ app.use('/', express.static(path.resolve('../client/public')));
 
 app.get('/mylogin', (req, res) => {
   console.log(req.body) //This should be an object with the username and password
-
+  db.userLogin((err, data) => {
+    if(err) {
+      console.log(err, "Error getting Login from Server");
+      res.end();
+    } else {
+      db.userInfo((err, data) => {
+        if (err) {
+          console.log(err, "Error getting User Info from Server");
+          res.end();
+        }
+        res.send(userInfo);
+      });
+    }; 
+  });
+  
   /* A function will need to be built in the database that will use a query string 
   that gains all of the user information that matches the username and password.
 
@@ -40,6 +54,13 @@ app.get('/mylogin', (req, res) => {
 
 app.post('/mysignup', (req, res) => {
   console.log(req.body) //This should be an object with a name, email, username, and password
+  db.signUp((err, data) => {
+    if (err) {
+      console.log(err, "Error getting sign up info from Server");
+      res.end();
+    };
+    res.send(signUp);
+  });
   
   /* A function will need to be built in the database that will use a query string 
   to create a new user with the information from the req.body. The server doesn't
