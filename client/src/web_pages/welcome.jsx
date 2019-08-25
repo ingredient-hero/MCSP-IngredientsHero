@@ -40,13 +40,15 @@ export default class Welcome extends React.Component {
         return(
            
                 <div id='Homepage'>
-                    <div className='pizza'></div>
-                <button style={{marginLeft: '1300px'}} disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                    <div className='HomepageButtons'>
+
+                <button disabled={false} type="button" onClick={this.props.onClickSignUp}>
                      Sign-Up
                 </button>
-                <button onClick={this.props.toggleModal} style={{marginLeft: "1300px"}}>
+                <button onClick={this.props.toggleModal}>
                     Login
                 </button>
+                    </div>
                 {/* <img className='backgroundImage' ></img> */}
                 <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
                 onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
