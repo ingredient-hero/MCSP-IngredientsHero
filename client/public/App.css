@@ -37,7 +37,7 @@
 .yolo1{
   font-size: 60px;
   color: blue;
-  right: 260px;
+  left: 0;
   top: 0;
   float: inherit;
   position: initial;
@@ -49,9 +49,9 @@
   color: blue;
   right: 260px;
   right:0;
-  top: 60%;
+  top: inherit;
   float: inherit;
-  position: initial;
+  position: inherit;
   font-weight: bolder;
 }
 
@@ -76,13 +76,15 @@
 
 .p1{
   font-weight: bolder;
-  opacity:1;
+  opacity: 1;
   font-size: larger;
   color: whitesmoke;
-  width: 760px;
-  position: initial;
+  width: 450px;
+  position: inherit;
   left: 0;
-  top: 52%
+  top: auto;
+  line-height:30px;
+  word-wrap: break-word;
 }
 
 .p2{
@@ -90,10 +92,12 @@
   opacity:1;
   font-size: larger;
   color: whitesmoke;
-  width: 760px;
-  position: initial;
+  width: 450px;
+  position: inherit;
   right: 0;
-  top: 80%
+  top: auto;
+  word-wrap: break-word;
+  line-height:30px;
 }
 
 #recipe {
