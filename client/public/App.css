@@ -118,13 +118,14 @@
 
 #recipe {
   float: right;
-  width: 1100px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: auto;
   padding: 50px;
   margin: 20px;
   background-color: beige;
   opacity: 0.8;
   position: sticky;
-  
 }
 
 #foodImage {
@@ -149,6 +150,7 @@
   background-attachment: fixed; 
   background-repeat: no-repeat;
   overflow: scroll;
+  display: flex;
   
 }
 
@@ -172,6 +174,16 @@
   text-align: -webkit-center;
 }
 
+
+#perishableList {
+  float: left;
+  width: 350px;
+  padding: 50px;
+  margin: 20px;
+  background-color: beige;
+  opacity: 0.8;
+  position: sticky;
+}
 
 
 

@@ -78,7 +78,6 @@ export default class Pantry extends React.Component {
                 {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
                 {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                 to get the items to render within here. */}
-                {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
                 <div>
                     <h1 id='suggestedTitle'>Suggested Recipes</h1>
                     <RecipeBox recipes={this.state.recipes}/>
