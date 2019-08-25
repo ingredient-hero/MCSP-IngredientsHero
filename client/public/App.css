@@ -78,6 +78,8 @@
 #Homepage{
   background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg") no-repeat center center fixed;
   content: '';
+  background-blend-mode: color-burn;
+  filter: drop-shadow(2px 4px 6px black);
   /* background-blend-mode:  */
   z-index: -1;
   position: absolute;
