@@ -76,7 +76,7 @@
 }
 
 #Homepage{
-  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg") no-repeat center center fixed;
+  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg") no-repeat center center fixed;
   content: '';
   background-blend-mode: color-burn;
   filter: drop-shadow(2px 4px 6px black);
@@ -170,3 +170,7 @@
   color: beige;
   text-align: -webkit-center;
 }
+
+
+
+/* Page before welcome page background url https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg */
