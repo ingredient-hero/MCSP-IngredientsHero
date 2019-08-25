@@ -8,19 +8,19 @@ USE Ingredients;
 
 CREATE TABLE `Users` (
   `UserID` INT not null Auto_Increment,
-  `Name` varchar (50),
-  `Username` varchar (50),
-  `Password` varchar(50),
-  `Email` varchar (50),
+  `name` varchar (50),
+  `userName` varchar (50),
+  `password` varchar(50),
+  `email` varchar (50),
   UNIQUE(Username),
   PRIMARY KEY (`UserID`)
 );
 
 CREATE TABLE Foods (
   `FoodsID` INT not null Auto_Increment,
-  `Item` varchar (50),
-  `Expiration_Date` DATE,
-  FOREIGN KEY (Users_Username) REFERENCES Users(Username) ON DELETE CASCADE,
+  `item_name` varchar (50),
+  `expiration` DATE,
+  FOREIGN KEY (Users_userName) REFERENCES Users(userName) ON DELETE CASCADE,
   PRIMARY KEY (`FoodsID`)
 );
 

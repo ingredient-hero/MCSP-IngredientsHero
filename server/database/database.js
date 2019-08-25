@@ -57,11 +57,13 @@ const removeUser = (deleteProfile, callback) => {
 };
 
 
-//addFoodToPantry will add an item to the pantry
+//addFoodToPantry will add an item to the pantry along with the food's expiration date
 
 //needs to access user
 const addFoodToPantry = (newItem, callback) => {
-    let queryString = `INSERT into Foods ('${newItem.item_name}, ${newItem.expiration})`
+    let queryString = `INSERT into Foods ('${newItem.item_name}, ${newItem.expiration})
+    SELECT ${newItem.userName} FROM User, Users_userName,
+    WHERE Users_userName=${newItem.Users_userName}`
 
     con.query(queryString, (err, data) => {
         if(err) {
@@ -71,19 +73,21 @@ const addFoodToPantry = (newItem, callback) => {
     })
 };
 
+
+
 //addExpirationDate will add an expiration date to a food item
 
 //needs to access user
-const addExpirationDate = (newDate, callback) => {
-    let queryString = `INSERT into EXP ('${newDate.expiration}')`
+// const addExpirationDate = (newDate, callback) => {
+//     let queryString = `INSERT into EXP ('${newDate.expiration}')`
 
-    con.query(queryString, (err, data) => {
-        if(err) {
-            console.log('>>> could not add expiration to food item', err);
-        }
-        callback(null, data);
-    })
-};
+//     con.query(queryString, (err, data) => {
+//         if(err) {
+//             console.log('>>> could not add expiration to food item', err);
+//         }
+//         callback(null, data);
+//     })
+// };
 
 
 //userData will show an existing user's info and pantry items
@@ -103,16 +107,16 @@ const userData = (info, callback) => {
 
 
 //removePantryItem will remove the item posted in your inventory
-// const removePantryItem = (removeItem, callback) => {
-//     let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem}`;
+const removePantryItem = (removeItem, callback) => {
+    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem}`;
 
-//     con.query(queryString, (err, data) => {
-//         if(err) {
-//             console.log('>>> could not delete the food item', err)
-//         }
-//         callback(null, data);
-//     })
-// };
+    con.query(queryString, (err, data) => {
+        if(err) {
+            console.log('>>> could not delete the food item', err)
+        }
+        callback(null, data);
+    })
+};
 
 
 

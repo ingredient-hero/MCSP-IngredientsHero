@@ -1,9 +1,9 @@
 import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
-import Pantry from './web_pages/pantry.jsx';
+//import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
-import REACT_APP_API_KEY from '../../api.js';
+//import REACT_APP_API_KEY from '../../api.js';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
