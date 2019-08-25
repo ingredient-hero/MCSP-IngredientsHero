@@ -9,8 +9,8 @@ const ListedItems = (props) => {
     return (
         <div id='perishableList'>
 
-            <h1>Perishable Items</h1>
-            <button id="pantryAdd" onClick={props.renderItemsForm}>Add To Pantry</button>
+            <h1 className='recipeInst'>Perishable Items</h1>
+            <button id="pantryAdd" onClick={props.renderItemsForm}>Add To Pantry</button> 
             {testingData.map( (element, index) => {
                 return (
                   <FoodItem key={index} item={element.item} exp={element.exp}/>

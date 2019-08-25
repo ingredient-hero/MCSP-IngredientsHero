@@ -181,7 +181,15 @@
   float: left;
 }
 
-.buttonRight {
+.foodItem {
+  float: left;
+}
+
+.footItems {
+  vertical-align: text-bottom;
+}
+
+#buttonRight {
   float: right;
 }
 
