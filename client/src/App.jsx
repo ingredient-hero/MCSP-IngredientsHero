@@ -3,7 +3,7 @@ import Welcome from './web_pages/welcome.jsx';
 // import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
-// import REACT_APP_API_KEY from '../../api.js';
+import REACT_APP_API_KEY from '../../api.js';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -27,6 +27,7 @@ export default class App extends React.Component {
         isOpen: false,
         recipes: {},
         hasClickedLogin: false,
+        hasClickedNotifications: false,
       };
       
         this.onChangeLogin = this.onChangeLogin.bind(this)
@@ -35,6 +36,7 @@ export default class App extends React.Component {
         this.grantUserAccess = this.grantUserAccess.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onChangeLogin.bind(this);
+        this.clickedNotifications = this.clickedNotifications.bind(this);
     }
 
 
@@ -57,7 +59,6 @@ export default class App extends React.Component {
       })
     }
 
-
     onChangeAddItem (event) {
       this.setState ({
           [event.target.name]: event.target.value
@@ -72,18 +73,22 @@ export default class App extends React.Component {
       this.setState({isOpen: !this.state.isOpen});
     }
 
+    clickedNotifications (e) {
+      this.setState({hasClickedNotifications: !this.state.hasClickedNotifications})
+    }
 
-  //   componentDidMount () {
-  //     axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
-  //     .then( res => {
-  //         this.setState({recipes: res.data});
-  //     })
-  //     .catch( err => {
-  //         if (err) {
-  //             console.error(err);
-  //         }
-  //     })
-  // }
+
+    // componentDidMount () {
+    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
+    //   .then( res => {
+    //       this.setState({recipes: res.data});
+    //   })
+    //   .catch( err => {
+    //       if (err) {
+    //           console.error(err);
+    //       }
+    //   })
+    // }
 
    render() {
       if (this.state.userGrantedAccess === false) {
@@ -99,7 +104,8 @@ export default class App extends React.Component {
         return ( 
             <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
-            toggleModal={this.toggleModal} recipes={this.state.recipes}/>
+            toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
+            hasClickedNotifications={this.state.hasClickedNotifications}/>
         );
       }
     }

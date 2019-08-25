@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+
 }
 
 .Login{
@@ -136,13 +137,12 @@
 
 #recipe {
   float: right;
-  width: 1100px;
-  padding: 50px;
+  width: 65%;
+  padding: 20px;
   margin: 20px;
   background-color: beige;
   opacity: 0.8;
   position: sticky;
-  
 }
 
 #foodImage {
@@ -167,6 +167,7 @@
   background-attachment: fixed; 
   background-repeat: no-repeat;
   overflow: scroll;
+  /* display: flex; */
   
 }
 
@@ -180,6 +181,23 @@
   float: left;
 }
 
+.foodItem {
+  float: left;
+}
+
+.footItems {
+  vertical-align: text-bottom;
+}
+
+#buttonRight {
+  float: right;
+}
+
+#pantryAdd {
+  float: right;
+  position: relative;
+}
+
 #recipeTitle {
   text-transform: uppercase;
   font-size: larger;
@@ -189,3 +207,18 @@
   color: beige;
   text-align: -webkit-center;
 }
+
+
+#perishableList {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  margin: 20px;
+  background-color: beige;
+  opacity: 0.8;
+  position: fixed;
+}
+
+
+
+/* Page before welcome page background url https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg */
