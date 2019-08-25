@@ -4,7 +4,7 @@ const FoodItem = (props) => {
     return (
         <div id='foodItem'>
             <p>Item: {props.item} Expirtion Date: {props.exp}
-            <button onClick={() => {console.log('Fuck it')}}>Remove</button>
+            <button className='buttonRight' onClick={() => {console.log('Fuck it')}}>Remove</button>
             </p> 
         </div>
     )

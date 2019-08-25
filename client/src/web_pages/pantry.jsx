@@ -74,7 +74,7 @@ export default class Pantry extends React.Component {
                 </button>
                 {/* <Logo /> */}
                 {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
-                <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
+                
                 {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
                 {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
                 to get the items to render within here. */}
@@ -82,7 +82,7 @@ export default class Pantry extends React.Component {
                     <h1 id='suggestedTitle'>Suggested Recipes</h1>
                     <RecipeBox recipes={this.state.recipes}/>
                 </div>
-                <ListedItems userPantry={this.state.userPantry}/>
+                <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
                 <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}
                 addToButtonClicked={this.state.addToButtonClicked} renderItemsForm={this.renderItemsForm}/>

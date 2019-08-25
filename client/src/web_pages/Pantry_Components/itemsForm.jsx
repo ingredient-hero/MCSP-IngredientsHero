@@ -4,9 +4,6 @@ const ItemsForm = (props) => {
     if (props.addToButtonClicked === true) {
         return (
             <div className="SignUp">
-            <button onClick={props.renderItemsForm} style={{marginLeft: "1300px"}}>
-            Add To Pantry
-              </button>
                 <form id='infos' action=''>
                     Item Name:<input type='text' onChange={props.onChangeAddItem} className='item_name' name='item_name' /><br/>
                     Expiration Date:<input type='text' onChange={props.onChangeAddItem} className='expiration' name='expiration' />
