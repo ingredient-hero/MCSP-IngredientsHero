@@ -67,7 +67,11 @@ export default class Pantry extends React.Component {
             <div id='pantry'>
                 {/* later, the title can include the users name once the database is set up */}
                 <title>Pantry</title> 
-                <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
+                <NotificationModal clickedNotifications={this.props.clickedNotifications} 
+                hasClickedNotifications={this.props.hasClickedNotifications}/>
+                <button onClick={this.props.clickedNotifications} style={{marginLeft: "1300px", borderRadius: "50%"}}>
+                Notifications
+                </button>
                 {/* <Logo /> */}
                 {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
                 <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
