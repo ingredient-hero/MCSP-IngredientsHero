@@ -29,7 +29,8 @@ export default class App extends React.Component {
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.grantUserAccess= this.grantUserAccess.bind(this);
-        this.toggleModal=this.toggleModal.bind(this)
+        this.toggleModal=this.toggleModal.bind(this);
+        this.onClickCancel = this.onClickCancel.bind(this);
     }
 
 
@@ -37,6 +38,12 @@ export default class App extends React.Component {
       
     this.setState({
       hasClickedSignUp: true
+    })
+  }
+
+  onClickCancel(e){
+    this.setState({
+      hasClickedSignUp: false
     })
   }
 
@@ -65,7 +72,7 @@ export default class App extends React.Component {
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
-          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
+          <Welcome onClickCancel={this.onClickCancel} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
           password={this.state.password} change={this.onChangeSignUp} 
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 

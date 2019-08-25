@@ -1,15 +1,3 @@
-.modal-content{
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgb(170, 170, 170);
-  width: 1000px;
-  height: 300px;
-  opacity: 0.95;
-}
-
 .SignUp{
   /* margin: auto; */
   width: 100%;
@@ -39,19 +27,6 @@
   opacity: 0.95;
   justify-content: center;
   /* position: inherit; */
-}
-
-.modal-footer{
-  margin: auto;
-  width: 54%;
-  padding: 0px;
-}
-
-.name{
-  margin: 14px;
-}
-.btn.btn-primary.bootbox-accept{
-  margin-left: 450px;
 }
 
 .yolo1{
@@ -112,3 +87,4 @@
   right: 260px;
   top: 80%
 }
+
