@@ -3,3 +3,4 @@ package-lock.json
 .DS_Store
 .env
 bundle.js
+dummy_data.js
