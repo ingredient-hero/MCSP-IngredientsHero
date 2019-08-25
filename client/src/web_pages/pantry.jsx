@@ -21,21 +21,21 @@ export default class Pantry extends React.Component {
             recipes: this.props.recipes,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
-        this.addButtonClicked = this.addButtonClicked.bind(this);
+        // this.addButtonClicked = this.addButtonClicked.bind(this);
         this.onAddToPantry = this.onAddToPantry.bind(this);
     }
 
     renderItemsForm (e) {
        this.setState({
-           addToButtonClicked: true,
+           addToButtonClicked: !this.state.addToButtonClicked,
        })
     }
 
-    addButtonClicked (e) {
-        this.setState({
-            addToButtonClicked: false,
-        })
-    }
+    // addButtonClicked (e) {
+    //     this.setState({
+    //         addToButtonClicked: false,
+    //     })
+    // }
 
     onAddToPantry () {
         const addItem = {
@@ -67,7 +67,7 @@ export default class Pantry extends React.Component {
             <div id='pantry'>
                 {/* later, the title can include the users name once the database is set up */}
                 <title>Pantry</title> 
-                {/* <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/> */}
+                <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
                 {/* <Logo /> */}
                 {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
                 <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
@@ -82,7 +82,7 @@ export default class Pantry extends React.Component {
                 <ListedItems userPantry={this.state.userPantry}/>
                 <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}
-                addItem={this.state.addToButtonClicked}/>
+                addToButtonClicked={this.state.addToButtonClicked} renderItemsForm={this.renderItemsForm}/>
             </div> 
         )
     }
