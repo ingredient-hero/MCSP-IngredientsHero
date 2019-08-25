@@ -36,7 +36,7 @@ export default class Modal extends React.Component {
 
           <div className="footer">
             <button onClick={this.props.onClose}>
-              Close
+              Cancel
             </button>
           </div>
         </div>
