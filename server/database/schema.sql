@@ -24,10 +24,4 @@ CREATE TABLE `Foods` (
   PRIMARY KEY (`FoodsID`)
 );
 
--- CREATE TABLE EXP (
---   `ExpID` INT  not null Auto_Increment,
---   `Expiration_Date` DATE,
---    PRIMARY KEY (`ExpID`)
--- );
-
 
