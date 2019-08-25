@@ -3,6 +3,7 @@ import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
+import REACT_APP_API_KEY from '../../api.js';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -24,43 +25,64 @@ export default class App extends React.Component {
         hasClickedSignUp: false,
         userGrantedAccess: false,
         isOpen: false,
+        recipes: {},
+        hasClickedLogin: false,
       };
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess= this.grantUserAccess.bind(this);
-        this.toggleModal=this.toggleModal.bind(this)
+        this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.onClickLogin = this.onChangeLogin.bind(this);
     }
 
 
     onClickSignUp(e){
       
-    this.setState({
-      hasClickedSignUp: true
-    })
-  }
+      this.setState({hasClickedSignUp: !this.state.hasClickedSignUp})
+    }
 
-  onChangeLogin(event){
-    // event.preventDefault()
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
+    onClickLogin(e){
+        
+      this.setState({
+        hasClickedLogin: true
+      })
+    }
+
+    onChangeLogin(event){
+      // event.preventDefault()
+      this.setState({
+        [event.target.name]: event.target.value,
+      })
+    }
 
 
-  onChangeAddItem (event) {
-    this.setState ({
-        [event.target.name]: event.target.value
-    })
-  }
+    onChangeAddItem (event) {
+      this.setState ({
+          [event.target.name]: event.target.value
+      })
+    }
 
-  grantUserAccess (event) {
-    this.setState({userGrantedAccess: true});
-  } 
- 
-  toggleModal () {
-    this.setState({isOpen: !this.state.isOpen});
-  }
+    grantUserAccess (event) {
+      this.setState({userGrantedAccess: true});
+    } 
+  
+    toggleModal () {
+      this.setState({isOpen: !this.state.isOpen});
+    }
+
+
+  //   componentDidMount () {
+  //     axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
+  //     .then( res => {
+  //         this.setState({recipes: res.data});
+  //     })
+  //     .catch( err => {
+  //         if (err) {
+  //             console.error(err);
+  //         }
+  //     })
+  // }
 
    render() {
       if (this.state.userGrantedAccess === false) {
@@ -76,7 +98,7 @@ export default class App extends React.Component {
         return ( 
             <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
-            toggleModal={this.toggleModal}/>
+            toggleModal={this.toggleModal} recipes={this.state.recipes}/>
         );
       }
     }
