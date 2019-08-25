@@ -118,14 +118,15 @@
   width: 1100px;
   padding: 50px;
   margin: 20px;
-  background-color: blanchedalmond;
+  background-color: beige;
   opacity: 0.8;
   position: sticky;
   
 }
 
 #foodImage {
-  width: 250px;
+  width: 315px;
+  height: 215px;
   /* position: relative; */
   margin-right:2%;
   float: left;
@@ -156,4 +157,14 @@
 
 .recipeInst {
   float: left;
+}
+
+#recipeTitle {
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+#suggestedTitle {
+  color: beige;
+  text-align: -webkit-center;
 }

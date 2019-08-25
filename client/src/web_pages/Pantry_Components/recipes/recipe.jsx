@@ -8,7 +8,7 @@ const Recipe = (props) => {
                 <div>
                     <img id='foodImage' src={props.image}></img>
                     <div id='recipeBasics'>
-                        <h2>{props.title}</h2>
+                        <h2 id='recipeTitle'>{props.title}</h2>
                         <p>Cuisine: {props.cuisines}</p>
                         <p>Prep Time: {props.preparationMinutes}</p>
                         <p>Cooking Time: {props.cookingMinutes}</p>
