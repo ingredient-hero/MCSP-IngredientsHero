@@ -26,43 +26,50 @@ export default class App extends React.Component {
         userGrantedAccess: false,
         isOpen: false,
         recipes: {},
+        hasClickedLogin: false,
       };
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess= this.grantUserAccess.bind(this);
-        this.toggleModal=this.toggleModal.bind(this)
+        this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.onClickLogin = this.onChangeLogin.bind(this);
     }
 
 
     onClickSignUp(e){
       
-    this.setState({
-      hasClickedSignUp: true
-    })
-  }
+      this.setState({hasClickedSignUp: !this.state.hasClickedSignUp})
+    }
 
-  onChangeLogin(event){
-    // event.preventDefault()
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
+    onClickLogin(e){
+        
+      this.setState({
+        hasClickedLogin: true
+      })
+    }
+
+    onChangeLogin(event){
+      // event.preventDefault()
+      this.setState({
+        [event.target.name]: event.target.value,
+      })
+    }
 
 
-  onChangeAddItem (event) {
-    this.setState ({
-        [event.target.name]: event.target.value
-    })
-  }
+    onChangeAddItem (event) {
+      this.setState ({
+          [event.target.name]: event.target.value
+      })
+    }
 
-  grantUserAccess (event) {
-    this.setState({userGrantedAccess: true});
-  } 
- 
-  toggleModal () {
-    this.setState({isOpen: !this.state.isOpen});
-  }
+    grantUserAccess (event) {
+      this.setState({userGrantedAccess: true});
+    } 
+  
+    toggleModal () {
+      this.setState({isOpen: !this.state.isOpen});
+    }
 
 
 //   componentDidMount () {
