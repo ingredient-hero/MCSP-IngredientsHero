@@ -1,13 +1,23 @@
-.modal-content{
-  display: block;
+
+.NotificationModal{
+  display: list-item;
   position: absolute;
   top: 50%;
   left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(170, 170, 170);
-  width: 1000px;
-  height: 300px;
-  opacity: 0.95;
+  background-color: rgb(0, 0, 0);
+  width: 750px;
+  height: 275px;
+  opacity: 0.85;
+  z-index: 9999;
+  text-align: center;
+}
+
+.HomepageButtons{
+  position: absolute;
+  right: 0;
+
 }
 
 .SignUp{
@@ -21,44 +31,66 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
+
+}
+
+.Login{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .infos{
   width: 500px;
-  height: 300px;
+  line-height: 27px;
+  height: 190px;
   background: rgb(255, 255, 255);
   border-radius: 4px;
   opacity: 0.95;
   text-align: center;
   padding: 20px;
-  position: absolute;
+  position: relative;
+}
+
+.LoginContent{
+  width: 500px;
+  line-height: 27px;
+  height: 190px;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  opacity: 0.95;
+  text-align: center;
+  padding: 20px;
+  position: relative;
 }
 
 .SignUpButtons{
   background: rgb(170, 170, 170);
   opacity: 0.95;
   justify-content: center;
-  /* position: inherit; */
+  position: inherit;
 }
 
-.modal-footer{
-  margin: auto;
-  width: 54%;
-  padding: 0px;
-}
-
-.name{
-  margin: 14px;
-}
-.btn.btn-primary.bootbox-accept{
-  margin-left: 450px;
+.LoginButtons{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: inherit;
 }
 
 .yolo1{
   font-size: 60px;
   color: blue;
-  right: 260px;
-  top: 30%;
+  left: 0;
+  top: 0;
   float: inherit;
   position: initial;
   font-weight: bolder;
@@ -68,17 +100,18 @@
   font-size: 60px;
   color: blue;
   right: 260px;
-  left:30%;
-  top: 60%;
+  right:0;
+  top: inherit;
   float: inherit;
-  position: initial;
+  position: inherit;
   font-weight: bolder;
 }
 
 #Homepage{
-  background: url("https://www.thomaslargesinger.com/wp-content/uploads/2018/06/Bakery-Ingredients.jpg") no-repeat center center fixed;
+  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg") no-repeat center center fixed;
   content: '';
-  /* background-blend-mode:  */
+  background-blend-mode: color-burn;
+  filter: drop-shadow(2px 4px 6px black);
   z-index: -1;
   position: absolute;
   top: 0;
@@ -86,7 +119,7 @@
   left: 0;
   right: 0;
   background-position: center center;
-  background-color: rgba(0,0,0,0.375);
+  background-color: rgba(138, 136, 136, 0.375);
   background-size: cover;
   background-attachment: fixed; 
   background-size: cover;
@@ -95,20 +128,114 @@
 
 .p1{
   font-weight: bolder;
-  opacity:1;
-  color: hotpink;
-  width: 760px;
-  position: initial;
-  right: 260px;
-  top: 52%
+  opacity: 1;
+  font-size: larger;
+  color: whitesmoke;
+  width: 450px;
+  position: inherit;
+  left: 0;
+  top: auto;
+  line-height:30px;
+  word-wrap: break-word;
 }
 
 .p2{
   font-weight: bolder;
   opacity:1;
-  color: hotpink;
-  width: 760px;
-  position: initial;
-  right: 260px;
-  top: 80%
+  font-size: larger;
+  color: whitesmoke;
+  width: 450px;
+  position: inherit;
+  right: 0;
+  top: auto;
+  word-wrap: break-word;
+  line-height:30px;
 }
+
+#recipe {
+  float: right;
+  width: 65%;
+  padding: 20px;
+  margin: 20px;
+  background-color: beige;
+  opacity: 0.8;
+  position: sticky;
+}
+
+#foodImage {
+  width: 315px;
+  height: 215px;
+  /* position: relative; */
+  margin-right:2%;
+  float: left;
+}
+
+#pantry {
+  background-image: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg");
+  content: '';
+  /* background-blend-mode:  */
+  /* z-index: -1; */
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  overflow: scroll;
+  /* display: flex; */
+  
+}
+
+
+#recipeBasics {
+  position: relative;
+  float: left;
+}
+
+.recipeInst {
+  float: left;
+}
+
+.foodItem {
+  float: left;
+}
+
+.footItems {
+  vertical-align: text-bottom;
+}
+
+#buttonRight {
+  float: right;
+}
+
+#pantryAdd {
+  float: right;
+  position: relative;
+}
+
+#recipeTitle {
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+#suggestedTitle {
+  color: beige;
+  text-align: -webkit-center;
+}
+
+
+#perishableList {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  margin: 20px;
+  background-color: beige;
+  opacity: 0.8;
+  position: fixed;
+}
+
+
+
+/* Page before welcome page background url https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg */
