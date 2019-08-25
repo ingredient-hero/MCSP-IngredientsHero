@@ -29,6 +29,7 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
+      
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);

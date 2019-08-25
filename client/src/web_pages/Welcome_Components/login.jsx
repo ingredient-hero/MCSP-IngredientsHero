@@ -15,13 +15,16 @@ export default class LoginModal extends React.Component {
   render() {
     if (this.props.isOpen === true) {
       return (
-        <div className="SignUp">
-          <form> 
+        <div className="Login">
+          <form className="LoginContent"> 
+            Login <br/>
             Username <input name='userName' value={this.props.userName} type='text'  onChange={this.props.onChangeLogin}/><br></br>
             Password <input name='password' value={this.props.password} type='text'  onChange={this.props.onChangeLogin}/>
           </form>
+          <div className="LoginButtons">
           <button onClick={this.props.grantUserAccess} > Login</button>
           <button onClick={this.props.toggleModal}>Cancel</button>
+          </div>
         </div>
       );
     } else {

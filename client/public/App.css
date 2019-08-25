@@ -15,24 +15,58 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+
+}
+
+.Login{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .infos{
   width: 500px;
-  height: 300px;
+  line-height: 27px;
+  height: 190px;
   background: rgb(255, 255, 255);
   border-radius: 4px;
   opacity: 0.95;
   text-align: center;
   padding: 20px;
-  position: absolute;
+  position: relative;
+}
+
+.LoginContent{
+  width: 500px;
+  line-height: 27px;
+  height: 190px;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  opacity: 0.95;
+  text-align: center;
+  padding: 20px;
+  position: relative;
 }
 
 .SignUpButtons{
   background: rgb(170, 170, 170);
   opacity: 0.95;
   justify-content: center;
-  /* position: inherit; */
+  position: inherit;
+}
+
+.LoginButtons{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: inherit;
 }
 
 .yolo1{
