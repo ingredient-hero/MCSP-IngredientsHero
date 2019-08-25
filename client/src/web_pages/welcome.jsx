@@ -40,19 +40,16 @@ export default class Welcome extends React.Component {
         return(
            
                 <div id='Homepage'>
-                    <div className='HomepageButtons'>
-                        
-                <button disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                    <div className='pizza'></div>
+                <button style={{marginLeft: '1300px'}} disabled={false} type="button" onClick={this.props.onClickSignUp}>
                      Sign-Up
                 </button>
-                <button onClick={this.props.toggleModal}>
+                <button onClick={this.props.toggleModal} style={{marginLeft: "1300px"}}>
                     Login
                 </button>
-                    </div>
                 {/* <img className='backgroundImage' ></img> */}
-                <SignUp onClickCancel={this.props.onClickCancel} onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
-                change={this.props.onChangeLogin} onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
-
+                <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
+                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
                 SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
                 />

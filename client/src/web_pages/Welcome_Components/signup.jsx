@@ -19,7 +19,7 @@ const SignUp = (props) => {
 
                 <button onClick={() => {props.onSignupSubmitClick(); props.grantUserAccess();}} className='Submit'> Submit</button>
 
-                <button onClick={props.onClickCancel} className='Cancel'> Cancel</button>
+                <button className='Cancel' onClick={props.onClickSignUp}> Cancel</button>
                 </div>
             </div>
         )

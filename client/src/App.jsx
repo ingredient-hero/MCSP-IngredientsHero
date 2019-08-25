@@ -31,9 +31,8 @@ export default class App extends React.Component {
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess= this.grantUserAccess.bind(this);
-        this.toggleModal=this.toggleModal.bind(this);
-        this.onClickCancel = this.onClickCancel.bind(this);
+        this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onChangeLogin.bind(this);
     }
 
@@ -57,20 +56,6 @@ export default class App extends React.Component {
       })
     }
 
-
-
-  onClickCancel(e){
-    this.setState({
-      hasClickedSignUp: false
-    })
-  }
-
-  onChangeLogin(event){
-    // event.preventDefault()
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
 
     onChangeAddItem (event) {
       this.setState ({
@@ -102,20 +87,19 @@ export default class App extends React.Component {
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
-          <Welcome onClickCancel={this.onClickCancel} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
+          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
           password={this.state.password} change={this.onChangeSignUp} 
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} 
           grantUserAccess={this.grantUserAccess} isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
         )
-      } 
-      // else {
-        // return ( 
-            // <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
-            // item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
-            // toggleModal={this.toggleModal} recipes={this.state.recipes}/>
-        // );
-      // }
+      } else {
+        return ( 
+            <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
+            toggleModal={this.toggleModal} recipes={this.state.recipes}/>
+        );
+      }
     }
   }
