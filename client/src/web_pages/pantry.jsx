@@ -78,11 +78,11 @@ export default class Pantry extends React.Component {
             )
         } else {
             return (
-                <div>
+                <div id='pantry'>
                     {/* later, the title can include the users name once the database is set up */}
                     <title>Pantry</title> 
                     <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
-                    <Logo />
+                    {/* <Logo /> */}
                     {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
                     <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
                     {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
