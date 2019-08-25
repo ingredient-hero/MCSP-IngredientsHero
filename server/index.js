@@ -39,7 +39,15 @@ app.get('/mylogin', (req, res) => {
     if (err) {
         res.end();
     }
-    res.send(data);
+    //call the db function that pulls info from the user
+    //now that data has grabbed the id, after passing info into the userData function on the db, 
+    //you should have access to the user and their food items/expiration
+    db.userData(data.id, (err, info) => {
+      if (err) {
+        res.end();
+      }
+      res.send(info)
+    })
   });
 });
 /**********************************************************************************/
@@ -63,7 +71,7 @@ database that will use a query string to add the item and expiration date to the
 users id. The server should only send a success message back to the client, but
 the item should reflect on the page for the user. */
 app.post('/addingtopantry', (req, res) => {
-    let pantryItem = req.body
+    let pantryItem = req.body.id
     db.addFoodToPantry(pantryItem, (err, data) => {
       if(err) {
         res.end();

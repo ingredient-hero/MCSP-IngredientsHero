@@ -16,11 +16,11 @@ CREATE TABLE `Users` (
   PRIMARY KEY (`UserID`)
 );
 
-CREATE TABLE Foods (
+CREATE TABLE `Foods` (
   `FoodsID` INT not null Auto_Increment,
   `item_name` varchar (50),
   `expiration` DATE,
-  FOREIGN KEY (Users_userName) REFERENCES Users(userName) ON DELETE CASCADE,
+  FOREIGN KEY (Users_UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
   PRIMARY KEY (`FoodsID`)
 );
 
