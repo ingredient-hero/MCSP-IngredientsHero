@@ -28,6 +28,7 @@ export default class App extends React.Component {
         recipes: {},
         hasClickedLogin: false,
       };
+      
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
