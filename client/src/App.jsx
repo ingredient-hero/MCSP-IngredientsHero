@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
-import Pantry from './web_pages/pantry.jsx';
+// import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
 import REACT_APP_API_KEY from '../../api.js';
@@ -29,6 +29,7 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
+      
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
@@ -77,17 +78,17 @@ export default class App extends React.Component {
     }
 
 
-  //   componentDidMount () {
-  //     axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
-  //     .then( res => {
-  //         this.setState({recipes: res.data});
-  //     })
-  //     .catch( err => {
-  //         if (err) {
-  //             console.error(err);
-  //         }
-  //     })
-  // }
+    // componentDidMount () {
+    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
+    //   .then( res => {
+    //       this.setState({recipes: res.data});
+    //   })
+    //   .catch( err => {
+    //       if (err) {
+    //           console.error(err);
+    //       }
+    //   })
+    // }
 
    render() {
       if (this.state.userGrantedAccess === false) {
