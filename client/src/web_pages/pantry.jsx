@@ -63,40 +63,28 @@ export default class Pantry extends React.Component {
 
 
     render () {
-        if (this.state.addToButtonClicked === true) {
-            return (
-                <div> 
-                    <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
-                    addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
-                    {/* Once everything is completed below with pantry, recipes, etc, it can be pasted here
-                    to build the modal appearance as a quick work around for the conditional rendering.
-                    Or, a better work around, if it works will be to place the ItemsForm below, no
-                    conditional rendering, but make the css completely transparent until the button is clicked, 
-                    and then the css switches. This can be done separately with conditionals that change the 
-                    class name on the click. */}
+        return (
+            <div id='pantry'>
+                {/* later, the title can include the users name once the database is set up */}
+                <title>Pantry</title> 
+                {/* <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/> */}
+                {/* <Logo /> */}
+                {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
+                <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
+                {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
+                {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
+                to get the items to render within here. */}
+                {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
+                <div>
+                    <h1 id='suggestedTitle'>Suggested Recipes</h1>
+                    <RecipeBox recipes={this.state.recipes}/>
                 </div>
-            )
-        } else {
-            return (
-                <div id='pantry'>
-                    {/* later, the title can include the users name once the database is set up */}
-                    <title>Pantry</title> 
-                    <NotificationModal isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}/>
-                    {/* <Logo /> */}
-                    {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
-                    <button id="pantryAdd" onClick={this.renderItemsForm}>Add To Pantry</button>
-                    {/* Here will be the recipes component. Props may need to be sent to find recipes based on ingredients.*/}
-                    {/* We will also have a list component with all of the ingredients. Items will be passed as a prop
-                    to get the items to render within here. */}
-                    {/* <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry}/> */}
-                    <div>
-                        <h1 id='suggestedTitle'>Suggested Recipes</h1>
-                        <RecipeBox recipes={this.state.recipes}/>
-                    </div>
-                    <ListedItems userPantry={this.state.userPantry}/>
-                </div> 
-    
-            )
-        }
+                <ListedItems userPantry={this.state.userPantry}/>
+                <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
+                addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}
+                addItem={this.state.addToButtonClicked}/>
+            </div> 
+        )
     }
+
 }
