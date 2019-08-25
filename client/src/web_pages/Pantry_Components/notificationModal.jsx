@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from'react-dom';
+import ReactDom from 'react-dom';
 // import data from './dummy_data.js';
 import Modal from '../Welcome_Components/modal.jsx';
 
@@ -21,7 +21,7 @@ export default class NotificationModal extends React.Component {
          let currentDate = new Date()
       return (
         <div className="ExpiredFood">
-          <button onClick={this.props.toggleModal} style={{marginLeft: "1300px"}}>
+          <button onClick={this.props.toggleModal} style={{marginLeft: "1300px", borderRadius: "50%"}}>
             Notification
           </button>
   

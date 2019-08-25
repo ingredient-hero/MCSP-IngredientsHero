@@ -6,7 +6,7 @@ import React from 'react';
 
 const Logo = (props) => {
     return (
-        <img style={{ height: '150px', width: '150px' }} src="https://files.slack.com/files-pri/T1T555TL0-FMBRQPK18/image_from_ios.jpg"></img>
+        <img style={{ height: '150px', width: '175px' }} src="https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS.jpg"></img>
     )
 }
 

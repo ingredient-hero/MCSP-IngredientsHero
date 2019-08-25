@@ -40,22 +40,29 @@ export default class Welcome extends React.Component {
         return(
            
                 <div id='Homepage'>
-                    <div className='pizza'></div>
-                <button style={{marginLeft: '1300px'}} disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                    <div className='HomepageButtons'>
+                        
+                <button disabled={false} type="button" onClick={this.props.onClickSignUp}>
                      Sign-Up
                 </button>
+                <button onClick={this.props.toggleModal}>
+                    Login
+                </button>
+                    </div>
                 {/* <img className='backgroundImage' ></img> */}
                 <SignUp onClickCancel={this.props.onClickCancel} onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
                 change={this.props.onChangeLogin} onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
+
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
-                SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}/>
+                SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
+                />
                 
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
                 grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
                 
-                <Logo/>
+                {/* <Logo/> */}
 
-                <h1 className='yolo1' > Welcome to Ingredient Hero!</h1>
+                <h1 className='yolo1' > Even Food Needs Saving</h1>
                 <p className='p1'> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
                 <h2 className='yolo2'>How to Use</h2>
                 <p className='p2'> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
