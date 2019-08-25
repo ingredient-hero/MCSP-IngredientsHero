@@ -1,13 +1,6 @@
-.modal-content{
-  display: block;
+.HomepageButtons{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgb(170, 170, 170);
-  width: 1000px;
-  height: 300px;
-  opacity: 0.95;
+  right: 0;
 }
 
 .SignUp{
@@ -42,24 +35,11 @@
   /* position: inherit; */
 }
 
-.modal-footer{
-  margin: auto;
-  width: 54%;
-  padding: 0px;
-}
-
-.name{
-  margin: 14px;
-}
-.btn.btn-primary.bootbox-accept{
-  margin-left: 450px;
-}
-
 .yolo1{
   font-size: 60px;
   color: blue;
-  right: 260px;
-  top: 30%;
+  left: 0;
+  top: 0;
   float: inherit;
   position: initial;
   font-weight: bolder;
@@ -69,10 +49,10 @@
   font-size: 60px;
   color: blue;
   right: 260px;
-  left:30%;
-  top: 60%;
+  right:0;
+  top: inherit;
   float: inherit;
-  position: initial;
+  position: inherit;
   font-weight: bolder;
 }
 
@@ -81,7 +61,6 @@
   content: '';
   background-blend-mode: color-burn;
   filter: drop-shadow(2px 4px 6px black);
-  /* background-blend-mode:  */
   z-index: -1;
   position: absolute;
   top: 0;
@@ -98,22 +77,28 @@
 
 .p1{
   font-weight: bolder;
-  opacity:1;
-  color: hotpink;
-  width: 760px;
-  position: initial;
-  right: 260px;
-  top: 52%
+  opacity: 1;
+  font-size: larger;
+  color: whitesmoke;
+  width: 450px;
+  position: inherit;
+  left: 0;
+  top: auto;
+  line-height:30px;
+  word-wrap: break-word;
 }
 
 .p2{
   font-weight: bolder;
   opacity:1;
-  color: hotpink;
-  width: 760px;
-  position: initial;
-  right: 260px;
-  top: 80%
+  font-size: larger;
+  color: whitesmoke;
+  width: 450px;
+  position: inherit;
+  right: 0;
+  top: auto;
+  word-wrap: break-word;
+  line-height:30px;
 }
 
 #recipe {
