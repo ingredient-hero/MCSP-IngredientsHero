@@ -59,8 +59,8 @@ export default class Welcome extends React.Component {
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
                 grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
                 
-                <h1 className='Title' >Welcome to Ingredient Hero!</h1>
-                {/* <Logo/> */}
+                {/* <h1 className='Title' >Welcome to Ingredient Hero!</h1> */}
+                <Logo/>
                 <h1 className='yolo1' > Even Food Needs Saving</h1>
                 <h1 className='yolo2'>How to Use</h1>
 
