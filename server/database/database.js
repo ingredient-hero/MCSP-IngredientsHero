@@ -41,8 +41,8 @@ const userInfo = (data, callback) => {
 };
 
 const signUp = (data, callback) => {
-    const queryString = `INSERT INTO Users (${data.Name}, ${data.Username}, ${data.Password}, ${data.Email}) 
-    VALUE (${data.Name}, ${data.Username}, ${data.Password}, ${data.Email})`;
+    const queryString = `INSERT INTO Users (${data.ID}, ${data.Name}, ${data.Username}, ${data.Password}, ${data.Email}) 
+    VALUE (${data.ID}, ${data.Name}, ${data.Username}, ${data.Password}, ${data.Email})`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error getting signUp in database");
@@ -68,16 +68,18 @@ const newUserName = (data, callback) => {
         if (err) {
             console.log(err, "Error inserting new Username in database");
         };
+        callback(null, data);
     });
 };
 
 const addItem = (data, callback) => {
-    const queryString = `INSERT INTO Foods (${data.Item}) VALUE (${data.Item});
-      INSERT INTO EXP (${data.expiration}) VALUE (${data.expiration});`;
+    const queryString = `INSERT INTO Foods (${data.Item}) VALUE (${data.Item})`;
+      `INSERT INTO EXP (${data.expiration}) VALUE (${data.expiration});`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error adding new Item in database");
         };
+        callback(null, data);
     });
 };
 
@@ -87,6 +89,7 @@ const removeItem = (data, callback) => {
         if (err) {
             console.log(err, "Error removing Item in database")
         };
+        callback(null, data);
     });
 };
 
