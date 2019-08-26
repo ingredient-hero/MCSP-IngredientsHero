@@ -9,6 +9,10 @@
   }
 }
 
+*:text {
+  font-family: sans-serif;
+}
+
 .Title{
   font-size: 80px;
   text-align: center;
@@ -156,6 +160,31 @@
   color: white;
 }
 
+#infos{
+  width: 500px;
+  background-image: url('https://image.shutterstock.com/image-photo/italian-food-ingredients-vegetables-olive-260nw-522608407.jpg');
+  content:'';
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  line-height: 27px;
+  height: 190px;
+  /* background: rgb(255, 255, 255); */
+  border-radius: 4px;
+  opacity: 0.95;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  color: white;
+}
+
+.pantryButtons {
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: inherit;
+}
+
 .SignUpButtons{
   background: rgb(170, 170, 170);
   opacity: 0.95;
@@ -223,7 +252,7 @@
   position: initial;
   font-weight: bolder;
   margin:auto;
-  text-shadow: 1px 1px ghostwhite;
+  -webkit-text-stroke: 2px white;
   font-family: sans-serif;
 }
 
@@ -236,7 +265,7 @@
   position: inherit;
   font-weight: bolder;
   margin:auto;
-  text-shadow: 1px 1px ghostwhite;
+  -webkit-text-stroke: 2px white;
   font-family: sans-serif;
 }
 
@@ -271,13 +300,14 @@
   width: 65%;
   padding: 20px;
   margin: 20px;
-  background-color: beige;
+  background-color: #6a6a78;
   opacity: 0.95;
   position: sticky;
+  font-family: sans-serif;
 }
 
 #pantry {
-  background-image: url("http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg");
+  background: url("http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg");
   content: '';
   background-blend-mode: color-burn; 
   z-index: -1;
@@ -286,6 +316,7 @@
   left: 0;
   right: 0;
   background-position: center center;
+  background-color: rgba(138, 136, 136, 0.375);
   background-size: cover;
   background-attachment: fixed; 
   background-repeat: no-repeat;
@@ -313,21 +344,27 @@
 
 #buttonRight {
   float: right;
+  border-image-repeat: space;
 }
 
 #pantryAdd {
   float: right;
   position: relative;
+  border-image-repeat: space;
 }
 
 #recipeTitle {
   text-transform: uppercase;
-  font-size: larger;
+  font-size: unset;
 }
 
 #suggestedTitle {
-  color: beige;
+  color: #ae424f;
   text-align: -webkit-center;
+  -webkit-text-stroke: 2px white;
+  font-size: -webkit-xxx-large;
+  text-transform: capitalize;
+  font-family: sans-serif;
 }
 
 
@@ -336,9 +373,10 @@
   width: 25%;
   padding: 20px;
   margin: 20px;
-  background-color: beige;
+  background-color: #78777e;
   opacity: 0.95;
   position: fixed;
+  font-family: sans-serif;
 }
 
 #foodImage {
@@ -348,12 +386,17 @@
   margin-right:2%;
   float: left;
   opacity: 1;
+  border: 4px solid #ae424fa6;
 }
 
 #logo{
   /* margin: 50%; */
   position: fixed;
 
+}
+
+.cuisine {
+  text-transform: capitalize;
 }
 
 

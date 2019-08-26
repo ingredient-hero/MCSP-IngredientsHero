@@ -87,7 +87,7 @@ export default class Pantry extends React.Component {
                 to get the items to render within here. */}
 
                 <div>
-                    <h1 id='suggestedTitle'>Suggested Recipes</h1>
+                    <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
                     <RecipeBox recipes={this.state.recipes}/>
                 </div>
                 <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
