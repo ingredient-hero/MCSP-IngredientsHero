@@ -12,9 +12,9 @@
 .Title{
   font-size: 80px;
   text-align: center;
-  color: #417db2;
-  text-shadow: 2px 2px #3f3f3f;
-  font-family: cursive;
+  color: #62ACB5;
+  text-shadow: 1px 1px ghostwhite;
+  font-family: sans-serif;
 }
 
 #Homepage{
@@ -49,13 +49,43 @@
   opacity: 0.85;
   z-index: 9999;
   text-align: center;
+
 }
 
 .HomepageButtons{
   position: absolute;
   right: 0;
-
 }
+
+.SignUpButton{
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.SignUpButton:hover {
+  background: #344a0f;
+}
+
+.LoginButton{
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.LoginButton:hover{
+  background: #344a0f
+}
+
+
 
 .SignUp{
   /* margin: auto; */
@@ -140,30 +170,74 @@
   position: inherit;
 }
 
+.Logout{
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.Logout:hover{
+  background:#344a0f;
+}
+
+.Notification{
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.Notification:hover {
+  background: red;
+}
+
+.Notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+.pantryButtons{
+  position: absolute;
+  right: 0;
+
+}
+
 .yolo1{
   font-size: 60px;
-  color: #417db2;
+  color: #62ACB5;
   left: 0;
   top: 0;
   float: inherit;
   position: initial;
   font-weight: bolder;
   margin:auto;
-  text-shadow: 2px 2px #3f3f3f;
-  font-family: cursive;
+  text-shadow: 1px 1px ghostwhite;
+  font-family: sans-serif;
 }
 
 .yolo2{
   font-size: 60px;
-  color: #417db2;
+  color: #62ACB5;
   right:0;
   top: 200px;
   float: inherit;
   position: inherit;
   font-weight: bolder;
   margin:auto;
-  text-shadow: 2px 2px #3f3f3f;
-  font-family: cursive;
+  text-shadow: 1px 1px ghostwhite;
+  font-family: sans-serif;
 }
 
 .p1{
@@ -205,19 +279,18 @@
 #pantry {
   background-image: url("http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg");
   content: '';
-  /* background-blend-mode:  */
-  /* z-index: -1; */
-  /* top: 0;
+  background-blend-mode: color-burn; 
+  z-index: -1;
+  top: 0;
   bottom: 0;
   left: 0;
-  right: 0; */
+  right: 0;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed; 
   background-repeat: no-repeat;
   overflow: scroll;
   /* display: flex; */
-  
 }
 
 
