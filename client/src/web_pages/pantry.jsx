@@ -75,9 +75,12 @@ export default class Pantry extends React.Component {
                 <NotificationModal clickedNotifications={this.props.clickedNotifications} 
                 hasClickedNotifications={this.props.hasClickedNotifications}/>
                 <div className='pantryButtons'>
-                <button className='Notification' onClick={this.props.clickedNotifications}>
+                    <div className='Notification'>
+                <button onClick={this.props.clickedNotifications}>
                 Notifications
                 </button>
+                <div className='badge'>{4}</div>
+                    </div>
                 <button className='Logout' onClick={this.props.logoutUser}>
                 Logout
                 </button>
@@ -90,7 +93,7 @@ export default class Pantry extends React.Component {
                 to get the items to render within here. */}
 
                 {/*<div>
-                    <h1 id='suggestedTitle'>Suggested Recipes</h1>
+                    <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
                     <RecipeBox recipes={this.state.recipes}/>
                 </div>*/}
                 <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
