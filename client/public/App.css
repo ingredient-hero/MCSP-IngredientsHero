@@ -315,6 +315,7 @@
   content: '';
   background-blend-mode: color-burn; 
   z-index: -1;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -323,6 +324,7 @@
   background-color: rgba(138, 136, 136, 0.375);
   background-size: cover;
   background-attachment: fixed; 
+  background-size: cover;
   background-repeat: no-repeat;
   overflow: scroll;
   /* display: flex; */
