@@ -42,7 +42,7 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT (userID) 
+    let queryString = `SELECT (UserID) 
     FROM Users WHERE username=${profile.userName}, password=${profile.password}'}`
 
     con.query(queryString, (err, data) => {
@@ -73,12 +73,12 @@ const removeUser = (deleteProfile, callback) => {
 //needs to access user
 const addFoodToPantry = (newItem, callback) => {
       /*INSERT into Foods (item_name, expiration)
-      select food_item, expiration from foods where Users_UserID 
+      select food_item, expiration from foods where UserID 
       IN (select userID from USERs where username=${newItem.name})*/
     let queryString = `INSERT into Foods (item_name, expiration) VALUES (${newItem.item_name}, ${newItem.expiration})
   
     SELECT ${newItem.item_name}, ${newItem.expiration} FROM Foods
-    WHERE Users_UserID IN (SELECT UserId FROM Users WHERE username=${newItem.name})`
+    WHERE UserID IN (SELECT UserId FROM Users WHERE username=${newItem.name})`
 
     con.query(queryString, (err, data) => {
         if(err) {
@@ -92,10 +92,10 @@ const addFoodToPantry = (newItem, callback) => {
 
 //userData will show an existing user's info and pantry items
 const userData = (info, callback) => {
-    let queryString = `SELECT * FROM Foods WHERE Users_UserID=${info}`
-    //possibility you may to access through Users_UserID=${info.id}
+    let queryString = `SELECT * FROM Foods WHERE UserID=${info}`
+    //possibility you may to access through UserID=${info.id}
 
-//select food.item, expiration from foods where Users_UserID IN (select userID from USERs where username=${info.name})
+//select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly

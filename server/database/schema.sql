@@ -19,8 +19,9 @@ CREATE TABLE `Users` (
 CREATE TABLE `Foods` (
   `FoodsID` INT not null Auto_Increment,
   `item_name` varchar (50),
+  `UserID` INT,
   `expiration` DATE,
-  FOREIGN KEY (Users_UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
+  FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
   PRIMARY KEY (`FoodsID`)
 );
 
