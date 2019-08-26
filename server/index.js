@@ -70,6 +70,13 @@ app.post('/mysignup', (req, res) => {
 
 app.post('/addingtopantry', (req, res) => {
   console.log(req.body) //This should have the user id, item, and expiration date
+  db.addItem((err, data) => {
+    if (err) {
+      console.log(err, "Error adding item to pantry in Server");
+      res.end();
+    };
+    res.send(addItem);
+  })
   
   /* Given the information from req.body, a function will need to be built in the 
   database that will use a query string to add the item and expiration date to the 
