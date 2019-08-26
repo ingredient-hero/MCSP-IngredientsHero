@@ -9,6 +9,31 @@
   }
 }
 
+.Title{
+  font-size: 80px;
+  text-align: center;
+  color:blue;
+}
+
+#Homepage{
+  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg") no-repeat center center fixed;
+  content: '';
+  background-blend-mode: color-burn;
+  filter: drop-shadow(2px 4px 6px black);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center center;
+  background-color: rgba(138, 136, 136, 0.375);
+  background-size: cover;
+  background-attachment: fixed; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .HomepageButtons{
   position: absolute;
   right: 0;
@@ -105,36 +130,18 @@
   float: inherit;
   position: initial;
   font-weight: bolder;
+  margin:auto;
 }
 
 .yolo2{
   font-size: 60px;
   color: blue;
-  right: 260px;
   right:0;
-  top: inherit;
+  top: 200px;
   float: inherit;
   position: inherit;
   font-weight: bolder;
-}
-
-#Homepage{
-  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg") no-repeat center center fixed;
-  content: '';
-  background-blend-mode: color-burn;
-  filter: drop-shadow(2px 4px 6px black);
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-position: center center;
-  background-color: rgba(138, 136, 136, 0.375);
-  background-size: cover;
-  background-attachment: fixed; 
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin:auto;
 }
 
 .p1{

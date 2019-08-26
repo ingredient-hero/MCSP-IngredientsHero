@@ -59,11 +59,12 @@ export default class Welcome extends React.Component {
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
                 grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
                 
+                <h1 className='Title' >Welcome to Ingredient Hero!</h1>
                 {/* <Logo/> */}
-
                 <h1 className='yolo1' > Even Food Needs Saving</h1>
+                <h1 className='yolo2'>How to Use</h1>
+
                 <p className='p1'> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
-                <h2 className='yolo2'>How to Use</h2>
                 <p className='p2'> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
                     
                 
