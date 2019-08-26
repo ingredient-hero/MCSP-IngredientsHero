@@ -72,9 +72,12 @@ export default class Pantry extends React.Component {
                 <NotificationModal clickedNotifications={this.props.clickedNotifications} 
                 hasClickedNotifications={this.props.hasClickedNotifications}/>
                 <div className='pantryButtons'>
-                <button className='Notification' onClick={this.props.clickedNotifications}>
+                    <div className='Notification'>
+                <button onClick={this.props.clickedNotifications}>
                 Notifications
                 </button>
+                <div className='badge'>{4}</div>
+                    </div>
                 <button className='Logout' onClick={this.props.logoutUser}>
                 Logout
                 </button>
