@@ -47,6 +47,7 @@
   opacity: 0.85;
   z-index: 9999;
   text-align: center;
+
 }
 
 .HomepageButtons{
@@ -132,6 +133,13 @@
 }
 
 .LoginButtons{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: inherit;
+}
+
+.pantryButtons{
   background: rgb(170, 170, 170);
   opacity: 0.95;
   justify-content: center;

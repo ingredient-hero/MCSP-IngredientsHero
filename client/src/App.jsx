@@ -3,7 +3,7 @@ import Welcome from './web_pages/welcome.jsx';
 // import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
-import REACT_APP_API_KEY from '../../api.js';
+// import REACT_APP_API_KEY from '../../api.js';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -68,6 +68,10 @@ export default class App extends React.Component {
     grantUserAccess (event) {
       this.setState({userGrantedAccess: true});
     } 
+
+    logoutUser(e){
+      this.setState({userGrantedAccess: false});
+    }
   
     toggleModal () {
       this.setState({isOpen: !this.state.isOpen});
@@ -102,7 +106,7 @@ export default class App extends React.Component {
         )
       } else {
         return ( 
-            <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
             hasClickedNotifications={this.state.hasClickedNotifications}/>
