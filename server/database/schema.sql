@@ -1,14 +1,12 @@
-DROP DATABASE IF EXISTS Ingredients;
-
 CREATE DATABASE Ingredients;
 
 USE Ingredients;
 
 CREATE TABLE Users (
-  ID INT,
-  Name varchar (50),
+  ID INT AUTO_INCREMENT,
+  Names varchar (50),
   Username varchar (50) UNIQUE,
-  Password varchar(50),
+  Passwords varchar(50),
   Email varchar (50),
   PRIMARY KEY (ID)
 );
@@ -16,14 +14,10 @@ CREATE TABLE Users (
 CREATE TABLE Foods (
   ID INT,
   Item varchar (50),
-  PRIMARY KEY (ID)
+  expirationDate DATE,
+  PRIMARY KEY (ID),
+  INDEX U_Name (Users_Username),
+  FOREIGN KEY (Users_Username)
+    REFERENCES Users(Username)
+    ON DELETE CASCADE
 );
-
-CREATE TABLE EXP (
-  ID INT,
-  Expiration_Date DATE 
-);
-
-
-
-

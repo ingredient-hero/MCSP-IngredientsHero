@@ -27,12 +27,12 @@ const userLogin = (data, callback) => {
 };
 
 const userInfo = (data, callback) => {
-    const queryString = `SELECT ${Users.Username}, ${Foods.Item}, ${EXP.Expiration_Date}
+    const queryString = `SELECT ${data.Username}, ${data.Item}, ${data.Expiration_Date}
     FROM Users, EXP
     JOIN Foods 
-    ON ${Foods.Item} = ${Foods.Item}
-    WHERE ${Users.Username} = ${Users.Username}`;
-    con.query(queryString, querString2, (err, data) => {
+    ON ${data.Item} = ${data.Item}
+    WHERE ${data.Username} = ${data.Username}`;
+    con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error getting userInfo in database");
         };
@@ -41,8 +41,8 @@ const userInfo = (data, callback) => {
 };
 
 const signUp = (data, callback) => {
-    const queryString = `INSERT INTO Users (${Users.Name}, ${Users.Username}, ${Users.Password}, ${Users.Email}) 
-    VALUE (${Users.Name}, ${Users.Username}, ${Users.Password}, ${Users.Email})`;
+    const queryString = `INSERT INTO Users (${data.Name}, ${data.Username}, ${data.Password}, ${data.Email}) 
+    VALUE (${data.Name}, ${data.Username}, ${data.Password}, ${data.Email})`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error getting signUp in database");
@@ -52,7 +52,7 @@ const signUp = (data, callback) => {
 };
 
 const existingUser = (data, callback) => {
-    const queryString = `SELECT ${Users.Name_}, ${Users.userName}, ${Users.password_}, ${Users.email} 
+    const queryString = `SELECT ${data.Name_}, ${data.userName}, ${data.password_}, ${data.email} 
     FROM Users`;
     con.query(queryString, (err, data) => {
         if (err) {
@@ -63,7 +63,7 @@ const existingUser = (data, callback) => {
 };
 
 const newUserName = (data, callback) => {
-    const queryString = `INSERT INTO Users (${Users.Username}) VALUE (${Users.Username})`;
+    const queryString = `INSERT INTO Users (${data.Username}) VALUE (${data.Username})`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error inserting new Username in database");
@@ -72,8 +72,8 @@ const newUserName = (data, callback) => {
 };
 
 const addItem = (data, callback) => {
-    const queryString = `INSERT INTO Foods (${Foods.Item}) VALUE (${Foods.Item});
-      INSERT INTO EXP (${EXP.expiration}) VALUE (${EXP.expiration});`;
+    const queryString = `INSERT INTO Foods (${data.Item}) VALUE (${data.Item});
+      INSERT INTO EXP (${data.expiration}) VALUE (${data.expiration});`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error adding new Item in database");
@@ -82,7 +82,7 @@ const addItem = (data, callback) => {
 };
 
 const removeItem = (data, callback) => {
-    const queryString = `DELETE FROM ${Foods.Item} WHERE ${Foods.Item} = ${Foods.Item}`;
+    const queryString = `DELETE FROM ${data.Item} WHERE ${data.Item} = ${data.Item}`;
     con.query(queryString, (err, data) => {
         if (err) {
             console.log(err, "Error removing Item in database")

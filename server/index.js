@@ -59,7 +59,7 @@ app.post('/mysignup', (req, res) => {
       console.log(err, "Error getting sign up info from Server");
       res.end();
     };
-    res.send(signUp);
+    res.send(userInfo);
   });
   
   /* A function will need to be built in the database that will use a query string 
