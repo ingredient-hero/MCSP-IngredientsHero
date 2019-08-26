@@ -12,11 +12,11 @@
 .Title{
   font-size: 80px;
   text-align: center;
-  color:blue;
+  color: blue;
 }
 
 #Homepage{
-  background: url("https://files.slack.com/files-pri/T1T555TL0-FMRTJHFBQ/image_from_ios.jpg") no-repeat center center fixed;
+  background: url("http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg") no-repeat center center fixed;
   content: '';
   background-blend-mode: color-burn;
   filter: drop-shadow(2px 4px 6px black);
@@ -190,7 +190,7 @@
 }
 
 #pantry {
-  background-image: url("https://files.slack.com/files-pri/T1T555TL0-FMRTJHFBQ/image_from_ios.jpg");
+  background-image: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg");
   content: '';
   /* background-blend-mode:  */
   /* z-index: -1; */
