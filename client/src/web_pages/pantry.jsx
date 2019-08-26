@@ -67,6 +67,8 @@ export default class Pantry extends React.Component {
             <div id='pantry'>
                 {/* later, the title can include the users name once the database is set up */}
                 <title>Pantry</title> 
+                {/* <h1 className='Title'> Ingredient Hero</h1> */}
+                <Logo />
                 <NotificationModal clickedNotifications={this.props.clickedNotifications} 
                 hasClickedNotifications={this.props.hasClickedNotifications}/>
                 <button onClick={this.props.clickedNotifications} style={{marginLeft: "1300px", borderRadius: "50%"}}>
