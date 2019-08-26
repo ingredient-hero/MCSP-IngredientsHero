@@ -3,7 +3,6 @@ import Recipe from './recipes/recipe.jsx';
 
 
 const RecipeBox = (props) => {
-    console.log(props.recipes.recipes)
     return props.recipes.recipes.map( recipe => {
         recipe.cuisines = recipe.cuisines[0] || '---';
         recipe.preparationMinutes = recipe.preparationMinutes || '---';

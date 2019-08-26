@@ -88,7 +88,7 @@ export default class App extends React.Component {
 
 
     componentDidMount () {
-      axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
+      axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
       .then( res => {
           this.setState({recipes: res.data});
       })
