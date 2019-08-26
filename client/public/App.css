@@ -16,7 +16,7 @@
 }
 
 #Homepage{
-  background: url("https://ingredienthero.s3.us-east-2.amazonaws.com/Image+from+iOS+(1).jpg") no-repeat center center fixed;
+  background: url("https://files.slack.com/files-pri/T1T555TL0-FMRTJHFBQ/image_from_ios.jpg") no-repeat center center fixed;
   content: '';
   background-blend-mode: color-burn;
   filter: drop-shadow(2px 4px 6px black);
