@@ -42,7 +42,7 @@ export default class Pantry extends React.Component {
           item_name: this.state.item_name,
           expiration: this.state.expiration
         };
-        axios.post('/addingtopantry', addItem)
+        axios.post('/addingtopantry', addItem,)
           .then( response => {
             console.log(response.data);
           })

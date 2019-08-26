@@ -33,7 +33,7 @@ export default class App extends React.Component {
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess = this.grantUserAccess.bind(this);
+      //  this.grantUserAccess = this.grantUserAccess.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
@@ -66,9 +66,9 @@ export default class App extends React.Component {
       })
     }
 
-    grantUserAccess (event) {
-      this.setState({userGrantedAccess: true});
-    } 
+    // grantUserAccess (event) {
+    //   this.setState({userGrantedAccess: true});
+    // } 
 
     logoutUser(e){
       this.setState({
@@ -95,8 +95,11 @@ export default class App extends React.Component {
           password: this.state.password,
           email: this.state.email
       })
+      .then(this.setState({userGrantedAccess: true
+
+      }))
       .catch(error => console.log(error))
-          this.grantUserAccess();
+          // this.grantUserAccess();
   }
 
     componentDidMount () {
@@ -119,7 +122,7 @@ export default class App extends React.Component {
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} 
-          grantUserAccess={this.grantUserAccess} isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
+          isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
         )
       } else {
         return ( 
@@ -131,3 +134,6 @@ export default class App extends React.Component {
       }
     }
   }
+
+  //added set state to axios request to stop login before acceptance
+  //grantUserAccess={this.grantUserAccess}
