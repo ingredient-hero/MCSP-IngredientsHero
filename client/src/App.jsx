@@ -37,6 +37,7 @@ export default class App extends React.Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onChangeLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
 
 
@@ -70,7 +71,11 @@ export default class App extends React.Component {
     } 
 
     logoutUser(e){
-      this.setState({userGrantedAccess: false});
+      this.setState({
+        userGrantedAccess: false,
+        isOpen: false,
+        hasClickedSignUp: false
+      });
     }
   
     toggleModal () {
@@ -83,15 +88,15 @@ export default class App extends React.Component {
 
 
     componentDidMount () {
-      axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
-      .then( res => {
-          this.setState({recipes: res.data});
-      })
-      .catch( err => {
-          if (err) {
-              console.error(err);
-          }
-      })
+      // axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
+      // .then( res => {
+      //     this.setState({recipes: res.data});
+      // })
+      // .catch( err => {
+      //     if (err) {
+      //         console.error(err);
+      //     }
+      // })
     }
 
    render() {
