@@ -126,6 +126,31 @@
   color: white;
 }
 
+#infos{
+  width: 500px;
+  background-image: url('https://image.shutterstock.com/image-photo/italian-food-ingredients-vegetables-olive-260nw-522608407.jpg');
+  content:'';
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  line-height: 27px;
+  height: 190px;
+  /* background: rgb(255, 255, 255); */
+  border-radius: 4px;
+  opacity: 0.95;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  color: white;
+}
+
+.pantryButtons {
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: inherit;
+}
+
 .SignUpButtons{
   background: rgb(170, 170, 170);
   opacity: 0.95;
@@ -249,7 +274,7 @@
 
 #recipeTitle {
   text-transform: uppercase;
-  font-size: larger;
+  font-size: unset;
 }
 
 #suggestedTitle {

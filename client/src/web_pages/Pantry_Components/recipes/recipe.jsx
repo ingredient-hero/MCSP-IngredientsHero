@@ -13,10 +13,10 @@ const Recipe = (props) => {
                         <p>Prep Time: {props.preparationMinutes}</p>
                         <p>Cooking Time: {props.cookingMinutes}</p>
                         <p>Total Time: {props.readyInMinutes}</p>
+                        <a className='recipeInst' href={props.sourceUrl} target="_blank">Click Here For Step-By-Step Instructions</a>
                     </div>
                 </div>
-                <p className='recipeInst'>Instructions: {props.instructions}</p>
-                <a className='recipeInst' href={props.sourceUrl}>Click Here For More Information</a>
+                {/* <p className='recipeInst'>Instructions: {props.instructions}</p> */}
             </div>
         )
 }
