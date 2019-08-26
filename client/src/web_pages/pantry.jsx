@@ -71,9 +71,14 @@ export default class Pantry extends React.Component {
                 {/* <Logo /> */}
                 <NotificationModal clickedNotifications={this.props.clickedNotifications} 
                 hasClickedNotifications={this.props.hasClickedNotifications}/>
-                <button onClick={this.props.clickedNotifications} style={{marginLeft: "1300px", borderRadius: "50%"}}>
+                <div className='pantryButtons'>
+                <button className='Notification' onClick={this.props.clickedNotifications}>
                 Notifications
                 </button>
+                <button className='Logout' onClick={this.props.logoutUser}>
+                Logout
+                </button>
+                </div>
                 {/* <Logo /> */}
                 {/* In css, the button will need to be changed so people know it can be clicked. Add at least a hover element. */}
                 

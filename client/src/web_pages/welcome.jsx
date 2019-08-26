@@ -42,10 +42,10 @@ export default class Welcome extends React.Component {
                 <div id='Homepage'>
                     <div className='HomepageButtons'>
 
-                <button disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
                      Sign-Up
                 </button>
-                <button onClick={this.props.toggleModal}>
+                <button className='LoginButton' onClick={this.props.toggleModal}>
                     Login
                 </button>
                     </div>
