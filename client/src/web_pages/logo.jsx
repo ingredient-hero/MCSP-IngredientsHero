@@ -6,7 +6,8 @@ import React from 'react';
 
 const Logo = (props) => {
     return (
-        <img src="https://ingredienthero.s3.us-east-2.amazonaws.com/LogoMakr_64T0CS.png"></img>
+ <div>h'ee</div>
+        // <img src="https://ingredienthero.s3.us-east-2.amazonaws.com/LogoMakr_64T0CS.png"></img>
     )
 }
 

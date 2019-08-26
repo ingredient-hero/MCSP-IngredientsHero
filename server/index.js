@@ -50,6 +50,22 @@ app.get('/mylogin', (req, res) => {
     })
   });
 });
+
+
+// app.get('/mypantry'), (req, res) => {
+//   let pantry = req.body
+//   db.accessUser(pantry, (err,data) => {
+//     if(err) {
+//       res.end();
+//     }
+//     db.userData(data.id, (err, info) => {
+//       if (err) {
+//         res.end();
+//       }
+//       res.send(info)
+//     })
+//   })
+// };
 /**********************************************************************************/
 //This should be an object with a name, email, username, and password
 /* A function will need to be built in the database that will use a query string 
@@ -61,7 +77,7 @@ app.post('/mysignup', (req, res) => {
     if (err) {
       res.end();
     }
-    res.send()
+    res.send(data);
   })
 });
 /**********************************************************************************/
@@ -76,7 +92,7 @@ app.post('/addingtopantry', (req, res) => {
       if(err) {
         res.end();
       }
-      res.send()
+      res.send(data)
     }) 
 });
 /**********************************************************************************/

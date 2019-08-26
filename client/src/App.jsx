@@ -29,13 +29,13 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
-      
+        this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
         this.grantUserAccess = this.grantUserAccess.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.onClickLogin = this.onChangeLogin.bind(this);
+        this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
     }
@@ -46,8 +46,7 @@ export default class App extends React.Component {
       this.setState({hasClickedSignUp: !this.state.hasClickedSignUp})
     }
 
-    onClickLogin(e){
-        
+    onClickLogin(e){   
       this.setState({
         hasClickedLogin: true
       })
@@ -55,6 +54,7 @@ export default class App extends React.Component {
 
     onChangeLogin(event){
       // event.preventDefault()
+      // console.log(event.target.name)
       this.setState({
         [event.target.name]: event.target.value,
       })
@@ -87,6 +87,18 @@ export default class App extends React.Component {
     }
 
 
+    onSignUpSubmitClick(e){
+      // e.preventDefault();
+      axios.post('/mysignup',{
+          name: this.state.name,
+          userName: this.state.userName,
+          password: this.state.password,
+          email: this.state.email
+      })
+      .catch(error => console.log(error))
+          this.grantUserAccess();
+  }
+
     componentDidMount () {
       // axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
       // .then( res => {
@@ -102,7 +114,7 @@ export default class App extends React.Component {
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
-          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
+          <Welcome onSignUpSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
           password={this.state.password} change={this.onChangeSignUp} 
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 

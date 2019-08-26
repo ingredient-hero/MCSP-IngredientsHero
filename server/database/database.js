@@ -28,13 +28,14 @@ con.connect(function (err) {
 
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
-    let queryString =  `INSERT into USER (name, username, password, email) VALUES 
+    let queryString =  `INSERT into Users (name, username, password, email) VALUES 
     ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')`
 
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-           // console.log('>>> could not add user', err);
+           console.log('>>> could not add user', err);
+           return;
         }
         callback(null, data);
     })
@@ -48,7 +49,8 @@ const accessUser = (profile, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-            //console.log('>>> could not find user', err);
+            console.log('>>> could not find user', err);
+            return;
         }
         callback(null, data);
     })
@@ -61,7 +63,8 @@ const removeUser = (deleteProfile, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-           // console.log('>>> could not delete profile from Users')
+            console.log('>>> could not delete profile from Users')
+            return;
         }
         callback(null, data);
     })
@@ -83,7 +86,9 @@ const addFoodToPantry = (newItem, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-            //console.log('>>> could not add food to pantry', err);
+            console.log('>>> could not add food to pantry', err);
+            return;
+            
         }
         callback(null, data);
     })
@@ -98,8 +103,9 @@ const userData = (info, callback) => {
 //select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})
     con.query(queryString, (err, data) => {
         if(err) {
+            console.log(`>>> could not the user's info`, err)
+            return;
             //delete console log if functions correctly
-           // console.log(`>>> could not the user's info`, err)
         }
         callback(null, data);
     })
@@ -116,7 +122,8 @@ const removePantryItem = (removeItem, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-            //console.log('>>> could not delete the food item', err)
+            console.log('>>> could not delete the food item', err);
+            return;
         }
         callback(null, data);
     })

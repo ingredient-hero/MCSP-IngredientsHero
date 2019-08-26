@@ -8,28 +8,16 @@ export default class Welcome extends React.Component {
       super(props);
 
     }
-    onSignUpSubmitClick(e){
-        // e.preventDefault();
-        // this.props.grantUserAccess;
-        // axios.post('/mysignup',{
-        //     name: this.props.name,
-        //     userName: this.props.userName,
-        //     password: this.props.password,
-        //     email: this.props.email
-        // })
-        // .then((res)=>{
-        // }
-        // )
-    }
+  
 
 
     onLoginSubmitClick(e){
-        e.preventDefault();
+        // e.preventDefault();
         axios.get('/mylogin')
         .then(res => {
-            // res.data.map(funciton (users){
+            res.data.map(function (users){
 
-            // })
+            })
         })
         .catch((err) => { console.log(err); });
     }
@@ -50,8 +38,8 @@ export default class Welcome extends React.Component {
                 </button>
                     </div>
                 {/* <img className='backgroundImage' ></img> */}
-                <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
-                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
+                <SignUp onSignUpSubmitClick={this.props.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
+                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} onChangeLogin={this.props.onChangeLogin}
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
                 SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
                 />

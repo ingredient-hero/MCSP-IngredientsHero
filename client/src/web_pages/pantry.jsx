@@ -39,25 +39,28 @@ export default class Pantry extends React.Component {
 
     onAddToPantry () {
         const addItem = {
-          item: this.state.item_name,
-          exp: this.state.expiration
+          item_name: this.state.item_name,
+          expiration: this.state.expiration
         };
         axios.post('/addingtopantry', addItem)
           .then( response => {
             console.log(response.data);
           })
+          .catch(error => console.log(error))
       }
 
 
     // This function is to grab the information from the database that 
     // the single user will need for their pantry page. 
     // componentDidMount () {
-        // axios.get('/mypantry')
-        //     .then ( response => {
-        //         this.setState({
-        //             userPantry: response.data
-        //         })
-        //     })
+    //     axios.get('/mypantry')
+    //         .then ( response => {
+    //             this.setState({
+    //                 userPantry: response.data
+    //             })
+    //         })
+    //         .catch(error => console.log(error))
+
     // }
 
 
