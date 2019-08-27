@@ -9,18 +9,6 @@
   }
 }
 
-/* html,body {
-  height: 100%;
-} */
-
-.Title{
-  font-size: 80px;
-  text-align: center;
-  color: #62ACB5;
-  text-shadow: 1px 1px ghostwhite;
-  font-family: sans-serif;
-}
-
 #Homepage{
   background: url("http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg") no-repeat center center fixed;
   content: '';
@@ -38,6 +26,23 @@
   background-attachment: fixed; 
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.introline{
+  color: #ae424f;
+  text-align: -webkit-center;
+  -webkit-text-stroke: 2px white;
+  font-size: 200%;
+  text-transform: capitalize;
+  font-family: sans-serif;
+  line-height: 700%;
+}
+
+.scrollInfo {
+  text-align: center;
+  font-size: 115%;
+  font-weight: bold;
+  color: lightgrey;
 }
 
 .NotificationModal{
@@ -60,6 +65,9 @@
   position: fixed;
   right: 0;
 }
+
+
+
 
 .SignUpButton{
   background-color: #555;
@@ -422,7 +430,7 @@
   background-position: center center;
   height: 100%; 
   width: 100%;
-  color: white;
+  color: #ae424f;
   text-align: center;
   display: table;
 }
@@ -446,12 +454,23 @@
 /* fifth section */
 .bg-3 {
   background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground3.png');
+
 }
 
 .bg-4 {
-  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground4.png');
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/Screen+Shot+2019-08-27+at+2.41.56+PM.png');
 }
-
+.oneliner {
+  color: #ae424f;
+  text-align: -webkit-center;
+  -webkit-text-stroke: 2.5px white;
+  font-size: 200%;
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+.onelinerPt1 {
+  word-wrap: break-word;
+}
 
 /* Dropdown Button */
 .dropbtn {
