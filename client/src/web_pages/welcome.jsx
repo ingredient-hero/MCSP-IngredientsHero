@@ -8,19 +8,6 @@ export default class Welcome extends React.Component {
       super(props);
 
     }
-  
-
-
-    onLoginSubmitClick(e){
-        // e.preventDefault();
-        axios.get('/mylogin')
-        .then(res => {
-            res.data.map(function (users){
-
-            })
-        })
-        .catch((err) => { console.log(err); });
-    }
 
         render(){
 
@@ -41,11 +28,11 @@ export default class Welcome extends React.Component {
                 <SignUp onSignUpSubmitClick={this.props.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
                 onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} onChangeLogin={this.props.onChangeLogin}
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
-                SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
+                SignUp={this.props.SignUp} Login={this.props.Login} 
                 />
                 
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
-                grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
+                toggleModal={this.props.toggleModal} isOpen={this.props.isOpen} onLoginSubmitClick={this.props.onLoginSubmitClick}/>
                 
                 {/* <h1 className='Title' >Welcome to Ingredient Hero!</h1> */}
                 <Logo/>

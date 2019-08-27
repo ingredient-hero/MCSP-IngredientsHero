@@ -4,9 +4,13 @@ const app = express();
 const db = require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
+var cors = require('cors');
+app.use(cors());
 
 
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 //app.use(express.static('../client/public'));
 
@@ -34,15 +38,18 @@ Upon receiving this information back from the database, the server will send the
 user information back to the client in an array of objects that will be sent to 
 the pantry page for use. */
 app.get('/mylogin', (req, res) => {
-  let profile = req.body
+  let profile = req.query
+  //console.log(req.query);
   db.accessUser(profile, (err, data) => {
     if (err) {
         res.end();
     }
+    //console.log(data.id);
     //call the db function that pulls info from the user
     //now that data has grabbed the id, after passing info into the userData function on the db, 
     //you should have access to the user and their food items/expiration
     db.userData(data.id, (err, info) => {
+      console.log(info);
       if (err) {
         res.end();
       }

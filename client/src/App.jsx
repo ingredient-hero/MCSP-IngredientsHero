@@ -3,7 +3,7 @@ import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
 // import './App.css';
-import REACT_APP_API_KEY from '../../api.js';
+// import REACT_APP_API_KEY from '../../api.js';
 
 
 // This is an example that will need to be rebuilt and/or refactored.
@@ -33,7 +33,7 @@ export default class App extends React.Component {
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-      //  this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.onLoginSubmitClick = this.onLoginSubmitClick.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
@@ -102,23 +102,45 @@ export default class App extends React.Component {
           // this.grantUserAccess();
   }
 
-    componentDidMount () {
-      axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
-      .then( res => {
-          this.setState({recipes: res.data});
-      })
-      .catch( err => {
-          if (err) {
-              console.error(err);
-          }
-      })
-    }
+    onLoginSubmitClick(e){
+      // e.preventDefault();
+     axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
+      .then(res => {
+        res.data.map((users) => {
+          console.log(users);
+
+        })
+    
+    .then(this.setState({
+      userName: this.state.userName,
+      password: this.state.password
+    }))  
+    .then(this.setState({userGrantedAccess: true
+
+    }))
+    .catch((err) => { console.log(err); });
+})
+}
+
+
+
+    // componentDidMount () {
+    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
+    //   .then( res => {
+    //       this.setState({recipes: res.data});
+    //   })
+    //   .catch( err => {
+    //       if (err) {
+    //           console.error(err);
+    //       }
+    //   })
+    // }
 
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
           <Welcome onSignUpSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
-          password={this.state.password} change={this.onChangeSignUp} 
+          password={this.state.password} change={this.onChangeSignUp} onLoginSubmitClick={this.onLoginSubmitClick}
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} 
@@ -129,7 +151,7 @@ export default class App extends React.Component {
             <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications}/>
+            hasClickedNotifications={this.state.hasClickedNotifications} />
         );
       }
     }
