@@ -73,9 +73,9 @@ export default class Welcome extends React.Component {
                     </div>
                     <div className="fixed-bg bg-4">
                         <div className="oneliner">
-                            <div className="onelinerPt1">
+                            {/* <div className="onelinerPt1">
                                 <h1> Even Food Needs Saving </h1>
-                            </div>
+                            </div> */}
                         
                         </div>
                     </div>
