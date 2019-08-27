@@ -14,8 +14,8 @@ export default class Welcome extends React.Component {
     
         return(
            
-                <div id='Homepage'>
-                    <div className='HomepageButtons'>
+            <div id='Homepage'>
+                <div className='HomepageButtons'>
 
                 <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
                      Sign-Up
@@ -30,7 +30,7 @@ export default class Welcome extends React.Component {
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
                 SignUp={this.props.SignUp} Login={this.props.Login} 
                 />
-                
+                    
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
                 toggleModal={this.props.toggleModal} isOpen={this.props.isOpen} onLoginSubmitClick={this.props.onLoginSubmitClick}/>
                 
@@ -39,10 +39,29 @@ export default class Welcome extends React.Component {
                 <h1 className='yolo1' > Even Food Needs Saving</h1>
                 <h1 className='yolo2'>How to Use</h1>
 
-                <p className='p1'> With the use of this app you will no longer have to worry about your perishable goods going to waste. We will help you to make the most of the items in your pantry, and offer you with simple recipes including the items available in your pantry! </p>
-                <p className='p2'> To use this app start by either logging in or sign-up for a new account. Once you have signed in you will then be able to add items to your pantry. Based on these items that you add we will then supply you with a list of recipes that contains items closer to expiring.</p>
-                    
-                
+                <div className="wrapper">
+                    <div className="fixed-bg bg-1">
+                        <h1></h1>
+                    </div>
+                    <div className="scroll-bg">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna. Etiam sodales arcu at lectus porttitor accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur id urna dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin et pharetra justo, quis suscipit risus. Maecenas tincidunt efficitur ex in pharetra.</h3>
+                    </div>
+                    <div className="fixed-bg bg-2">
+                        <h1></h1>
+                    </div>
+                    <div className="scroll-bg">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
+                    </div>
+                    <div className="fixed-bg bg-3">
+                        <h1></h1>
+                    </div>
+                    <div className="scroll-bg">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
+                    </div>
+                    <div className="fixed-bg bg-4">
+                        <h1></h1>
+                    </div>
+                </div>
             </div>
         );
     }

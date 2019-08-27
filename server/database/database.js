@@ -29,7 +29,8 @@ con.connect(function (err) {
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
     let queryString =  `INSERT into Users (name, userName, password, email) VALUES 
-    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')`
+    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')
+    `
 
     con.query(queryString, (err, data) => {
         if(err) {
@@ -43,7 +44,7 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT * FROM Users WHERE(userName='"${profile.userName}"', password='"${profile.password}"')`;
+    let queryString = `SELECT (UserID) FROM Users WHERE(userName='"${profile.userName}"', password='"${profile.password}"')`;
         console.log(profile);
     con.query(queryString, (err, data) => {
         if(err) {
