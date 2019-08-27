@@ -94,11 +94,12 @@ users id. The server should only send a success message back to the client, but
 the item should reflect on the page for the user. */
 app.post('/addingtopantry', (req, res) => {
     let pantryItem = req.body
-    console.log(req.body, 'fooooooods');
+   // console.log(req.body, 'fooooooods');
     db.addFoodToPantry(pantryItem, (err, data) => {
       if(err) {
         res.end();
       }
+     // console.log('>>>>>>>>>>>>>>>>>>>>>',data)
       res.send(data)
     }) 
 });
