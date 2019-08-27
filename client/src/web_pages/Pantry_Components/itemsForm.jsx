@@ -5,12 +5,15 @@ const ItemsForm = (props) => {
         return (
             <div className="SignUp">
                 <form className='infos' action=''>
-                    Item Name:<input type='text' onChange={props.onChangeAddItem} className='item_name' name='item_name' /><br/>
-                    Expiration Date:<input type='text' onChange={props.onChangeAddItem} className='expiration' name='expiration' />
+                    Add To Pantry <br/>
+                    <input placeholder="Item Name" type='text' onChange={props.onChangeAddItem} className='item_name' name='item_name' /><br/>
+                    <input placeholder="Expiration Date" type='text' onChange={props.onChangeAddItem} className='expiration' name='expiration' />
                 </form>
-                <div className='SignUpButtons'>
-                <button className='Submit' onClick={() => {props.renderItemsForm(); props.onAddToPantry()}}>Add</button>
-                <button className='Cancel' onClick={props.renderItemsForm}>Cancel</button>
+                <div className='ItemButtonSubmit'>
+                    <button className='Submit' onClick={() => {props.renderItemsForm(); props.onAddToPantry()}}>Add</button>
+                </div>
+                <div className="ItemButtonCancel">
+                    <button className='Cancel' onClick={props.renderItemsForm}>Cancel</button>
                 </div>
             </div>
         )
