@@ -35,9 +35,9 @@ export default class Welcome extends React.Component {
                 toggleModal={this.props.toggleModal} isOpen={this.props.isOpen} onLoginSubmitClick={this.props.onLoginSubmitClick}/>
                 
                 {/* <h1 className='Title' >Welcome to Ingredient Hero!</h1> */}
-                <Logo/>
+                {/* <Logo/>
                 <h1 className='yolo1' > Even Food Needs Saving</h1>
-                <h1 className='yolo2'>How to Use</h1>
+                <h1 className='yolo2'>How to Use</h1> */}
 
                 <div className="wrapper">
                     <div className="fixed-bg bg-1">

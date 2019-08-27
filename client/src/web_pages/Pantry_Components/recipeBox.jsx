@@ -18,7 +18,7 @@ const RecipeBox = (props) => {
             )
         })
     } else {
-        return props.pantryRecipes.recipes.map( recipe => {
+        return props.pantryRecipes.map( recipe => {
             recipe.cuisines = recipe.cuisines[0] || '---';
             recipe.preparationMinutes = recipe.preparationMinutes || '---';
             recipe.cookingMinutes = recipe.cookingMinutes || '---';
