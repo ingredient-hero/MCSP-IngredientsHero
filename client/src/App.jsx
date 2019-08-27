@@ -59,7 +59,7 @@ export default class App extends React.Component {
       this.setState({
         [event.target.name]: event.target.value,
       })
-    }
+    }       
 
     onChangeAddItem (event) {
       this.setState ({
