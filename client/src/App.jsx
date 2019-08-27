@@ -26,6 +26,7 @@ export default class App extends React.Component {
         userGrantedAccess: false,
         isOpen: false,
         recipes: {},
+        users: [],
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
@@ -94,28 +95,40 @@ export default class App extends React.Component {
           password: this.state.password,
           email: this.state.email
       })
-      .then(this.setState({userGrantedAccess: true
-
-      }))
+      .then(() => {
+        console.log(this.state.name.length > 0)
+        console.log(this.state.userName.length > 0)
+        console.log(this.state.password.length > 0)
+        console.log(this.state.email.length > 0)
+        if(this.state.name.length > 0 && this.state.userName.length > 0 && this.state.password.length > 0 && this.state.email.length > 0){
+         this.setState({userGrantedAccess: true})
+        }
+      })
       .catch(error => console.log(error))
-          // this.grantUserAccess();
   }
   
-    onLoginSubmitClick(e){
+    
+  onLoginSubmitClick(e){
       // e.preventDefault();
+      let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-        res.data.map(function(users) {
-
+        res.data[0].map(function(info,i) {
+          let tuple = [];
+          tuple.push(info.userName, info.password)
+          user.push(tuple);
+        })
+        this.setState({
+          users: user
         })
       })
-    .then(this.setState({
-      userName: this.state.userName,
-      password: this.state.password
-    }))  
-    .then(this.setState({userGrantedAccess: true
-
-    }))
+      .then(() => {
+        for(let i = 0; i < this.state.users.length; i ++){
+          if( this.state.userName === this.state.users[i][0] && this.state.password === this.state.users[i][1] ){
+            this.setState({userGrantedAccess: true})
+          }
+        }
+      })
     .catch((err) => { console.log(err); });
 }
 
