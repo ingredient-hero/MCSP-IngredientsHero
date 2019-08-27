@@ -61,19 +61,25 @@ export default class Welcome extends React.Component {
 
                 <div className="wrapper">
                     <div className="fixed-bg bg-1">
-                        <h1>Fixed Background scrolling</h1>
+                        <h1></h1>
                     </div>
                     <div className="scroll-bg">
                         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna. Etiam sodales arcu at lectus porttitor accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur id urna dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin et pharetra justo, quis suscipit risus. Maecenas tincidunt efficitur ex in pharetra.</h3>
                     </div>
                     <div className="fixed-bg bg-2">
-                        <h1>Fixed Background scrolling</h1>
+                        <h1></h1>
                     </div>
                     <div className="scroll-bg">
                         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
                     </div>
                     <div className="fixed-bg bg-3">
-                        <h1>Fixed Background scrolling</h1>
+                        <h1></h1>
+                    </div>
+                    <div className="scroll-bg">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
+                    </div>
+                    <div className="fixed-bg bg-4">
+                        <h1></h1>
                     </div>
                 </div>
             </div>

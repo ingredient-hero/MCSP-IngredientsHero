@@ -351,6 +351,8 @@
 #buttonRight {
   float: right;
   border-image-repeat: space;
+  position: absolute;
+  right: 3%;
 }
 
 #pantryAdd {
@@ -435,13 +437,17 @@
 }
 /* first section */
 .bg-1 {
-  background-image: url('http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg');
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground1.png');
 }
 /* third section */
 .bg-2 {
-  background-image: url('http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg');
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground2.png');
 }
 /* fifth section */
 .bg-3 {
-  background-image: url('http://grandtheatrecompany.com/wp-content/uploads/2016/05/img_3.jpg');
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground3.png');
+}
+
+.bg-4 {
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground4.png');
 }
