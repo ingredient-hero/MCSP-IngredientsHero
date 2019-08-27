@@ -107,7 +107,7 @@ export default class Pantry extends React.Component {
                         <button className='Notification' onClick={this.props.clickedNotifications}>
                         Notifications
                         </button>
-                        {/* <div className='badge'>{4}</div> */}
+                        <div className='badge'>{4}</div>
                     </div>
                 </div>
 
