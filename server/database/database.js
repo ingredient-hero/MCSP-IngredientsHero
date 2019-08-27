@@ -27,8 +27,7 @@ con.connect(function (err) {
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
     let queryString =  `INSERT into Users (name, userName, password, email) VALUES 
-    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')
-    `
+    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')`
 
     con.query(queryString, (err, data) => {
         if(err) {
@@ -40,7 +39,7 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT * FROM Users`;
+    let queryString = `SELECT * FROM Users`
     con.query(queryString, (err, data) => {
         if(err) {
             return;
@@ -72,11 +71,9 @@ const addFoodToPantry = (newItem, callback) => {
       /*INSERT into Foods (item_name, expiration)
       select food_item, expiration from foods where UserID 
       IN (select userID from USERs where username=${newItem.name})*/
-    let queryString = `INSERT into Foods (item_name, expiration) VALUES (${newItem.item_name}, ${newItem.expiration})
-  
-    SELECT ${newItem.item_name}, ${newItem.expiration} FROM Foods
-    WHERE UserID IN (SELECT UserId FROM Users WHERE username=${newItem.name})`
-
+      let queryString = `INSERT into Foods (item_name, expiration, UserID) VALUES ("${newItem.item_name}", "${newItem.expiration}", "${newItem.UserID}");`
+      
+      
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
