@@ -597,3 +597,54 @@
     transform: translateY(-15px);
   }
 }
+
+.SignUpButtonSubmit{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  left: 43%
+ }
+ .SignUpButtonCancel{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  right: 43%
+ }
+ .LoginButtonSubmit{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  left: 46%
+ }
+ .LoginButtonCancel{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  right: 46%
+ }
+ 
+ .ItemsButtonSubmit{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  left: 46%;
+  top: 15;
+ }
+ .ItemsButtonCancel{
+  background: rgb(170, 170, 170);
+  opacity: 0.95;
+  justify-content: center;
+  position: absolute;
+  right: 46%
+ }
+ 
+ .divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+ }
