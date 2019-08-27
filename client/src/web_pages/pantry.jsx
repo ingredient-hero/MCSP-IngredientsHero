@@ -62,19 +62,20 @@ export default class Pantry extends React.Component {
 
 
     //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
-    // componentDidMount () {
-    //     axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
-    //     .then( res => {
-    //         //If user has items, change state
-    //         this.setState({pantryRecipes: res.data});
-    //     })
-    //     .catch( err => {
-    //         if (err) {
-    //             console.error(err);
-    //         }
-    //     })
-    // }
+    componentDidMount () {
+        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
+        .then( res => {
+            axios.get(`https://api.spoonacular.com/recipes/{id}/information?apiKey=${REACT_APP_API_KEY}`)
+            
+        })
+        .catch( err => {
+            if (err) {
+                console.error(err);
+            }
+        })
+    }
 
+    this.setState({pantryRecipes: res.data});
 
 
     render () {
@@ -112,8 +113,8 @@ export default class Pantry extends React.Component {
                 <div className="dropdown">
                     <button onClick={this.clickSort} className="dropbtn">Sort</button>
                     <div id="myDropdown" className="dropdown-content">
-                    <a onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
-                    <a onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
+                        <a href='#' onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
+                        <a href='#' onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
                     </div>
                 </div>
                 <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
