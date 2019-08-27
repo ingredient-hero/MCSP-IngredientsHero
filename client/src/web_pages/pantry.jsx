@@ -18,11 +18,15 @@ export default class Pantry extends React.Component {
             addToButtonClicked: false,
             item_name: this.props.item_name,
             expiration: this.props.expiration,
-            recipes: this.props.recipes,
+            randomRecipes: this.props.recipes,
+            pantryRecipes: [],
+            changeRecipes: false,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
         // this.addButtonClicked = this.addButtonClicked.bind(this);
         this.onAddToPantry = this.onAddToPantry.bind(this);
+        this.clickSort = this.clickSort.bind(this);
+        this.onChangeRecipes = this.onChangeRecipes.bind(this);
     }
 
     renderItemsForm (e) {
@@ -48,16 +52,27 @@ export default class Pantry extends React.Component {
           })
       }
 
+      onChangeRecipes (e) {
+          this.setState({changeRecipes: !this.state.changeRecipes});
+      }
 
-    // This function is to grab the information from the database that 
-    // the single user will need for their pantry page. 
+      clickSort (e) {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+
+    //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
     // componentDidMount () {
-        // axios.get('/mypantry')
-        //     .then ( response => {
-        //         this.setState({
-        //             userPantry: response.data
-        //         })
-        //     })
+    //     axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
+    //     .then( res => {
+    //         //If user has items, change state
+    //         this.setState({pantryRecipes: res.data});
+    //     })
+    //     .catch( err => {
+    //         if (err) {
+    //             console.error(err);
+    //         }
+    //     })
     // }
 
 
@@ -91,8 +106,16 @@ export default class Pantry extends React.Component {
 
                 {/* <div>
                     <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
-                    <RecipeBox recipes={this.state.recipes}/>
+                    <RecipeBox randomRecipes={this.state.randomRecipes} pantryRecipes={this.state.pantryRecipes}
+                    changeRecipes={this.state.changeRecipes}/>
                 </div> */}
+                <div className="dropdown">
+                    <button onClick={this.clickSort} className="dropbtn">Sort</button>
+                    <div id="myDropdown" className="dropdown-content">
+                    <a onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
+                    <a onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
+                    </div>
+                </div>
                 <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
                 <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}

@@ -67,16 +67,19 @@ export default class Welcome extends React.Component {
                         <h3> </h3>
                     </div>
                     <div className="fixed-bg bg-2">
-                        <h1> </h1>
+                        <h1></h1>
                     </div>
                     <div className="scroll-bg">
                         <h3> How We Work: Already a user? Welcome Back! First time user? Locate the Sign-Up button to the upper right corner of the web page. Input your information and click submit. Don't worry we wont submit your information to third party applications. </h3>
                     </div>
                     <div className="fixed-bg bg-3">
-                        <h1> Once logged in we welcome you to your Pantry dashboard! From here you can add perishable items to your Pantry and remove if needed. You can click the Notification button and it will show you what perishable items you have that will expire within three days! Added bonus your recipe list will recommend recipes that will use your soon to be expired items so that you may use those items first! The more items soon to expire the better fit the recipe will be. </h1>
+                        <h1></h1>
                     </div>
                     <div className="scroll-bg">
-                        <h1> Reach us @ </h1>
+                        <h3>Once logged in we welcome you to your Pantry dashboard! From here you can add perishable items to your Pantry and remove if needed. You can click the Notification button and it will show you what perishable items you have that will expire within three days! Added bonus your recipe list will recommend recipes that will use your soon to be expired items so that you may use those items first! The more items soon to expire the better fit the recipe will be.</h3>
+                    </div>
+                    <div className="fixed-bg bg-4">
+                        <h1></h1>
                     </div>
                 </div>
             </div>
