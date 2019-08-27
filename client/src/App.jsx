@@ -37,6 +37,7 @@ export default class App extends React.Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onChangeLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
 
 
@@ -68,6 +69,14 @@ export default class App extends React.Component {
     grantUserAccess (event) {
       this.setState({userGrantedAccess: true});
     } 
+
+    logoutUser(e){
+      this.setState({
+        userGrantedAccess: false,
+        isOpen: false,
+        hasClickedSignUp: false
+      });
+    }
   
     toggleModal () {
       this.setState({isOpen: !this.state.isOpen});
@@ -78,17 +87,17 @@ export default class App extends React.Component {
     }
 
 
-    componentDidMount () {
-      axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
-      .then( res => {
-          this.setState({recipes: res.data});
-      })
-      .catch( err => {
-          if (err) {
-              console.error(err);
-          }
-      })
-    }
+    // componentDidMount () {
+    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
+    //   .then( res => {
+    //       this.setState({recipes: res.data});
+    //   })
+    //   .catch( err => {
+    //       if (err) {
+    //           console.error(err);
+    //       }
+    //   })
+    // }
 
    render() {
       if (this.state.userGrantedAccess === false) {
@@ -102,7 +111,7 @@ export default class App extends React.Component {
         )
       } else {
         return ( 
-            <Pantry expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
             hasClickedNotifications={this.state.hasClickedNotifications}/>

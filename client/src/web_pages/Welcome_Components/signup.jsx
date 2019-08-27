@@ -11,7 +11,7 @@ const SignUp = (props) => {
                 Sign-Up <br/>
                 Name:<input onChange={props.change} className='name' type='text' name='name'/>
                 Username:<input onChange={props.change} className='userName' type='text' name='userName' /><br/>
-                Password:<input onChange={props.change} className='password' type='text' name='password' />
+                Password:<input onChange={props.change} className='password' type='password' name='password' />
                 Email:<input onChange={props.change} className='email' type='text' name='email' />
                 </form> 
 
