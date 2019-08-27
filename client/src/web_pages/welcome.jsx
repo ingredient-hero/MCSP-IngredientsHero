@@ -8,31 +8,6 @@ export default class Welcome extends React.Component {
       super(props);
 
     }
-    onSignUpSubmitClick(e){
-        // e.preventDefault();
-        // this.props.grantUserAccess;
-        // axios.post('/mysignup',{
-        //     name: this.props.name,
-        //     userName: this.props.userName,
-        //     password: this.props.password,
-        //     email: this.props.email
-        // })
-        // .then((res)=>{
-        // }
-        // )
-    }
-
-
-    onLoginSubmitClick(e){
-        e.preventDefault();
-        axios.get('/mylogin')
-        .then(res => {
-            // res.data.map(funciton (users){
-
-            // })
-        })
-        .catch((err) => { console.log(err); });
-    }
 
         render(){
 
@@ -42,22 +17,27 @@ export default class Welcome extends React.Component {
             <div id='Homepage'>
                 <div className='HomepageButtons'>
 
-                    <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
-                        Sign-Up
-                    </button>
-                    <button className='LoginButton' onClick={this.props.toggleModal}>
-                        Login
-                    </button>
-                </div>
-
-                <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
-                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
+                <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                     Sign-Up
+                </button>
+                <button className='LoginButton' onClick={this.props.toggleModal}>
+                    Login
+                </button>
+                    </div>
+                {/* <img className='backgroundImage' ></img> */}
+                <SignUp onSignUpSubmitClick={this.props.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
+                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} onChangeLogin={this.props.onChangeLogin}
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
-                SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
+                SignUp={this.props.SignUp} Login={this.props.Login} 
                 />
                     
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
-                grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
+                toggleModal={this.props.toggleModal} isOpen={this.props.isOpen} onLoginSubmitClick={this.props.onLoginSubmitClick}/>
+                
+                {/* <h1 className='Title' >Welcome to Ingredient Hero!</h1> */}
+                <Logo/>
+                <h1 className='yolo1' > Even Food Needs Saving</h1>
+                <h1 className='yolo2'>How to Use</h1>
 
                 <div className="wrapper">
                     <div className="fixed-bg bg-1">
