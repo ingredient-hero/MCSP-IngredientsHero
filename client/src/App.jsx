@@ -86,7 +86,6 @@ export default class App extends React.Component {
       this.setState({hasClickedNotifications: !this.state.hasClickedNotifications})
     }
 
-
     onSignUpSubmitClick(e){
       // e.preventDefault();
       axios.post('/mysignup',{
@@ -101,16 +100,15 @@ export default class App extends React.Component {
       .catch(error => console.log(error))
           // this.grantUserAccess();
   }
-
+  
     onLoginSubmitClick(e){
       // e.preventDefault();
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
-      .then(res => {
-        res.data.map((users) => {
-          console.log(users);
+     .then(res => {
+        res.data.map(function(users) {
 
         })
-    
+      })
     .then(this.setState({
       userName: this.state.userName,
       password: this.state.password
@@ -119,10 +117,7 @@ export default class App extends React.Component {
 
     }))
     .catch((err) => { console.log(err); });
-})
 }
-
-
 
     // componentDidMount () {
     //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)

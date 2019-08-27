@@ -1,24 +1,22 @@
 const mysql = require('mysql');
 //const http = require('http');
 
-// const con = mysql.createConnection({
-//     host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
-//     user: `${process.env.DB_USER}`,
-//     password: `${process.env.DB_PASSWORD}`,
-//     port: 3306
-// })
-
 const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'Ingredients'
+    host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
+    user: `${process.env.DB_USER}`,
+    password: `${process.env.DB_PASSWORD}`,
+    port: 3306
 })
+
+// const con = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'password',
+//     database: 'Ingredients'
+// })
 
 con.connect(function (err) {
     if (err) {
-        //delete console log if functions correctly
-        //console.error(err);
         return;
     }
    // console.log('Connected to RDS MySQL database!');
@@ -34,8 +32,6 @@ const addNewUser = (newUser, callback) => {
 
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-           console.log('>>> could not add user', err);
            return;
         }
         callback(null, data);
@@ -44,17 +40,15 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT (UserID) FROM Users WHERE(userName='"${profile.userName}"', password='"${profile.password}"')`;
-        console.log(profile);
+    let queryString = `SELECT * FROM Users`;
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-            console.log('>>> could not find user', err);
             return;
         }
         callback(null, data);
     })
 }
+
 
 //removeUser deletes 
 const removeUser = (deleteProfile, callback) => {
@@ -97,7 +91,8 @@ const addFoodToPantry = (newItem, callback) => {
 
 //userData will show an existing user's info and pantry items
 const userData = (info, callback) => {
-    let queryString = `SELECT * FROM Foods WHERE UserID=${info}`
+    //console.log(info);
+    let queryString = `SELECT * FROM Foods WHERE (UserID="'${info}'")`
     //possibility you may to access through UserID=${info.id}
 
 //select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})
@@ -129,8 +124,6 @@ const removePantryItem = (removeItem, callback) => {
     })
 };
 
-
-
 /*create a foods table that has an expiration date that has FOREIGN KEY that points to different users.
 
 A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
@@ -142,5 +135,5 @@ A FOREIGN KEY with cascade delete means that if a record in the parent table is 
 then the corresponding records in the child table will automatically be deleted.
 */
 
-module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, userData, removePantryItem,}
+module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, userData, removePantryItem};
 

@@ -17,9 +17,7 @@ app.use(bodyParser.json());
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
-
 app.use('/', express.static(path.resolve('../client/public')));
-
 // app.get("/", function(req,res) {
 //   res.sendFile(__dirname + '../client/public/index.html')
 // });
@@ -40,24 +38,24 @@ the pantry page for use. */
 app.get('/mylogin', (req, res) => {
   let profile = req.query
   //console.log(req.query);
+let infos = [];
   db.accessUser(profile, (err, data) => {
     if (err) {
         res.end();
     }
-    //console.log(data.id);
+    infos.push(data);
     //call the db function that pulls info from the user
     //now that data has grabbed the id, after passing info into the userData function on the db, 
     //you should have access to the user and their food items/expiration
     db.userData(data.id, (err, info) => {
-      console.log(info);
       if (err) {
         res.end();
       }
-      res.send(info)
+      infos.push(info)
+      res.send(infos)
     })
   });
 });
-
 
 // app.get('/mypantry'), (req, res) => {
 //   let pantry = req.body
