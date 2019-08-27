@@ -5,7 +5,7 @@ import axios from 'axios';
 import ListedItems from './Pantry_Components/Listed_Items.jsx'
 import NotificationModal from './Pantry_Components/notificationModal.jsx';
 import RecipeBox from './Pantry_Components/recipeBox.jsx';
-import REACT_APP_API_KEY from '../../../api.js';
+//import REACT_APP_API_KEY from '../../../api.js';
 
 // You may need to import more libraries or files, depending on what's required.
 
@@ -43,13 +43,14 @@ export default class Pantry extends React.Component {
 
     onAddToPantry () {
         const addItem = {
-          item: this.state.item_name,
-          exp: this.state.expiration
+          item_name: this.state.item_name,
+          expiration: this.state.expiration
         };
-        axios.post('/addingtopantry', addItem)
+        axios.post('/addingtopantry', addItem,)
           .then( response => {
             console.log(response.data);
           })
+          .catch(error => console.log(error))
       }
 
       onChangeRecipes (e) {
