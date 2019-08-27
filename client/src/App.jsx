@@ -29,6 +29,7 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
+        this.onAddToPantry = this.onAddToPantry.bind(this);
         this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
@@ -100,7 +101,7 @@ export default class App extends React.Component {
       .catch(error => console.log(error))
           // this.grantUserAccess();
   }
-  
+
     onLoginSubmitClick(e){
       // e.preventDefault();
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
@@ -117,6 +118,34 @@ export default class App extends React.Component {
 
     }))
     .catch((err) => { console.log(err); });
+}
+
+
+
+onAddToPantry () {
+  // const addItem = {
+  //   item_name: this.state.item_name,
+  //   expiration: this.state.expiration
+  // };
+  axios.post('/addingtopantry', {params:{item_name: this.state.item_name, expiration: this.state.expiration}})
+  console.log(params)
+    .then( response => {
+      response.data.map(function(foods) {
+      })
+    //  console.log(response.data);
+    })  
+    .catch(error => console.log(error))
+}
+
+
+
+
+onChangeRecipes (e) {
+    this.setState({changeRecipes: !this.state.changeRecipes});
+}
+
+clickSort (e) {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
     // componentDidMount () {
@@ -143,7 +172,7 @@ export default class App extends React.Component {
         )
       } else {
         return ( 
-            <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
             hasClickedNotifications={this.state.hasClickedNotifications} />

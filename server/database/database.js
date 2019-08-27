@@ -1,19 +1,19 @@
 const mysql = require('mysql');
 //const http = require('http');
 
-const con = mysql.createConnection({
-    host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
-    user: `${process.env.DB_USER}`,
-    password: `${process.env.DB_PASSWORD}`,
-    port: 3306
-})
-
 // const con = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'password',
-//     database: 'Ingredients'
+//     host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
+//     user: `${process.env.DB_USER}`,
+//     password: `${process.env.DB_PASSWORD}`,
+//     port: 3306
 // })
+
+const con = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'Ingredients'
+})
 
 con.connect(function (err) {
     if (err) {
@@ -72,11 +72,12 @@ const addFoodToPantry = (newItem, callback) => {
       /*INSERT into Foods (item_name, expiration)
       select food_item, expiration from foods where UserID 
       IN (select userID from USERs where username=${newItem.name})*/
-    let queryString = `INSERT into Foods (item_name, expiration) VALUES (${newItem.item_name}, ${newItem.expiration})
-  
-    SELECT ${newItem.item_name}, ${newItem.expiration} FROM Foods
-    WHERE UserID IN (SELECT UserId FROM Users WHERE username=${newItem.name})`
-
+      let queryString = `INSERT into Foods (item_name, expiration) VALUES (${newItem.item_name}, ${newItem.expiration})
+      
+      SELECT "'${newItem.item_name}'", "'${newItem.expiration}'" FROM Foods
+      WHERE (UserID IN (SELECT UserID FROM Users WHERE userName="'${newItem.name}'")`
+      
+      
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
