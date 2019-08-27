@@ -15,6 +15,7 @@ export default class App extends React.Component {
       super(props);
       this.state = {
         name: '',
+        UserID: 0,
         userName: '',
         password: '',
         email: '',
@@ -30,6 +31,7 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
+        this.onAddToPantry = this.onAddToPantry.bind(this);
         this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
@@ -96,10 +98,6 @@ export default class App extends React.Component {
           email: this.state.email
       })
       .then(() => {
-        console.log(this.state.name.length > 0)
-        console.log(this.state.userName.length > 0)
-        console.log(this.state.password.length > 0)
-        console.log(this.state.email.length > 0)
         if(this.state.name.length > 0 && this.state.userName.length > 0 && this.state.password.length > 0 && this.state.email.length > 0){
          this.setState({userGrantedAccess: true})
         }
@@ -107,29 +105,73 @@ export default class App extends React.Component {
       .catch(error => console.log(error))
   }
   
-    
+  //ideal to rewrite this entire function to be able to access a specific user vs access all users in an array but fixed to the first index
   onLoginSubmitClick(e){
       // e.preventDefault();
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
+       console.log(res)
         res.data[0].map(function(info,i) {
           let tuple = [];
-          tuple.push(info.userName, info.password)
+          tuple.push(info.userName, info.password, info.UserID)
           user.push(tuple);
+          console.log(user)
         })
         this.setState({
           users: user
         })
       })
       .then(() => {
-        for(let i = 0; i < this.state.users.length; i ++){
-          if( this.state.userName === this.state.users[i][0] && this.state.password === this.state.users[i][1] ){
-            this.setState({userGrantedAccess: true})
+       for(let i = 0; i < this.state.users.length; i ++){
+          if( this.state.userName === this.state.users[i][0] && this.state.password === this.state.users[i][1]){
+            this.setState({ 
+              userGrantedAccess: true,
+              UserID: this.state.users[i][2],
+            })
           }
         }
       })
+      // .then(() => {
+      
+      //   this.setState({
+          
+      //   })
+      // })
     .catch((err) => { console.log(err); });
+}
+
+
+
+onAddToPantry () {
+  // const addItem = {
+  //   item_name: this.state.item_name,
+  //   expiration: this.state.expiration
+  // };
+  axios.post('/addingtopantry', {
+    item_name: this.state.item_name,
+    expiration: this.state.expiration,
+    UserID:this.state.UserID
+    })
+  // console.log(params)
+  // .then( response => {
+  //   response.data.map(function(foods) {
+  //     console.log(foods);
+  //   })
+  //   //  console.log(response.data);
+  //   })  
+  //   .catch(error => console.log(error))
+}
+
+
+
+
+onChangeRecipes (e) {
+    this.setState({changeRecipes: !this.state.changeRecipes});
+}
+
+clickSort (e) {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
     // componentDidMount () {
@@ -156,7 +198,7 @@ export default class App extends React.Component {
         )
       } else {
         return ( 
-            <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
             hasClickedNotifications={this.state.hasClickedNotifications} />

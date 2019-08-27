@@ -57,6 +57,7 @@ let infos = [];
   });
 });
 
+
 // app.get('/mypantry'), (req, res) => {
 //   let pantry = req.body
 //   db.accessUser(pantry, (err,data) => {
@@ -92,11 +93,13 @@ database that will use a query string to add the item and expiration date to the
 users id. The server should only send a success message back to the client, but
 the item should reflect on the page for the user. */
 app.post('/addingtopantry', (req, res) => {
-    let pantryItem = req.body.id
+    let pantryItem = req.body
+   // console.log(req.body, 'fooooooods');
     db.addFoodToPantry(pantryItem, (err, data) => {
       if(err) {
         res.end();
       }
+     // console.log('>>>>>>>>>>>>>>>>>>>>>',data)
       res.send(data)
     }) 
 });
