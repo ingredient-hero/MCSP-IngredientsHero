@@ -61,25 +61,42 @@ export default class Welcome extends React.Component {
 
                 <div className="wrapper">
                     <div className="fixed-bg bg-1">
-                        <h1> Even Food Needs Saving </h1>
+                        <div className="introline">
+                            <h1> Become the Hero Your Food Deserves </h1>
+                        </div>
                     </div>
                     <div className="scroll-bg">
-                        <h3> </h3>
+                        <div className="scrollInfo">
+                            <h2> Our Mission</h2>
+                            <p> To help you save money and reduce waste from your perishable items.</p>
+                            <p> If you are looking for food, I can tell you we don't have any. But what we do have are a very particular set of skills, skills gained by changing stuff and seeing what happens. Skills that make us a nightmare for people who waste food. Fear no more as Ingredient Hero is here to help!</p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-2">
                         <h1></h1>
                     </div>
                     <div className="scroll-bg">
-                        <h3> How We Work: Already a user? Welcome Back! First time user? Locate the Sign-Up button to the upper right corner of the web page. Input your information and click submit. Don't worry we wont submit your information to third party applications. </h3>
+                        <div className="scrollInfo">
+                            <p> How to Join: 1. Click on the Signup Button. 2. Fill out the information. 3. Enjoy the site.  </p>
+                            <p> Already a user? Just Login and enjoy the fruits of our labor. </p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-3">
                         <h1></h1>
                     </div>
                     <div className="scroll-bg">
-                        <h3>Once logged in we welcome you to your Pantry dashboard! From here you can add perishable items to your Pantry and remove if needed. You can click the Notification button and it will show you what perishable items you have that will expire within three days! Added bonus your recipe list will recommend recipes that will use your soon to be expired items so that you may use those items first! The more items soon to expire the better fit the recipe will be.</h3>
+                        <div className="scrollInfo"> 
+                            <p> How to Add an Item: 1. Once logged in locate the Add to Pantry button. 2. Click it and add your perishable item.</p>
+                            <p> How to Remove an Item: 1. Once an item is added and populating in your Perishable Items column click the Remove button. </p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-4">
-                        <h1></h1>
+                        <div className="oneliner">
+                            <div className="onelinerPt1">
+                                <h1> Even Food Needs Saving </h1>
+                            </div>
+                        
+                        </div>
                     </div>
                 </div>
             </div>
