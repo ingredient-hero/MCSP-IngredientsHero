@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SignUp = (props) => {
+    
 
     if(props.hasClickedSignUp === true){
         
@@ -9,17 +10,15 @@ const SignUp = (props) => {
             
                 <form className='infos' action=''>
                 Sign-Up <br/>
-                {/* <label> */}
-                <input placeholder='Name' onChange={props.change} className='name' type='text' name='name'/>
-                <input placeholder='Username' onChange={props.change} className='userName' type='text' name='userName' /> <br/>
-                <input placeholder='Password' onChange={props.change} className='password' type='password' name='password' />
-                <input placeholder='Email' onChange={props.change} className='email' type='text' name='email' />
-                {/* </label> */}
+                Name:<input onChange={props.onChangeLogin} className='name' type='text' name='name'/>
+                Username:<input onChange={props.onChangeLogin} className='userName' type='text' name='userName' /><br/>
+                Password:<input onChange={props.onChangeLogin} className='password' type='password' name='password' />
+                Email:<input onChange={props.onChangeLogin} className='email' type='text' name='email' />
                 </form> 
 
                 <div className='SignUpButtons'>
 
-                <button onClick={() => {props.onSignupSubmitClick(); props.grantUserAccess();}} className='Submit'> Submit</button>
+                <button onClick={()=>{props.onSignUpSubmitClick();}} className='Submit'> Submit</button>
 
                 <button className='Cancel' onClick={props.onClickSignUp}> Cancel</button>
                 </div>

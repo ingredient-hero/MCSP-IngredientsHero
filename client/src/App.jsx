@@ -29,13 +29,13 @@ export default class App extends React.Component {
         hasClickedLogin: false,
         hasClickedNotifications: false,
       };
-      
+        this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.onLoginSubmitClick = this.onLoginSubmitClick.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.onClickLogin = this.onChangeLogin.bind(this);
+        this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
     }
@@ -46,8 +46,7 @@ export default class App extends React.Component {
       this.setState({hasClickedSignUp: !this.state.hasClickedSignUp})
     }
 
-    onClickLogin(e){
-        
+    onClickLogin(e){   
       this.setState({
         hasClickedLogin: true
       })
@@ -55,6 +54,7 @@ export default class App extends React.Component {
 
     onChangeLogin(event){
       // event.preventDefault()
+      // console.log(event.target.name)
       this.setState({
         [event.target.name]: event.target.value,
       })
@@ -66,9 +66,9 @@ export default class App extends React.Component {
       })
     }
 
-    grantUserAccess (event) {
-      this.setState({userGrantedAccess: true});
-    } 
+    // grantUserAccess (event) {
+    //   this.setState({userGrantedAccess: true});
+    // } 
 
     logoutUser(e){
       this.setState({
@@ -86,9 +86,41 @@ export default class App extends React.Component {
       this.setState({hasClickedNotifications: !this.state.hasClickedNotifications})
     }
 
+    onSignUpSubmitClick(e){
+      // e.preventDefault();
+      axios.post('/mysignup',{
+          name: this.state.name,
+          userName: this.state.userName,
+          password: this.state.password,
+          email: this.state.email
+      })
+      .then(this.setState({userGrantedAccess: true
+
+      }))
+      .catch(error => console.log(error))
+          // this.grantUserAccess();
+  }
+  
+    onLoginSubmitClick(e){
+      // e.preventDefault();
+     axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
+     .then(res => {
+        res.data.map(function(users) {
+
+        })
+      })
+    .then(this.setState({
+      userName: this.state.userName,
+      password: this.state.password
+    }))  
+    .then(this.setState({userGrantedAccess: true
+
+    }))
+    .catch((err) => { console.log(err); });
+}
 
     // componentDidMount () {
-    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
+    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
     //   .then( res => {
     //       this.setState({recipes: res.data});
     //   })
@@ -102,20 +134,23 @@ export default class App extends React.Component {
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
-          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
-          password={this.state.password} change={this.onChangeSignUp} 
+          <Welcome onSignUpSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
+          password={this.state.password} change={this.onChangeSignUp} onLoginSubmitClick={this.onLoginSubmitClick}
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} 
-          grantUserAccess={this.grantUserAccess} isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
+          isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
         )
       } else {
         return ( 
             <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications}/>
+            hasClickedNotifications={this.state.hasClickedNotifications} />
         );
       }
     }
   }
+
+  //added set state to axios request to stop login before acceptance
+  //grantUserAccess={this.grantUserAccess}
