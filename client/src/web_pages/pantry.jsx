@@ -63,29 +63,29 @@ export default class Pantry extends React.Component {
 
 
     //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
-    componentDidMount () {
-        const recipeStorage = [];
-        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
-        .then( res => {
-            res.data.map( recipe => {
-                axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${REACT_APP_API_KEY}`)
-                .then( res => {
-                    recipeStorage.push(res.data);
-                })
-                .catch( err => {
-                    if (err) {
-                        console.error(err);
-                    }
-                })
-            })
-            this.setState({pantryRecipes: recipeStorage});
-        })
-        .catch( err => {
-            if (err) {
-                console.error(err);
-            }
-        })
-    }
+    // componentDidMount () {
+    //     const recipeStorage = [];
+    //     axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
+    //     .then( res => {
+    //         res.data.map( recipe => {
+    //             axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${REACT_APP_API_KEY}`)
+    //             .then( res => {
+    //                 recipeStorage.push(res.data);
+    //             })
+    //             .catch( err => {
+    //                 if (err) {
+    //                     console.error(err);
+    //                 }
+    //             })
+    //         })
+    //         this.setState({pantryRecipes: recipeStorage});
+    //     })
+    //     .catch( err => {
+    //         if (err) {
+    //             console.error(err);
+    //         }
+    //     })
+    // }
 
 
 
@@ -118,11 +118,11 @@ export default class Pantry extends React.Component {
                     </div>
                 </div>
 
-                <div>
+                {/* <div>
                     <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
                     <RecipeBox randomRecipes={this.state.randomRecipes} pantryRecipes={this.state.pantryRecipes}
                     changeRecipes={this.state.changeRecipes}/>
-                </div>
+                </div> */}
 
                 <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
 
