@@ -1,19 +1,19 @@
 const mysql = require('mysql');
 //const http = require('http');
 
-const con = mysql.createConnection({
-    host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
-    user: `${process.env.DB_USER}`,
-    password: `${process.env.DB_PASSWORD}`,
-    port: 3306
-})
-
 // const con = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'password',
-//     database: 'Ingredients'
+//     host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
+//     user: `${process.env.DB_USER}`,
+//     password: `${process.env.DB_PASSWORD}`,
+//     port: 3306
 // })
+
+const con = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'Ingredients'
+})
 
 con.connect(function (err) {
     if (err) {
