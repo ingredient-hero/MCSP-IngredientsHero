@@ -88,8 +88,7 @@ const addFoodToPantry = (newItem, callback) => {
 
 //userData will show an existing user's info and pantry items
 const userData = (info, callback) => {
-    //console.log(info);
-    let queryString = `SELECT * FROM Foods WHERE (UserID="'${info}'")`
+    let queryString = `SELECT * FROM Foods WHERE (${info}=UserID)`
     //possibility you may to access through UserID=${info.id}
 
 //select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})

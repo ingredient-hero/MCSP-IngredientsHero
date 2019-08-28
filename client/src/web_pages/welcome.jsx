@@ -45,6 +45,7 @@ export default class Welcome extends React.Component {
                         <div className="introline">
                             <h1> Become the Hero Your Food Deserves </h1>
                         </div>
+                        <div className="arrow bounce"></div>
                     </div>
                     <div className="scroll-bg">
                         <div className="scrollInfo">

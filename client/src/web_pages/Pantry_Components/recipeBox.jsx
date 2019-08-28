@@ -5,7 +5,7 @@ import Recipe from './recipes/recipe.jsx';
 const RecipeBox = (props) => {
     if (props.changeRecipes === false) {
         return props.randomRecipes.recipes.map( recipe => {
-            recipe.cuisines = recipe.cuisines[0] || '---';
+            recipe.cuisines = recipe.cuisines || '---';
             recipe.preparationMinutes = recipe.preparationMinutes || '---';
             recipe.cookingMinutes = recipe.cookingMinutes || '---';
             recipe.readyInMinutes = recipe.readyInMinutes || '---'
