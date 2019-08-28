@@ -61,11 +61,13 @@ export default class Pantry extends React.Component {
         document.getElementById("myDropdown").classList.toggle("show");
       }
 
+      
+
 
     //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
     componentDidMount () {
         const recipeStorage = [];
-        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=1`)
+        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar,+milk,+chocolate,+bread,+cream&number=10`)
         .then( res => {
             res.data.map( recipe => {
                 axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${REACT_APP_API_KEY}`)
@@ -126,7 +128,7 @@ export default class Pantry extends React.Component {
                     changeRecipes={this.state.changeRecipes}/>
                 </div>
 
-                <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
+                <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm} onRemoveFromPantry={this.props.onRemoveFromPantry}/>
                 <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}
                 addToButtonClicked={this.state.addToButtonClicked} renderItemsForm={this.renderItemsForm}/>
