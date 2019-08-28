@@ -68,14 +68,14 @@
 
 
 .SignUpButton{
-	-moz-box-shadow: 3px 4px 0px 0px #4a3436;
-	-webkit-box-shadow: 3px 4px 0px 0px #4a3436;
-	box-shadow: 3px 4px 0px 0px #4a3436;
-	background-color:#2e1111;
+	-moz-box-shadow: 3px 4px 0px 0px #2e1114;
+	-webkit-box-shadow: 3px 4px 0px 0px #2e1114;
+	box-shadow: 3px 4px 0px 0px #2e1114;
+	background-color:#4a3436;
 	-moz-border-radius:18px;
 	-webkit-border-radius:18px;
 	border-radius:18px;
-	border:1px solid #2e1114;
+	border:1px solid #ede9e0;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -89,14 +89,14 @@
 
 
 .LoginButton{
-	-moz-box-shadow: 3px 4px 0px 0px #4a3436;
-	-webkit-box-shadow: 3px 4px 0px 0px #4a3436;
-	box-shadow: 3px 4px 0px 0px #4a3436;
-	background-color:#2e1111;
+	-moz-box-shadow: 3px 4px 0px 0px #2e1114;
+	-webkit-box-shadow: 3px 4px 0px 0px #2e1114;
+	box-shadow: 3px 4px 0px 0px #2e1114;
+	background-color:#4a3436;
 	-moz-border-radius:18px;
 	-webkit-border-radius:18px;
 	border-radius:18px;
-	border:1px solid #2e1114;
+	border:1px solid #ede9e0;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -207,14 +207,14 @@
 }
 
 .Notification{
-  -moz-box-shadow: 3px 4px 0px 0px #4a3436;
-  -webkit-box-shadow: 3px 4px 0px 0px #4a3436;
-  box-shadow: 3px 4px 0px 0px #4a3436;
-  background-color:#2e1111;
-  -moz-border-radius:18px;
-  -webkit-border-radius:18px;
-  border-radius:18px;
-  border:1px solid #2e1114;
+	-moz-box-shadow: 3px 4px 0px 0px #2e1114;
+	-webkit-box-shadow: 3px 4px 0px 0px #2e1114;
+	box-shadow: 3px 4px 0px 0px #2e1114;
+	background-color:#4a3436;
+	-moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:18px;
+	border:1px solid #ede9e0;
   cursor:pointer;
   color:#ffffff;
   font-family:Arial;
@@ -227,14 +227,14 @@
 }
 
 .Logout{
-	-moz-box-shadow: 3px 4px 0px 0px #4a3436;
-	-webkit-box-shadow: 3px 4px 0px 0px #4a3436;
-	box-shadow: 3px 4px 0px 0px #4a3436;
-	background-color:#2e1111;
+	-moz-box-shadow: 3px 4px 0px 0px #2e1114;
+	-webkit-box-shadow: 3px 4px 0px 0px #2e1114;
+	box-shadow: 3px 4px 0px 0px #2e1114;
+	background-color:#4a3436;
 	-moz-border-radius:18px;
 	-webkit-border-radius:18px;
 	border-radius:18px;
-	border:1px solid #2e1114;
+	border:1px solid #ede9e0;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -252,7 +252,7 @@
   top: 0%;
   right: 6%;
   padding: 0px 10px;
-  background: red;
+  background: #d10303;
   color: white;
 }
 
@@ -558,14 +558,14 @@
 
  /* Dropdown Button */
 .dropbtn {
-	-moz-box-shadow: 3px 4px 0px 0px #4a3436;
-	-webkit-box-shadow: 3px 4px 0px 0px #4a3436;
-	box-shadow: 3px 4px 0px 0px #4a3436;
-	background-color:#2e1111;
+	-moz-box-shadow: 3px 4px 0px 0px #2e1114;
+	-webkit-box-shadow: 3px 4px 0px 0px #2e1114;
+	box-shadow: 3px 4px 0px 0px #2e1114;
+	background-color:#4a3436;
 	-moz-border-radius:18px;
 	-webkit-border-radius:18px;
 	border-radius:18px;
-	border:1px solid #2e1114;
+	border:1px solid #ede9e0;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;

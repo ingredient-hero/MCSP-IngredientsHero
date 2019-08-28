@@ -172,7 +172,7 @@ clickSort (e) {
 }
 
 componentDidMount () {
-  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
+  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
   .then( res => {
       this.setState({recipes: res.data});
   })
