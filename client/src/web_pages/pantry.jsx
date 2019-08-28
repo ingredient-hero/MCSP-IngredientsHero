@@ -14,7 +14,7 @@ export default class Pantry extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
-            userPantry: [], //this will be an object that contains the users pantry information 
+            userPantry: this.props.userPantry, 
             addToButtonClicked: false,
             item_name: this.props.item_name,
             expiration: this.props.expiration,
@@ -41,31 +41,31 @@ export default class Pantry extends React.Component {
     //     })
     // }
 
-    // onAddToPantry () {
-    //     const addItem = {
-    //       item_name: this.state.item_name,
-    //       expiration: this.state.expiration
-    //     };
-    //     axios.post('/addingtopantry', addItem)
-    //       .then( response => {
-    //         console.log(response.data);
-    //       })
-    //       .catch(error => console.log(error))
-    //   }
+    onAddToPantry () {
+        const addItem = {
+          item_name: this.state.item_name,
+          expiration: this.state.expiration
+        };
+        axios.post('/addingtopantry', addItem)
+          .then( response => {
+            console.log(response.data);
+          })
+          .catch(error => console.log(error))
+      }
 
-    //   onChangeRecipes (e) {
-    //       this.setState({changeRecipes: !this.state.changeRecipes});
-    //   }
+      onChangeRecipes (e) {
+          this.setState({changeRecipes: !this.state.changeRecipes});
+      }
 
-    //   clickSort (e) {
-    //     document.getElementById("myDropdown").classList.toggle("show");
-    //   }
+      clickSort (e) {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
 
 
     //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
     componentDidMount () {
         const recipeStorage = [];
-        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=2`)
+        axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=1`)
         .then( res => {
             res.data.map( recipe => {
                 axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${REACT_APP_API_KEY}`)
@@ -112,16 +112,16 @@ export default class Pantry extends React.Component {
                 </div>
 
 
-                <div className="dropdown">
-                    <button onClick={this.clickSort} className="dropbtn">Sort</button>
-                    <div id="myDropdown" className="dropdown-content">
-                        <a href='#' onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
-                        <a href='#' onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
-                    </div>
-                </div>
 
                 <div>
                     <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
+                    <div className="dropdown">
+                        <button onClick={this.clickSort} className="dropbtn">Sort</button>
+                        <div id="myDropdown" className="dropdown-content">
+                            <a href='#' onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
+                            <a href='#' onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
+                        </div>
+                    </div>
                     <RecipeBox randomRecipes={this.state.randomRecipes} pantryRecipes={this.state.pantryRecipes}
                     changeRecipes={this.state.changeRecipes}/>
                 </div>

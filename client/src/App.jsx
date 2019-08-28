@@ -27,9 +27,10 @@ export default class App extends React.Component {
         userGrantedAccess: false,
         isOpen: false,
         recipes: {},
-        users: [],
+        users: {},
         hasClickedLogin: false,
         hasClickedNotifications: false,
+        userPantry: [],
       };
         this.onAddToPantry = this.onAddToPantry.bind(this);
         this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
@@ -111,26 +112,25 @@ export default class App extends React.Component {
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-       console.log(res)
-        res.data[0].map(function(info,i) {
-          let tuple = [];
-          tuple.push(info.userName, info.password, info.UserID)
-          user.push(tuple);
-          console.log(user)
-        })
+        console.log('res.data now contains the users items that can be passed to pantry', res.data);
+        // res.data[0].map(function(info,i) {
+        //   let tuple = [];
+        //   tuple.push(info.userName, info.password, info.UserID)
+        //   user.push(tuple);
+        //   console.log(user)
+        // })
         this.setState({
-          users: user
+          users: res.data[0],
+          userPantry: res.data[1],
         })
       })
       .then(() => {
-       for(let i = 0; i < this.state.users.length; i ++){
-          if( this.state.userName === this.state.users[i][0] && this.state.password === this.state.users[i][1]){
+          if( this.state.userName == this.state.users.userName && this.state.password === this.state.users.password){
             this.setState({ 
               userGrantedAccess: true,
-              UserID: this.state.users[i][2],
+              UserID: this.state.users.UserID,
             })
           }
-        }
       })
       // .then(() => {
       
@@ -164,8 +164,6 @@ onAddToPantry () {
 }
 
 
-
-
 onChangeRecipes (e) {
     this.setState({changeRecipes: !this.state.changeRecipes});
 }
@@ -174,17 +172,18 @@ clickSort (e) {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-    // componentDidMount () {
-    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
-    //   .then( res => {
-    //       this.setState({recipes: res.data});
-    //   })
-    //   .catch( err => {
-    //       if (err) {
-    //           console.error(err);
-    //       }
-    //   })
-    // }
+componentDidMount () {
+  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
+  .then( res => {
+      this.setState({recipes: res.data});
+  })
+  .catch( err => {
+      if (err) {
+          console.error(err);
+      }
+  })
+}
+
 
    render() {
       if (this.state.userGrantedAccess === false) {
@@ -201,7 +200,7 @@ clickSort (e) {
             <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications} />
+            hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry}/>
         );
       }
     }
