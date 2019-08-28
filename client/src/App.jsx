@@ -112,7 +112,6 @@ export default class App extends React.Component {
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-        console.log('res.data now contains the users items that can be passed to pantry', res.data);
         // res.data[0].map(function(info,i) {
         //   let tuple = [];
         //   tuple.push(info.userName, info.password, info.UserID)
@@ -172,17 +171,17 @@ clickSort (e) {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// componentDidMount () {
-//   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
-//   .then( res => {
-//       this.setState({recipes: res.data});
-//   })
-//   .catch( err => {
-//       if (err) {
-//           console.error(err);
-//       }
-//   })
-// }
+componentDidMount () {
+  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
+  .then( res => {
+      this.setState({recipes: res.data});
+  })
+  .catch( err => {
+      if (err) {
+          console.error(err);
+      }
+  })
+}
 
 
    render() {

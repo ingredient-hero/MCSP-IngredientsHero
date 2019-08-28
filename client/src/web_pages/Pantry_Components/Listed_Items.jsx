@@ -15,7 +15,6 @@ const ListedItems = (props) => {
             <h1 className='recipeInst'>Perishable Items</h1>
             <button id="pantryAdd" onClick={props.renderItemsForm}>Add To Pantry</button> 
             {props.userPantry.map( (element, index) => {
-              console.log(element.expiration)
               element.item_name = element.item_name.charAt(0).toUpperCase() + element.item_name.slice(1);
               element.expiration = element.expiration.slice(0,10);
               return (
