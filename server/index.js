@@ -116,12 +116,19 @@ app.post('/addingtopantry', (req, res) => {
 remove an item from the users id. The server should only send a successful message back to the client, but the item should no
 longer reflect on the page for the user. */
 app.delete('/removefrompantry', (req, res) => {
-  const trash = req.body.id;
+ // console.log(req.query);
+  const trash = req.query;
+  
   db.removePantryItem(trash, (err, data) => {
       if (err) {
           res.end();
       }
+      res.send(data)
   });
+  
+   
+  
+
 });
 /**********************************************************************************/
 

@@ -32,6 +32,7 @@ export default class App extends React.Component {
         hasClickedNotifications: false,
         userPantry: [],
       };
+        this.removeFromPantry = this.removeFromPantry.bind(this);
         this.onAddToPantry = this.onAddToPantry.bind(this);
         this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
@@ -112,7 +113,7 @@ export default class App extends React.Component {
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-        console.log('res.data now contains the users items that can be passed to pantry', res.data);
+        //console.log('res.data now contains the users items that can be passed to pantry', res.data);
         // res.data[0].map(function(info,i) {
         //   let tuple = [];
         //   tuple.push(info.userName, info.password, info.UserID)
@@ -147,6 +148,27 @@ onAddToPantry () {
     })
 }
 
+removeFromPantry() {
+ // console.log(id);
+  axios.delete('/removefrompantry', {params : {expiration: this.state.expiration, item_name: this.state.item_name}})
+  .then(response => {
+    this.setState({
+      expiration: response.data,
+      item_name: response.data
+    });
+  })
+  .catch(error => console.log(error))
+}
+
+// removeFromPantry (UserID) {
+//   axios.delete('/removefrompantry', {params:{item_name:UserID, expiration:UserID}}
+//   .then(res => {
+//     console.log('res.data now contains the users items that can be passed to pantry', res.data);
+//     delete this.state.data;
+
+
+// })
+//   )};
 
 onChangeRecipes (e) {
     this.setState({changeRecipes: !this.state.changeRecipes});
@@ -181,7 +203,7 @@ clickSort (e) {
         )
       } else {
         return ( 
-            <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry removeFromPantry={this.removeFromPantry} onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
             hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry}/>

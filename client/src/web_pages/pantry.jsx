@@ -129,7 +129,7 @@ export default class Pantry extends React.Component {
                     changeRecipes={this.state.changeRecipes}/>
                 </div> */}
 
-                <ListedItems userPantry={this.state.userPantry} renderItemsForm={this.renderItemsForm}/>
+                <ListedItems userPantry={this.state.userPantry} removeFromPantry={this.props.removeFromPantry} renderItemsForm={this.renderItemsForm}/>
                 <ItemsForm onChangeAddItem={this.props.onChangeAddItem} onAddToPantry={this.props.onAddToPantry} 
                 addButtonClicked={this.addButtonClicked} isOpen={this.props.isOpen} toggleModal={this.props.toggleModal}
                 addToButtonClicked={this.state.addToButtonClicked} renderItemsForm={this.renderItemsForm}/>

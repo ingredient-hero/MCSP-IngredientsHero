@@ -72,8 +72,6 @@ const addFoodToPantry = (newItem, callback) => {
       select food_item, expiration from foods where UserID 
       IN (select userID from USERs where username=${newItem.name})*/
       let queryString = `INSERT into Foods (item_name, expiration, UserID) VALUES ("${newItem.item_name}", "${newItem.expiration}", "${newItem.UserID}");`
-      
-      
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
@@ -108,8 +106,8 @@ const userData = (info, callback) => {
 
 //removePantryItem will remove the item posted in your inventory
 const removePantryItem = (removeItem, callback) => {
-    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem}`;
-
+    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem.item_name}, FoodsID=${removeItem.expiration}`;
+    console.log(removeItem);
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
