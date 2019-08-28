@@ -4,18 +4,20 @@ const app = express();
 const db = require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
+var cors = require('cors');
+app.use(cors());
 
 
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 //app.use(express.static('../client/public'));
 
 // app.get('../client/public', function(req,res) {
 //   res.send();
 // })
-
 app.use('/', express.static(path.resolve('../client/public')));
-
 // app.get("/", function(req,res) {
 //   res.sendFile(__dirname + '../client/public/index.html')
 // });
@@ -34,22 +36,49 @@ Upon receiving this information back from the database, the server will send the
 user information back to the client in an array of objects that will be sent to 
 the pantry page for use. */
 app.get('/mylogin', (req, res) => {
-  let profile = req.body
+  let profile = req.query
+  //console.log(req.query);
+  let infos = [];
+  let userInfo = {};
   db.accessUser(profile, (err, data) => {
     if (err) {
-        res.end();
+      res.end();
     }
+    data.map( user => {
+      
+      if (user.userName == profile.userName) {
+        infos.push(user);
+        userInfo['myuser'] = user;
+      }
+    })
     //call the db function that pulls info from the user
     //now that data has grabbed the id, after passing info into the userData function on the db, 
     //you should have access to the user and their food items/expiration
-    db.userData(data.id, (err, info) => {
+    db.userData(userInfo.myuser.UserID, (err, info) => {
       if (err) {
         res.end();
       }
-      res.send(info)
+      infos.push(info)
+      res.send(infos)
     })
   });
 });
+
+
+// app.get('/mypantry'), (req, res) => {
+//   let pantry = req.body
+//   db.accessUser(pantry, (err,data) => {
+//     if(err) {
+//       res.end();
+//     }
+//     db.userData(data.id, (err, info) => {
+//       if (err) {
+//         res.end();
+//       }
+//       res.send(info)
+//     })
+//   })
+// };
 /**********************************************************************************/
 //This should be an object with a name, email, username, and password
 /* A function will need to be built in the database that will use a query string 
@@ -61,7 +90,7 @@ app.post('/mysignup', (req, res) => {
     if (err) {
       res.end();
     }
-    res.send()
+    res.send(data);
   })
 });
 /**********************************************************************************/
@@ -71,12 +100,14 @@ database that will use a query string to add the item and expiration date to the
 users id. The server should only send a success message back to the client, but
 the item should reflect on the page for the user. */
 app.post('/addingtopantry', (req, res) => {
-    let pantryItem = req.body.id
+    let pantryItem = req.body
+   // console.log(req.body, 'fooooooods');
     db.addFoodToPantry(pantryItem, (err, data) => {
       if(err) {
         res.end();
       }
-      res.send()
+     // console.log('>>>>>>>>>>>>>>>>>>>>>',data)
+      res.send(data)
     }) 
 });
 /**********************************************************************************/

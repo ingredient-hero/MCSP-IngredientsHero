@@ -8,31 +8,6 @@ export default class Welcome extends React.Component {
       super(props);
 
     }
-    onSignUpSubmitClick(e){
-        // e.preventDefault();
-        // this.props.grantUserAccess;
-        // axios.post('/mysignup',{
-        //     name: this.props.name,
-        //     userName: this.props.userName,
-        //     password: this.props.password,
-        //     email: this.props.email
-        // })
-        // .then((res)=>{
-        // }
-        // )
-    }
-
-
-    onLoginSubmitClick(e){
-        e.preventDefault();
-        axios.get('/mylogin')
-        .then(res => {
-            // res.data.map(funciton (users){
-
-            // })
-        })
-        .catch((err) => { console.log(err); });
-    }
 
         render(){
 
@@ -42,44 +17,68 @@ export default class Welcome extends React.Component {
             <div id='Homepage'>
                 <div className='HomepageButtons'>
 
-                    <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
-                        Sign-Up
-                    </button>
-                    <button className='LoginButton' onClick={this.props.toggleModal}>
-                        Login
-                    </button>
-                </div>
 
-                <SignUp onSignupSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
-                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} 
+                <button className='SignUpButton' disabled={false} type="button" onClick={this.props.onClickSignUp}>
+                     Sign-Up
+                </button>
+                <button className='LoginButton' onClick={this.props.toggleModal}>
+                    Login
+                </button>
+                    </div>
+                {/* <img className='backgroundImage' ></img> */}
+                <SignUp onSignUpSubmitClick={this.props.onSignUpSubmitClick} hasClickedSignUp={this.props.hasClickedSignUp} 
+                onClickLogin={this.props.onClickLogin} onClickSignUp={this.props.onClickSignUp} onChangeLogin={this.props.onChangeLogin}
                 name={this.props.name} username={this.props.userName} password={this.props.password} email={this.props.email} 
-                SignUp={this.props.SignUp} Login={this.props.Login} grantUserAccess={this.props.grantUserAccess}
+                SignUp={this.props.SignUp} Login={this.props.Login} 
                 />
                     
                 <LoginModal userName={this.props.userName} password={this.props.password} onChangeLogin={this.props.onChangeLogin}
-                grantUserAccess={this.props.grantUserAccess} toggleModal={this.props.toggleModal} isOpen={this.props.isOpen}/>
+                toggleModal={this.props.toggleModal} isOpen={this.props.isOpen} onLoginSubmitClick={this.props.onLoginSubmitClick}/>
+                
+                {/* <h1 className='Title' >Welcome to Ingredient Hero!</h1> */}
+                {/* <Logo/>
+                <h1 className='yolo1' > Even Food Needs Saving</h1>
+                <h1 className='yolo2'>How to Use</h1> */}
 
                 <div className="wrapper">
                     <div className="fixed-bg bg-1">
-                        <h1></h1>
+                        <div className="introline">
+                            <h1> Become the Hero Your Food Deserves </h1>
+                        </div>
+                        <div className="arrow bounce"></div>
                     </div>
                     <div className="scroll-bg">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna. Etiam sodales arcu at lectus porttitor accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur id urna dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin et pharetra justo, quis suscipit risus. Maecenas tincidunt efficitur ex in pharetra.</h3>
+                        <div className="scrollInfo">
+                            <h2> Our Mission</h2>
+                            <p> To help you save money and reduce waste from your perishable items.</p>
+                            <p> If you are looking for food, I can tell you we don't have any. But what we do have are a very particular set of skills, skills gained by changing stuff and seeing what happens. Skills that make us a nightmare for people who waste food. Fear no more as Ingredient Hero is here to help!</p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-2">
                         <h1></h1>
                     </div>
                     <div className="scroll-bg">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
+                        <div className="scrollInfo">
+                            <p> How to Join: 1. Click on the Signup Button. 2. Fill out the information. 3. Enjoy the site.  </p>
+                            <p> Already a user? Just Login and enjoy the fruits of our labor. </p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-3">
                         <h1></h1>
                     </div>
                     <div className="scroll-bg">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in dolor tempor, posuere mi id, eleifend magna. Nulla at lectus magna.</h3>
+                        <div className="scrollInfo"> 
+                            <p> How to Add an Item: 1. Once logged in locate the Add to Pantry button. 2. Click it and add your perishable item.</p>
+                            <p> How to Remove an Item: 1. Once an item is added and populating in your Perishable Items column click the Remove button. </p>
+                        </div>
                     </div>
                     <div className="fixed-bg bg-4">
-                        <h1></h1>
+                        <div className="oneliner">
+                            {/* <div className="onelinerPt1">
+                                <h1> Even Food Needs Saving </h1>
+                            </div> */}
+                        
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,11 +3,6 @@ import React from 'react';
 export default class LoginModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-        // isOpen: false, 
-        userName: props.userName,
-        password: props.password
-    };
   }
 
 
@@ -18,11 +13,13 @@ export default class LoginModal extends React.Component {
         <div className="Login">
           <form className="LoginContent"> 
             Login <br/>
-            Username <input name='userName' value={this.props.userName} type='text'  onChange={this.props.onChangeLogin}/><br></br>
-            Password <input name='password' value={this.props.password} type='password'  onChange={this.props.onChangeLogin}/>
+            <input placeholder="Username" name='userName' value={this.props.userName} type='text' onChange={this.props.onChangeLogin} /><br></br>
+            <input placeholder="Passwords" name='password' value={this.props.password} type='password' onChange={this.props.onChangeLogin} />
           </form>
-          <div className="LoginButtons">
-          <button onClick={this.props.grantUserAccess} > Login</button>
+          <div className="LoginButtonSubmit">
+          <button onClick={()=>{this.props.onLoginSubmitClick();}} > Login</button>
+          </div>
+          <div className="LoginButtonCancel">
           <button onClick={this.props.toggleModal}>Cancel</button>
           </div>
         </div>

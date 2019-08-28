@@ -1,17 +1,22 @@
 const mysql = require('mysql');
 //const http = require('http');
 
+// const con = mysql.createConnection({
+//     host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
+//     user: `${process.env.DB_USER}`,
+//     password: `${process.env.DB_PASSWORD}`,
+//     port: 3306
+// })
+
 const con = mysql.createConnection({
-    host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
-    user: `${process.env.DB_USER}`,
-    password: `${process.env.DB_PASSWORD}`,
-    port: 3306
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'Ingredients'
 })
 
 con.connect(function (err) {
     if (err) {
-        //delete console log if functions correctly
-        //console.error(err);
         return;
     }
    // console.log('Connected to RDS MySQL database!');
@@ -21,13 +26,12 @@ con.connect(function (err) {
 
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
-    let queryString =  `INSERT into USER (name, username, password, email) VALUES 
+    let queryString =  `INSERT into Users (name, userName, password, email) VALUES 
     ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')`
 
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-           // console.log('>>> could not add user', err);
+           return;
         }
         callback(null, data);
     })
@@ -35,17 +39,15 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT (userID) 
-    FROM Users WHERE username=${profile.userName}, password=${profile.password}'}`
-
+    let queryString = `SELECT * FROM Users`
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-            //console.log('>>> could not find user', err);
+            return;
         }
         callback(null, data);
     })
 }
+
 
 //removeUser deletes 
 const removeUser = (deleteProfile, callback) => {
@@ -54,7 +56,8 @@ const removeUser = (deleteProfile, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-           // console.log('>>> could not delete profile from Users')
+            console.log('>>> could not delete profile from Users')
+            return;
         }
         callback(null, data);
     })
@@ -66,17 +69,17 @@ const removeUser = (deleteProfile, callback) => {
 //needs to access user
 const addFoodToPantry = (newItem, callback) => {
       /*INSERT into Foods (item_name, expiration)
-      select food_item, expiration from foods where Users_UserID 
+      select food_item, expiration from foods where UserID 
       IN (select userID from USERs where username=${newItem.name})*/
-    let queryString = `INSERT into Foods (item_name, expiration) VALUES (${newItem.item_name}, ${newItem.expiration})
-  
-    SELECT ${newItem.item_name}, ${newItem.expiration} FROM Foods
-    WHERE Users_UserID IN (SELECT UserId FROM Users WHERE username=${newItem.name})`
-
+      let queryString = `INSERT into Foods (item_name, expiration, UserID) VALUES ("${newItem.item_name}", "${newItem.expiration}", "${newItem.UserID}");`
+      
+      
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-            //console.log('>>> could not add food to pantry', err);
+            console.log('>>> could not add food to pantry', err);
+            return;
+            
         }
         callback(null, data);
     })
@@ -85,14 +88,15 @@ const addFoodToPantry = (newItem, callback) => {
 
 //userData will show an existing user's info and pantry items
 const userData = (info, callback) => {
-    let queryString = `SELECT * FROM Foods WHERE Users_UserID=${info}`
-    //possibility you may to access through Users_UserID=${info.id}
+    let queryString = `SELECT * FROM Foods WHERE (${info}=UserID)`
+    //possibility you may to access through UserID=${info.id}
 
-//select food.item, expiration from foods where Users_UserID IN (select userID from USERs where username=${info.name})
+//select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})
     con.query(queryString, (err, data) => {
         if(err) {
+            console.log(`>>> could not the user's info`, err)
+            return;
             //delete console log if functions correctly
-           // console.log(`>>> could not the user's info`, err)
         }
         callback(null, data);
     })
@@ -109,13 +113,12 @@ const removePantryItem = (removeItem, callback) => {
     con.query(queryString, (err, data) => {
         if(err) {
             //delete console log if functions correctly
-            //console.log('>>> could not delete the food item', err)
+            console.log('>>> could not delete the food item', err);
+            return;
         }
         callback(null, data);
     })
 };
-
-
 
 /*create a foods table that has an expiration date that has FOREIGN KEY that points to different users.
 
@@ -128,5 +131,5 @@ A FOREIGN KEY with cascade delete means that if a record in the parent table is 
 then the corresponding records in the child table will automatically be deleted.
 */
 
-module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, userData, removePantryItem,}
+module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, userData, removePantryItem};
 

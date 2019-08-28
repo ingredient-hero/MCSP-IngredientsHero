@@ -15,6 +15,7 @@ export default class App extends React.Component {
       super(props);
       this.state = {
         name: '',
+        UserID: 0,
         userName: '',
         password: '',
         email: '',
@@ -26,18 +27,22 @@ export default class App extends React.Component {
         userGrantedAccess: false,
         isOpen: false,
         recipes: {},
+        users: {},
         hasClickedLogin: false,
         hasClickedNotifications: false,
+        userPantry: [],
       };
-      
+        this.onAddToPantry = this.onAddToPantry.bind(this);
+        this.onSignUpSubmitClick = this.onSignUpSubmitClick.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this)
         this.onChangeAddItem = this.onChangeAddItem.bind(this);
         this.onClickSignUp = this.onClickSignUp.bind(this);
-        this.grantUserAccess = this.grantUserAccess.bind(this);
+        this.onLoginSubmitClick = this.onLoginSubmitClick.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.onClickLogin = this.onChangeLogin.bind(this);
+        this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
+        this.onRemoveFromPantry = this.onRemoveFromPantry.bind(this);
     }
 
 
@@ -46,8 +51,7 @@ export default class App extends React.Component {
       this.setState({hasClickedSignUp: !this.state.hasClickedSignUp})
     }
 
-    onClickLogin(e){
-        
+    onClickLogin(e){   
       this.setState({
         hasClickedLogin: true
       })
@@ -55,10 +59,11 @@ export default class App extends React.Component {
 
     onChangeLogin(event){
       // event.preventDefault()
+      // console.log(event.target.name)
       this.setState({
         [event.target.name]: event.target.value,
       })
-    }
+    }       
 
     onChangeAddItem (event) {
       this.setState ({
@@ -66,9 +71,9 @@ export default class App extends React.Component {
       })
     }
 
-    grantUserAccess (event) {
-      this.setState({userGrantedAccess: true});
-    } 
+    // grantUserAccess (event) {
+    //   this.setState({userGrantedAccess: true});
+    // } 
 
     logoutUser(e){
       this.setState({
@@ -86,36 +91,137 @@ export default class App extends React.Component {
       this.setState({hasClickedNotifications: !this.state.hasClickedNotifications})
     }
 
+    onSignUpSubmitClick(e){
+      // e.preventDefault();
+      axios.post('/mysignup',{
+          name: this.state.name,
+          userName: this.state.userName,
+          password: this.state.password,
+          email: this.state.email
+      })
+      .then(() => {
+        if(this.state.name.length > 0 && this.state.userName.length > 0 && this.state.password.length > 0 && this.state.email.length > 0){
+         this.setState({userGrantedAccess: true})
+        }
+      })
+      .catch(error => console.log(error))
+  }
+  
+  //ideal to rewrite this entire function to be able to access a specific user vs access all users in an array but fixed to the first index
+  onLoginSubmitClick(e){
+      // e.preventDefault();
+      let user = [];
+     axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
+     .then(res => {
+        // res.data[0].map(function(info,i) {
+        //   let tuple = [];
+        //   tuple.push(info.userName, info.password, info.UserID)
+        //   user.push(tuple);
+        //   console.log(user)
+        // })
+        this.setState({
+          users: res.data[0],
+          userPantry: res.data[1],
+        })
+      })
+      .then(() => {
+          if( this.state.userName == this.state.users.userName && this.state.password === this.state.users.password){
+            this.setState({ 
+              userGrantedAccess: true,
+              UserID: this.state.users.UserID,
+            })
+          }
+      })
+      // .then(() => {
+      
+      //   this.setState({
+          
+      //   })
+      // })
+    .catch((err) => { console.log(err); });
+}
 
-    // componentDidMount () {
-    //   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=2`)
-    //   .then( res => {
-    //       this.setState({recipes: res.data});
-    //   })
-    //   .catch( err => {
-    //       if (err) {
-    //           console.error(err);
-    //       }
-    //   })
-    // }
+onRemoveFromPantry (event) {
+  for (let i = 0; i < this.state.userPantry.length; i++) {
+    if (this.state.userPantry[i] == event.target.name) {
+      this.state.userPantry.splice(i, 1);
+      // delete this.state.userPantry[i];
+    }
+  }
+  console.log(this.state.userPantry);
+}
+
+
+onAddToPantry () {
+  // const addItem = {
+  //   item_name: this.state.item_name,
+  //   expiration: this.state.expiration
+  // };
+
+  const newItems = {
+    item_name: this.state.item_name, 
+    expiration: this.state.expiration
+  }
+
+  this.state.userPantry.push(newItems);
+
+  axios.post('/addingtopantry', {
+    item_name: this.state.item_name,
+    expiration: this.state.expiration,
+    UserID:this.state.UserID
+    })
+  // console.log(params)
+  // .then( response => {
+  //   response.data.map(function(foods) {
+  //     console.log(foods);
+  //   })
+  //   //  console.log(response.data);
+  //   })  
+  //   .catch(error => console.log(error))
+}
+
+
+onChangeRecipes (e) {
+    this.setState({changeRecipes: !this.state.changeRecipes});
+}
+
+clickSort (e) {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+componentDidMount () {
+  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=10`)
+  .then( res => {
+      this.setState({recipes: res.data});
+  })
+  .catch( err => {
+      if (err) {
+          console.error(err);
+      }
+  })
+}
+
 
    render() {
       if (this.state.userGrantedAccess === false) {
         return (
-          <Welcome hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
-          password={this.state.password} change={this.onChangeSignUp} 
+          <Welcome onSignUpSubmitClick={this.onSignUpSubmitClick} hasClickedSignUp={this.state.hasClickedSignUp} user={this.state.userName} 
+          password={this.state.password} change={this.onChangeSignUp} onLoginSubmitClick={this.onLoginSubmitClick}
           onClickLogin={this.onClickLogin} onClickSignUp={this.onClickSignUp} name={this.state.name} 
           username={this.state.userName} password={this.state.password} email={this.state.email} 
           SignUp={this.state.SignUp} Login={this.state.Login} onChangeLogin={this.onChangeLogin} 
-          grantUserAccess={this.grantUserAccess} isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
+          isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
         )
       } else {
         return ( 
-            <Pantry logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
+            <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications}/>
+            hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry} onRemoveFromPantry={this.onRemoveFromPantry}/>
         );
       }
     }
   }
+
+  //added set state to axios request to stop login before acceptance
+  //grantUserAccess={this.grantUserAccess}
