@@ -147,6 +147,14 @@ onAddToPantry () {
   //   item_name: this.state.item_name,
   //   expiration: this.state.expiration
   // };
+
+  const newItems = {
+    item_name: this.state.item_name, 
+    expiration: this.state.expiration
+  }
+
+  this.state.userPantry.push(newItems);
+  
   axios.post('/addingtopantry', {
     item_name: this.state.item_name,
     expiration: this.state.expiration,
