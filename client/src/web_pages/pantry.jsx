@@ -118,8 +118,8 @@ export default class Pantry extends React.Component {
                     <h1 id='suggestedTitle'>SUGGESTED RECIPES</h1>
                         <button onClick={this.clickSort} className="dropbtn">Sort</button>
                         <div id="myDropdown" className="dropdown-content">
-                            <a href='#' onClick={this.onChangeRecipes}>Find Me Random Recipes</a>
-                            <a href='#' onClick={this.onChangeRecipes}>Suggest Recipes Based on My Pantry</a>
+                            <a href='#' onClick={() => {this.onChangeRecipes(); this.clickSort();}}>Find Me Random Recipes</a>
+                            <a href='#' onClick={() => {this.onChangeRecipes(); this.clickSort();}}>Suggest Recipes Based on My Pantry</a>
                         </div>
                     </div>
                     <RecipeBox randomRecipes={this.state.randomRecipes} pantryRecipes={this.state.pantryRecipes}
