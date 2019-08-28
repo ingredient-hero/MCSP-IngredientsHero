@@ -106,7 +106,7 @@ const userData = (info, callback) => {
 
 //removePantryItem will remove the item posted in your inventory
 const removePantryItem = (removeItem, callback) => {
-    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem.item_name}, FoodsID=${removeItem.expiration}`;
+    let queryString = `DELETE FROM Foods WHERE ${removeItem.FoodsID}=UserID`;
     console.log(removeItem);
     con.query(queryString, (err, data) => {
         if(err) {

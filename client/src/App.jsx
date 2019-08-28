@@ -147,14 +147,16 @@ onAddToPantry () {
     UserID:this.state.UserID
     })
 }
-
+//axios.update
 removeFromPantry() {
  // console.log(id);
-  axios.delete('/removefrompantry', {params : {expiration: this.state.expiration, item_name: this.state.item_name}})
+  axios.delete('/removefrompantry', {params : {expiration: this.state.item, item_name: this.state.item_name}})
   .then(response => {
     this.setState({
       expiration: response.data,
       item_name: response.data
+
+      //create event listener to map userPantry through to match the FoodID and send that over
     });
   })
   .catch(error => console.log(error))
