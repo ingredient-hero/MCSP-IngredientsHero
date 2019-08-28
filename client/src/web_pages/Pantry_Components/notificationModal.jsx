@@ -1,8 +1,8 @@
 import React from 'react';
 import NotificationItems from './recipes/notificationItems.jsx';
 
-const testingData = [ {item: 'milk', exp: '2019-08-24'}, {item: 'bread', exp: '2019-08-24'}, 
-                      {item: 'pancake', exp: '2019-08-24'}, {item: 'beans', exp: '2019-08-24'}]
+const testingData = [ {item: 'Eggs', exp: '2019-09-01'}, {item: 'Bread', exp: '2019-09-02'}, 
+                      {item: 'Cream', exp: '2019-08-30'}, {item: 'Butter', exp: '2019-08-30'}]
 
 const NotificationModal = (props) => {
     if (props.hasClickedNotifications === true) {

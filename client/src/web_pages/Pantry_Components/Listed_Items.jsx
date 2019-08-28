@@ -8,8 +8,10 @@ const ListedItems = (props) => {
   const testingData = [ {item: 'milk', exp: '2019-08-24'}, {item: 'bread', exp: '2019-08-24'}, 
                         {item: 'pancake', exp: '2019-08-24'}, {item: 'beans', exp: '2019-08-24'}]
     return (
-      <div id='logo'>
-        <Logo />
+      <div id="pantryScroll">
+        {/* <div id='logo'> */}
+          <Logo />
+        {/* </div> */}
         <div id='perishableList'>
 
             <h1 className='recipeInst'>Perishable Items</h1>

@@ -378,9 +378,10 @@
   color: #ae424f;
   text-align: -webkit-center;
   -webkit-text-stroke: 2px white;
-  font-size: -webkit-xxx-large;
+  font-size: 375%;
   text-transform: capitalize;
   font-family: sans-serif;
+  padding-left: 10%;
 }
 
 
@@ -393,6 +394,10 @@
   opacity: 0.95;
   position: fixed;
   font-family: sans-serif;
+  line-height: 90%;
+  margin-top: 4%;
+  overflow-X: scroll;
+  height: 50%;
 }
 
 #foodImage {
@@ -404,9 +409,11 @@
   border: 4px solid #ae424fa6;
 }
 
-#logo{
+/* #logo{
   position: fixed;
-}
+  top: 0;
+  left: 0;
+} */
 
 .cuisine {
   text-transform: capitalize;
@@ -455,7 +462,7 @@
 }
 
 .bg-4 {
-  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground4+(2).png');
+  background-image: url('https://ingredienthero.s3.us-east-2.amazonaws.com/attachments/HeroBackground4.png');
 }
 .oneliner {
   color: #ae424f;
@@ -551,8 +558,15 @@
 
  #logoImage {
    width: 28%;
+   padding-left: 1.5%;
+   position: fixed;
+   top: 0;
+   left: 0;
  }
 
+ #pantryScroll {
+  height: 85%;
+ }
 
 
 
