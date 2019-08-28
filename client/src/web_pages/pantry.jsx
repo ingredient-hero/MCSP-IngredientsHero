@@ -29,6 +29,8 @@ export default class Pantry extends React.Component {
        // this.onChangeRecipes = this.onChangeRecipes.bind(this);
     }
 
+ 
+
     renderItemsForm (e) {
        this.setState({
            addToButtonClicked: !this.state.addToButtonClicked,
@@ -86,7 +88,8 @@ export default class Pantry extends React.Component {
     //         }
     //     })
     // }
-
+    
+      
 
 
     render () {

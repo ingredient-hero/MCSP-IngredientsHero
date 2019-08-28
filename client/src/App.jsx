@@ -111,12 +111,12 @@ export default class App extends React.Component {
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-       console.log(res)
+     //  console.log(res)
         res.data[0].map(function(info,i) {
           let tuple = [];
           tuple.push(info.userName, info.password, info.UserID)
           user.push(tuple);
-          console.log(user)
+          //console.log(user)
         })
         this.setState({
           users: user
@@ -132,37 +132,20 @@ export default class App extends React.Component {
           }
         }
       })
-      // .then(() => {
-      
-      //   this.setState({
-          
-      //   })
-      // })
+
     .catch((err) => { console.log(err); });
 }
 
 
 
 onAddToPantry () {
-  // const addItem = {
-  //   item_name: this.state.item_name,
-  //   expiration: this.state.expiration
-  // };
+
   axios.post('/addingtopantry', {
     item_name: this.state.item_name,
     expiration: this.state.expiration,
     UserID:this.state.UserID
     })
-  // console.log(params)
-  // .then( response => {
-  //   response.data.map(function(foods) {
-  //     console.log(foods);
-  //   })
-  //   //  console.log(response.data);
-  //   })  
-  //   .catch(error => console.log(error))
 }
-
 
 
 
