@@ -200,7 +200,7 @@ clickSort (e) {
             <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications} />
+            hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry}/>
         );
       }
     }

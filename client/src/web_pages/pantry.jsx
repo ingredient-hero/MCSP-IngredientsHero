@@ -14,7 +14,7 @@ export default class Pantry extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
-            userPantry: [], //this will be an object that contains the users pantry information 
+            userPantry: this.props.userPantry, 
             addToButtonClicked: false,
             item_name: this.props.item_name,
             expiration: this.props.expiration,
