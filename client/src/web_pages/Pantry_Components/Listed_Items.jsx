@@ -17,6 +17,7 @@ const ListedItems = (props) => {
             {props.userPantry.map( (element, index) => {
               console.log(element.expiration)
               element.item_name = element.item_name.charAt(0).toUpperCase() + element.item_name.slice(1);
+              element.expiration = element.expiration.slice(0,10);
               return (
                 <FoodItem key={index} item={element.item_name} exp={element.expiration}/>
                 )
