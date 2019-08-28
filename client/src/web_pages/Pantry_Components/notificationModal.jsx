@@ -16,7 +16,6 @@ const NotificationModal = (props) => {
            })}
            <button onClick={props.clickedNotifications}>Close</button>
         </div>
-
       );
     } else {
       return (

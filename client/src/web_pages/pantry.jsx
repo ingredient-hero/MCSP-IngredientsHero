@@ -23,8 +23,6 @@ export default class Pantry extends React.Component {
             changeRecipes: false,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
-        // this.addButtonClicked = this.addButtonClicked.bind(this);
-        // this.onAddToPantry = this.onAddToPantry.bind(this);
         this.clickSort = this.clickSort.bind(this);
         this.onChangeRecipes = this.onChangeRecipes.bind(this);
     }
@@ -34,24 +32,6 @@ export default class Pantry extends React.Component {
            addToButtonClicked: !this.state.addToButtonClicked,
        })
     }
-
-    // addButtonClicked (e) {
-    //     this.setState({
-    //         addToButtonClicked: false,
-    //     })
-    // }
-
-    // onAddToPantry () {
-    //     const addItem = {
-    //       item_name: this.state.item_name,
-    //       expiration: this.state.expiration
-    //     };
-    //     axios.post('/addingtopantry', addItem)
-    //       .then( response => {
-    //         console.log(response.data);
-    //       })
-    //       .catch(error => console.log(error))
-    //   }
 
       onChangeRecipes (e) {
           this.setState({changeRecipes: !this.state.changeRecipes});

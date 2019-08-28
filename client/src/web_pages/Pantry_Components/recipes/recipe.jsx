@@ -16,7 +16,6 @@ const Recipe = (props) => {
                         <a className='recipeInst' href={props.sourceUrl} target="_blank">Click Here For Step-By-Step Instructions</a>
                     </div>
                 </div>
-                {/* <p className='recipeInst'>Instructions: {props.instructions}</p> */}
             </div>
         )
 }
