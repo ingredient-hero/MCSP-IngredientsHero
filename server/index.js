@@ -38,16 +38,23 @@ the pantry page for use. */
 app.get('/mylogin', (req, res) => {
   let profile = req.query
   //console.log(req.query);
-let infos = [];
+  let infos = [];
+  let userInfo = {};
   db.accessUser(profile, (err, data) => {
     if (err) {
-        res.end();
+      res.end();
     }
-    infos.push(data);
+    data.map( user => {
+      
+      if (user.userName == profile.userName) {
+        infos.push(user);
+        userInfo['myuser'] = user;
+      }
+    })
     //call the db function that pulls info from the user
     //now that data has grabbed the id, after passing info into the userData function on the db, 
     //you should have access to the user and their food items/expiration
-    db.userData(data.id, (err, info) => {
+    db.userData(userInfo.myuser.UserID, (err, info) => {
       if (err) {
         res.end();
       }

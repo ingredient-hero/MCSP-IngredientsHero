@@ -14,10 +14,11 @@ const ListedItems = (props) => {
 
             <h1 className='recipeInst'>Perishable Items</h1>
             <button id="pantryAdd" onClick={props.renderItemsForm}>Add To Pantry</button> 
-            {testingData.map( (element, index) => {
-              element.item = element.item.charAt(0).toUpperCase() + element.item.slice(1);
+            {props.userPantry.map( (element, index) => {
+              console.log(element.expiration)
+              element.item_name = element.item_name.charAt(0).toUpperCase() + element.item_name.slice(1);
               return (
-                <FoodItem key={index} item={element.item} exp={element.exp}/>
+                <FoodItem key={index} item={element.item_name} exp={element.expiration}/>
                 )
               }
               )}
