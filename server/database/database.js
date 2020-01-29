@@ -1,12 +1,5 @@
 const mysql = require('mysql');
-//const http = require('http');
 
-// const con = mysql.createConnection({
-//     host: 'database-ihbo.crmajtggct83.us-east-2.rds.amazonaws.com',
-//     user: `${process.env.DB_USER}`,
-//     password: `${process.env.DB_PASSWORD}`,
-//     port: 3306
-// })
 
 const con = mysql.createConnection({
     host: 'localhost',
@@ -19,7 +12,6 @@ con.connect(function (err) {
     if (err) {
         return;
     }
-   // console.log('Connected to RDS MySQL database!');
 });
 
 
@@ -27,7 +19,7 @@ con.connect(function (err) {
 //addNewUser will store the new profiles from the signUp component
 const addNewUser = (newUser, callback) => {
     let queryString =  `INSERT into Users (name, userName, password, email) VALUES 
-    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}')`
+    ('${newUser.name}','${newUser.userName}', '${newUser.password}', '${newUser.email}');`
 
     con.query(queryString, (err, data) => {
         if(err) {
@@ -39,7 +31,7 @@ const addNewUser = (newUser, callback) => {
 
 //accessUser will retrieve both the Username and the Password from the User Table
 const accessUser = (profile, callback) => {
-    let queryString = `SELECT * FROM Users`
+    let queryString = `SELECT * FROM Users;`
     con.query(queryString, (err, data) => {
         if(err) {
             return;
@@ -51,12 +43,10 @@ const accessUser = (profile, callback) => {
 
 //removeUser deletes 
 const removeUser = (deleteProfile, callback) => {
-    let queryString = `DELETE FROM Users WHERE UsersID=${deleteProfile.UserID}`
+    let queryString = `DELETE FROM Users WHERE UsersID=${deleteProfile.UserID};`
 
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-            console.log('>>> could not delete profile from Users')
             return;
         }
         callback(null, data);
@@ -68,16 +58,11 @@ const removeUser = (deleteProfile, callback) => {
 
 //needs to access user
 const addFoodToPantry = (newItem, callback) => {
-      /*INSERT into Foods (item_name, expiration)
-      select food_item, expiration from foods where UserID 
-      IN (select userID from USERs where username=${newItem.name})*/
       let queryString = `INSERT into Foods (item_name, expiration, UserID) VALUES ("${newItem.item_name}", "${newItem.expiration}", "${newItem.UserID}");`
       
       
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-            console.log('>>> could not add food to pantry', err);
             return;
             
         }
@@ -88,48 +73,28 @@ const addFoodToPantry = (newItem, callback) => {
 
 //userData will show an existing user's info and pantry items
 const userData = (info, callback) => {
-    let queryString = `SELECT * FROM Foods WHERE (${info}=UserID)`
-    //possibility you may to access through UserID=${info.id}
+    let queryString = `SELECT * FROM Foods WHERE (${info}=UserID);`
 
-//select food.item, expiration from foods where UserID IN (select userID from USERs where username=${info.name})
     con.query(queryString, (err, data) => {
         if(err) {
-            console.log(`>>> could not the user's info`, err)
             return;
-            //delete console log if functions correctly
         }
         callback(null, data);
     })
 };
 
-//needs to pull from the users table, query from the foods table, with that user id
-//on the client side, 
 
-
-//removePantryItem will remove the item posted in your inventory
 const removePantryItem = (removeItem, callback) => {
-    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem}`;
+    let queryString = `DELETE FROM Foods WHERE FoodsID=${removeItem};`;
 
     con.query(queryString, (err, data) => {
         if(err) {
-            //delete console log if functions correctly
-            console.log('>>> could not delete the food item', err);
             return;
         }
         callback(null, data);
     })
 };
 
-/*create a foods table that has an expiration date that has FOREIGN KEY that points to different users.
-
-A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
-
-The table containing the FOREIGN KEY is called the child table, and the table containing 
-the candidate key is called the referenced or parent table.
-
-A FOREIGN KEY with cascade delete means that if a record in the parent table is deleted, 
-then the corresponding records in the child table will automatically be deleted.
-*/
 
 module.exports = {con, addNewUser, accessUser, removeUser, addFoodToPantry, userData, removePantryItem};
 
