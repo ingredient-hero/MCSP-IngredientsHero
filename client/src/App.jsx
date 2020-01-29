@@ -36,6 +36,7 @@ export default class App extends React.Component {
         this.onClickLogin = this.onClickLogin.bind(this);
         this.clickedNotifications = this.clickedNotifications.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
+        this.onRemoveFromPantry = this.onRemoveFromPantry.bind(this);
     }
 
 
@@ -114,9 +115,26 @@ export default class App extends React.Component {
     .catch((err) => { console.log(err); });
 }
 
+onRemoveFromPantry (event) {
+  for (let i = 0; i < this.state.userPantry.length; i++) {
+    if (this.state.userPantry[i] == event.target.name) {
+      this.state.userPantry.splice(i, 1);
+      // delete this.state.userPantry[i];
+    }
+  }
+  console.log(this.state.userPantry);
+}
 
 
 onAddToPantry () {
+
+  const newItems = {
+    item_name: this.state.item_name, 
+    expiration: this.state.expiration
+  }
+
+  this.state.userPantry.push(newItems);
+
   axios.post('/addingtopantry', {
     item_name: this.state.item_name,
     expiration: this.state.expiration,
@@ -135,6 +153,7 @@ clickSort (e) {
 
 componentDidMount () {
   axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
+
   .then( res => {
       this.setState({recipes: res.data});
   })
@@ -161,7 +180,7 @@ componentDidMount () {
             <Pantry onAddToPantry={this.onAddToPantry}  logoutUser={this.logoutUser} expiration={this.state.expiration} onChangeAddItem={this.onChangeAddItem} 
             item_name={this.state.item_name} expiration={this.state.expiration} isOpen={this.state.isOpen}
             toggleModal={this.toggleModal} recipes={this.state.recipes} clickedNotifications={this.clickedNotifications}
-            hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry}/>
+            hasClickedNotifications={this.state.hasClickedNotifications} userPantry={this.state.userPantry} onRemoveFromPantry={this.onRemoveFromPantry}/>
         );
       }
     }
