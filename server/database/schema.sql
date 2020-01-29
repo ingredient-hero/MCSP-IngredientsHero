@@ -14,9 +14,7 @@ CREATE TABLE `Users` (
   `email` varchar (50) COLLATE utf8_unicode_ci NOT NULL,
   UNIQUE(`userName`),
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB DEFAULT
-CHARSET=utf8
-COLLATE=utf8_unicode_ci;
+);
 
 CREATE TABLE `Foods` (
   `FoodsID` INT not null Auto_Increment,
@@ -25,8 +23,6 @@ CREATE TABLE `Foods` (
   `expiration` DATE COLLATE utf8_unicode_ci NOT NULL,
   FOREIGN KEY (`UserID`) REFERENCES `Users` (`UserID`) ON DELETE CASCADE,
   PRIMARY KEY (`FoodsID`)
-)ENGINE=InnoDB DEFAULT
-CHARSET=utf8
-COLLATE=utf8_unicode_ci;
+);
 
 

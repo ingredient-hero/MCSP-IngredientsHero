@@ -7,7 +7,6 @@ import NotificationModal from './Pantry_Components/notificationModal.jsx';
 import RecipeBox from './Pantry_Components/recipeBox.jsx';
 import REACT_APP_API_KEY from '../../../api.js';
 
-// You may need to import more libraries or files, depending on what's required.
 
 
 export default class Pantry extends React.Component {
@@ -23,8 +22,6 @@ export default class Pantry extends React.Component {
             changeRecipes: false,
         }
         this.renderItemsForm = this.renderItemsForm.bind(this);
-        // this.addButtonClicked = this.addButtonClicked.bind(this);
-        // this.onAddToPantry = this.onAddToPantry.bind(this);
         this.clickSort = this.clickSort.bind(this);
         this.onChangeRecipes = this.onChangeRecipes.bind(this);
     }
@@ -35,23 +32,6 @@ export default class Pantry extends React.Component {
        })
     }
 
-    // addButtonClicked (e) {
-    //     this.setState({
-    //         addToButtonClicked: false,
-    //     })
-    // }
-
-    // onAddToPantry () {
-    //     const addItem = {
-    //       item_name: this.state.item_name,
-    //       expiration: this.state.expiration
-    //     };
-    //     axios.post('/addingtopantry', addItem)
-    //       .then( response => {
-    //         console.log(response.data);
-    //       })
-    //       .catch(error => console.log(error))
-    //   }
 
       onChangeRecipes (e) {
           this.setState({changeRecipes: !this.state.changeRecipes});
@@ -62,7 +42,6 @@ export default class Pantry extends React.Component {
       }
 
 
-    //Once information is passing back and forth, I can finish this component did mount. Particularly in the ingredients and .then
     componentDidMount () {
         const recipeStorage = [];
         axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=apples,+flour,+sugar&number=1`)

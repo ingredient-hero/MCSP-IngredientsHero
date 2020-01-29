@@ -31,12 +31,3 @@ export default class LoginModal extends React.Component {
     }
   }
 }
-        // <Modal show={this.props.isOpen}
-        //   onClose={this.props.toggleModal}>
-        //   Login Page
-        //   <form className='SignUp'> 
-        //      Username <input name='userName' value={this.props.userName} type='text'  onChange={this.props.onChangeLogin}/><br></br>
-        //      Password <input name='password' value={this.props.password} type='text'  onChange={this.props.onChangeLogin}/>
-        //   </form>
-        //      <button onClick={this.props.grantUserAccess} > Login</button>
-        // </Modal>

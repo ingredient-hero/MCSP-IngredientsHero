@@ -2,13 +2,7 @@ import React from 'react';
 import Welcome from './web_pages/welcome.jsx';
 import Pantry from './web_pages/pantry.jsx';
 import axios from 'axios';
-// import './App.css';
 import REACT_APP_API_KEY from '../../api.js';
-
-
-// This is an example that will need to be rebuilt and/or refactored.
-// This page is pulling in both the pantry and the welcome class components to conditionally render on the page.
-// You may need to import more libraries or files, depending on what's required.
 
 export default class App extends React.Component {
     constructor(props) {
@@ -57,8 +51,6 @@ export default class App extends React.Component {
     }
 
     onChangeLogin(event){
-      // event.preventDefault()
-      // console.log(event.target.name)
       this.setState({
         [event.target.name]: event.target.value,
       })
@@ -69,10 +61,6 @@ export default class App extends React.Component {
           [event.target.name]: event.target.value
       })
     }
-
-    // grantUserAccess (event) {
-    //   this.setState({userGrantedAccess: true});
-    // } 
 
     logoutUser(e){
       this.setState({
@@ -91,7 +79,6 @@ export default class App extends React.Component {
     }
 
     onSignUpSubmitClick(e){
-      // e.preventDefault();
       axios.post('/mysignup',{
           name: this.state.name,
           userName: this.state.userName,
@@ -106,18 +93,10 @@ export default class App extends React.Component {
       .catch(error => console.log(error))
   }
   
-  //ideal to rewrite this entire function to be able to access a specific user vs access all users in an array but fixed to the first index
   onLoginSubmitClick(e){
-      // e.preventDefault();
       let user = [];
      axios.get('/mylogin', {params:{userName:this.state.userName, password:this.state.password}})
      .then(res => {
-        // res.data[0].map(function(info,i) {
-        //   let tuple = [];
-        //   tuple.push(info.userName, info.password, info.UserID)
-        //   user.push(tuple);
-        //   console.log(user)
-        // })
         this.setState({
           users: res.data[0],
           userPantry: res.data[1],
@@ -131,35 +110,18 @@ export default class App extends React.Component {
             })
           }
       })
-      // .then(() => {
-      
-      //   this.setState({
-          
-      //   })
-      // })
+
     .catch((err) => { console.log(err); });
 }
 
 
 
 onAddToPantry () {
-  // const addItem = {
-  //   item_name: this.state.item_name,
-  //   expiration: this.state.expiration
-  // };
   axios.post('/addingtopantry', {
     item_name: this.state.item_name,
     expiration: this.state.expiration,
     UserID:this.state.UserID
     })
-  // console.log(params)
-  // .then( response => {
-  //   response.data.map(function(foods) {
-  //     console.log(foods);
-  //   })
-  //   //  console.log(response.data);
-  //   })  
-  //   .catch(error => console.log(error))
 }
 
 
@@ -172,7 +134,7 @@ clickSort (e) {
 }
 
 componentDidMount () {
-  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=1`)
+  axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${REACT_APP_API_KEY}&number=5`)
   .then( res => {
       this.setState({recipes: res.data});
   })
@@ -205,5 +167,3 @@ componentDidMount () {
     }
   }
 
-  //added set state to axios request to stop login before acceptance
-  //grantUserAccess={this.grantUserAccess}
